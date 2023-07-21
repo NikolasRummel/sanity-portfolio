@@ -1,30 +1,42 @@
 import Image from 'next/image'
-import {getProjects} from "@/lib/sanity/sanity-utils";
-import Link from "next/link";
-import ExperienceTimeline from "@/components/ExperienceTimeline";
+import TimelineContent from "@/components/TimelineContent";
+import ProjectsGrid from "@/components/ProjectsGrid";
+import React from "react";
 
 export default async function Home() {
 
-    const projects = await getProjects();
-
-    return (
+    return  (
         <section className="container grid items-center pb-8 pt-6 md:py-10">
-            <div className="inline-flex space-x-28 pt-14">
-                <div className="w-9/12 pt-20">
-                    <h1 className="text-7xl font-extrabold">Hi, I&apos;m
+            <div className="inline-flex flex-col sm:flex-row space-x-0 pt-14">
+                <div className="relative w-full sm:w-96 h-96 sm:order-2">
+                    <Image
+                        className="object-cover rounded-full shadow-2xl aspect-square"
+                        src="/images/me.png"
+                        alt="Pic of me"
+                        layout="responsive"
+                        width={300}
+                        height={300}
+                    />
+                </div>
+
+                <div className="w-full sm:w-9/12 pt-20 sm:order-1">
+                    <h1 className="text-4xl md:text-7xl font-extrabold">Hi, I&apos;m
                         <span className="bg-gradient-to-r from-sky-300 to-blue-800 bg-clip-text text-transparent">
                             &nbsp;Nikolas!
                         </span>
                     </h1>
-                    <p className="pt-5">
+
+                    <div className="absolute -left-20 bg-[#0094FF]/40 h-72 w-72 rounded-full blur-[170px]"></div>
+
+                    <p className="pt-5 lg:pr-16">
                         Hi, I&apos;m Nikolas, an ambitious 19-year-old upcoming computer science
                         student.
                         With over 3 years of experience, I&apos;ve been passionately crafting a wide range of
                         projects, primarily focusing on backend development using Java.
                     </p>
+                    <div className="flex items-center pt-5">
 
-                    <div className="flex items-center">
-                        <div className="space-x-5 pt-2 inline-flex">
+                        <div className="space-x-5 inline-flex">
                             <a href="https://github.com/NikolasRummel/">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 496 512"
                                      className="dark:text-sky-400 fill-current">
@@ -49,39 +61,12 @@ export default async function Home() {
                         </div>
                     </div>
                 </div>
-                <div>
-                    <Image
-                        className="self-start rounded-full shadow-2xl object-cover aspect-square"
-                        width="500"
-                        height="500"
-                        src="/images/me.png"
-                        alt="Pic of me"
-                    />
-                </div>
             </div>
 
-            <ExperienceTimeline />
+            <TimelineContent/>
+            <ProjectsGrid/>
 
-            <h2 className="mt-24 font-bold text-gray-700 text-3xl">My Projects</h2>
-            <div className="mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-8">{projects.map((project) => (
-                <Link href={`/projects/${project.slug}`} key={project._id}
-                      className="border-2 border-gray-500 rounded-lg p-1 hover:scale-105 hover:border-blue-500 transition">
-                    {project.image && (
-                        <Image
-                            src={project.image}
-                            alt={project.name}
-                            width={750}
-                            height={300}
-                            className="object-cover rounded-lg border border-gray-500"
-                        />
-                    )}
-                    <div
-                        className="mt-2 font-extrabold bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent">
-                        {project.name}
-                    </div>
-                </Link>
-            ))}
-            </div>
+            <div className="absolute -right-52 -bottom-40 bg-[#0094FF]/40 h-96 w-96 rounded-full blur-[190px] -z-10"></div>
         </section>
     )
 }
