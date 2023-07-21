@@ -1,4 +1,3 @@
-import {createClient} from "next-sanity/src";
 
 const config = {
     projectId: "6elo1maj",
