@@ -3,6 +3,19 @@
 @tailwind utilities;
  
 @layer base {
+  h1 {
+    @apply text-3xl font-semibold;
+  }
+  h2 {
+    @apply text-3xl font-semibold;
+  }
+  p {
+    @apply mb-4 text-xl
+  }
+  a {
+    @apply hover:text-blue-400;
+  }
+
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
