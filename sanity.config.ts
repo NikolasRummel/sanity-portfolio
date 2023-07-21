@@ -1,6 +1,6 @@
 import {defineConfig} from 'sanity';
 import {deskTool} from "sanity/desk";
-import schemas from "@/sanity/schemas";
+import schemas from "@/lib/sanity/schemas";
 
 const config = defineConfig({
     projectId: "6elo1maj",
