@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import {getProjects} from "@/lib/sanity/sanity-utils";
 import Link from "next/link";
+import ExperienceTimeline from "@/components/ExperienceTimeline";
 
 export default async function Home() {
 
@@ -58,6 +59,9 @@ export default async function Home() {
                     />
                 </div>
             </div>
+
+            <ExperienceTimeline />
+
             <h2 className="mt-24 font-bold text-gray-700 text-3xl">My Projects</h2>
             <div className="mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-8">{projects.map((project) => (
                 <Link href={`/projects/${project.slug}`} key={project._id}
