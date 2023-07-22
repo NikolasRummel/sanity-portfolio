@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils"
 import { SiteHeader } from "@/components/navbar/site-header"
 import { TailwindIndicator } from "@/components/navbar/tailwind-indicator"
 import { ThemeProvider } from "@/components/navbar/theme-provider"
+import SiteFooter from "@/components/site-footer";
 
 export const metadata: Metadata = {
   title: {
@@ -48,6 +49,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <div className="relative flex min-h-screen flex-col max-w-6xl mx-auto">
             <SiteHeader />
             <div className="flex-1">{children}</div>
+              <SiteFooter/>
           </div>
           <TailwindIndicator />
         </ThemeProvider>
