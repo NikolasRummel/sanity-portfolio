@@ -48,18 +48,13 @@ function SiteFooter() {
                                 <li
                                     key={index}
                                     className={`my-2 w-max hover:underline hover:underline-offset-4`}>
-                                    {link.csr ? (
-                                        <a
-                                            href={link.href}
-                                            target='_blank'
-                                            rel='noopener noreferrer'>
-                                            {link.title}
-                                        </a>
-                                    ) : (
-                                        <Link href={link.href} passHref>
-                                            {link.title}
-                                        </Link>
-                                    )}
+                                    <Link
+                                        href={link.href}
+                                        passHref
+                                        target='_blank'
+                                        rel='noopener noreferrer'>
+                                        {link.title}
+                                    </Link>
                                 </li>
                             );
                         })}

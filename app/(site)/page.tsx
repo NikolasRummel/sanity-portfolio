@@ -2,10 +2,10 @@ import Image from 'next/image'
 import TimelineContent from "@/components/TimelineContent";
 import ProjectsGrid from "@/components/ProjectsGrid";
 import React from "react";
-
+import CodeWidget from "@/components/CodeWidget";
 export default async function Home() {
 
-    return  (
+    return (
         <section className="container grid items-center pb-8 pt-6 md:py-10">
             <div className="inline-flex flex-col sm:flex-row space-x-0 pt-14">
                 <div className="relative w-full sm:w-96 h-96 sm:order-2">
@@ -63,10 +63,13 @@ export default async function Home() {
                 </div>
             </div>
 
+            <CodeWidget></CodeWidget>
+
             <TimelineContent/>
             <ProjectsGrid/>
 
-            <div className="absolute -right-52 -bottom-40 bg-[#0094FF]/40 h-96 w-96 rounded-full blur-[190px] -z-10"></div>
+            <div
+                className="absolute -right-52 -bottom-40 bg-[#0094FF]/40 h-96 w-96 rounded-full blur-[190px] -z-10"></div>
         </section>
     )
 }
