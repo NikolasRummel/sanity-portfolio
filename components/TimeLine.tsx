@@ -1,56 +1,44 @@
 import classNames from 'classnames';
-import {TimelineEventProps} from '@/types';
-import AnimationContainer from "@/lib/AnimationContainer";
+import AnimationContainer from '@/lib/AnimationContainer';
+import Image from 'next/image';
+import {TimelineItemProps} from "@/types";
 
 export const Timeline = ({children}: { children: React.ReactNode }) => {
     return (
         <AnimationContainer customClassName='w-full mb-16 mt-24'>
-            <h2 className='font-bold text-3xl tracking-tight mb-8 text-center lg:text-start'>Experience</h2>
+            <h2 className='font-bold text-3xl tracking-tight mb-8 text-center lg:text-start'>
+                Experience
+            </h2>
             {children}
         </AnimationContainer>
-    )
-}
+    );
+};
 
-export const TimelineEvent = ({active, children, last}: TimelineEventProps) => {
+export const TimelineItem = ({logo, children, last}: TimelineItemProps) => {
     return (
         <div
-            className={classNames('w-full flex justify-start gap-6 border-neutral-800', {
+            className={classNames('w-full flex justify-start gap-6 border-neutral-800 ml-4', {
                 'border-l': !last,
                 'pb-16': !last,
             })}
         >
             <div className='relative'>
-                <div
-                    className={classNames(
-                        'absolute top-[-2px] left-[-8.5px] w-4 h-4 rounded-full aspect-square outline-black',
-                        {
-                            'bg-sky-400': active,
-                            'bg-neutral-800': !active,
-                            'w-3 h-3': !active,
-                            'left-[-5.5px]': !active,
-                        }
-                    )}
-                >
-                    {active && (
-                        <div
-                            className={classNames(
-                                'absolute top-0 left-0 rounded-full -z-10 w-4 h-4 bg-sky-400 animate-ping aspect-square'
-                            )}
-                        />
-                    )}
+                <div className='absolute top-[-2px] left-[-24px] h-12 w-12'>
+                    <Image src={logo} alt='logo' fill className='rounded-full aspect-square border '/>
                 </div>
             </div>
-            <div className='mt-[-4px] flex flex-col gap-2'>{children}</div>
+            <div className='mt-[10px] ml-[15px] flex flex-col gap-2'>{children}</div>
         </div>
     );
-}
+};
 
-const TimelineEventTitle = ({children}: { children: React.ReactNode }) => <p
-    className='text-base text-gray-600 dark:text-gray-200'>{children}</p>;
+const TimelineItemTitle = ({children}: { children: React.ReactNode }) => (
+    <p className='text-base text-gray-600 dark:text-gray-200'>{children}</p>
+);
 
-const TimelineEventDescription = ({children}: { children: React.ReactNode }) => <p
-    className='text-base text-gray-500 dark:text-gray-300'>{children}</p>;
+const TimelineItemDescription = ({children}: { children: React.ReactNode }) => (
+    <p className='text-base text-gray-500 dark:text-gray-300'>{children}</p>
+);
 
-TimelineEvent.Title = TimelineEventTitle;
-
-TimelineEvent.Description = TimelineEventDescription;
+TimelineItem.Title = TimelineItemTitle;
+TimelineItem.Description = TimelineItemDescription;

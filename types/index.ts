@@ -4,8 +4,8 @@ export interface AnimationContainerProps {
     customDelay?: number;
 }
 
-export interface TimelineEventProps {
-    active?: boolean;
+export interface TimelineItemProps {
+    logo: string;
     children: React.ReactNode;
     last?: boolean;
 }
