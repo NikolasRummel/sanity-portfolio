@@ -2,7 +2,6 @@ import Image from 'next/image'
 import TimelineContent from "@/components/TimelineContent";
 import ProjectsGrid from "@/components/ProjectsGrid";
 import React from "react";
-import CodeWidget from "@/components/CodeWidget";
 export default async function Home() {
 
     return (
@@ -31,11 +30,10 @@ export default async function Home() {
                     <p className="pt-5 lg:pr-16">
                         Hi, I&apos;m Nikolas, an ambitious 19-year-old upcoming computer science
                         student.
-                        With over 3 years of experience, I&apos;ve been passionately crafting a wide range of
+                        With over 4 years of experience, I&apos;ve been passionately crafting a wide range of
                         projects, primarily focusing on backend development using Java.
                     </p>
                     <div className="flex items-center pt-5">
-
                         <div className="space-x-5 inline-flex">
                             <a href="https://github.com/NikolasRummel/">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 496 512"
@@ -62,12 +60,8 @@ export default async function Home() {
                     </div>
                 </div>
             </div>
-
-            <CodeWidget></CodeWidget>
-
             <TimelineContent/>
             <ProjectsGrid/>
-
             <div
                 className="absolute -right-52 -bottom-40 bg-[#0094FF]/40 h-96 w-96 rounded-full blur-[190px] -z-10"></div>
         </section>
