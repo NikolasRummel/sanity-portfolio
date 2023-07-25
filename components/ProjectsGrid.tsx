@@ -63,19 +63,9 @@ const ProjectsGrid = ({projects, showSearchBar}: ProjectsGridProps) => {
                                 className={`relative w-full overflow-hidden border rounded-3xl bg-gradient-to-b ${backgroundColors[index % backgroundColors.length]}`}>
                                 <div
                                     className={`w-full h-[1px] bg-gradient-to-r from-transparent ${borderColors[index % borderColors.length]} to-transparent`}></div>
-                                <div className="grid grid-cols-1 min-h-[500px] md:grid-cols-2">
-                                    <div className="self-end col-span-1 m-8 text-center md:text-left">
-                                        <h2 className="mt-0 text-black dark:text-white">{project.name}</h2>
-                                        <p className="text-black dark:text-white">
-                                            {project.slug}
-                                        </p>
-                                        <ButtonLink
-                                            text="Visit Project"
-                                            href={`/projects/${project.slug}`}
-                                        />
-                                    </div>
+                                <div className="grid grid-cols-1 min-h-[500px] md:grid-cols-2 md:group-hover:grid-cols-3">
                                     <div
-                                        className="md:absolute md:top-4 md:right-[-200px] md:w-[800px] group-hover:translate-x-[-40px] transition-transform">
+                                        className="md:absolute md:top-4 md:right-[-200px] md:w-[800px] md:group-hover:translate-x-[-220px] md:transition-transform">
                                         <Image
                                             src={mac}
                                             alt="project"
@@ -83,6 +73,17 @@ const ProjectsGrid = ({projects, showSearchBar}: ProjectsGridProps) => {
                                             width={900}
                                             height={552}
                                             layout="intrinsic"
+                                        />
+                                    </div>
+                                    <div className="self-end col-span-1 m-8 text-center md:text-left">
+                                        <h2 className="mt-0 text-black dark:text-white">{project.name}</h2>
+                                        <p className="text-black dark:text-white">
+                                            {project.description}
+                                        </p>
+
+                                        <ButtonLink
+                                            text="Visit Project"
+                                            href={`/projects/${project.slug}`}
                                         />
                                     </div>
                                 </div>
