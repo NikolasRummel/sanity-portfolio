@@ -5,10 +5,7 @@ import {TimelineItemProps} from "@/types";
 
 export const Timeline = ({children}: { children: React.ReactNode }) => {
     return (
-        <AnimationContainer customClassName='w-full mb-16 mt-24'>
-            <h2 className='font-bold text-3xl tracking-tight mb-8 text-center lg:text-start'>
-                Experience
-            </h2>
+        <AnimationContainer customClassName='w-full mb-16'>
             {children}
         </AnimationContainer>
     );
@@ -37,7 +34,7 @@ const TimelineItemTitle = ({children}: { children: React.ReactNode }) => (
 );
 
 const TimelineItemDescription = ({children}: { children: React.ReactNode }) => (
-    <p className='text-base text-gray-500 dark:text-gray-300'>{children}</p>
+    <p className='text-base text-gray-500 dark:text-gray-300 break-words'>{children}</p>
 );
 
 TimelineItem.Title = TimelineItemTitle;

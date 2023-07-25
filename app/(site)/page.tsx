@@ -4,9 +4,10 @@ import ProjectsGrid from "@/components/ProjectsGrid";
 import React from "react";
 import {getProjects} from "@/lib/sanity/sanity-utils";
 import {Project} from "@/types/project";
+
 export default async function Home() {
 
-    const projects : Project[] = await getProjects();
+    const projects: Project[] = await getProjects();
 
     return (
         <section className="container grid items-center pb-8 pt-6 md:py-10">
@@ -64,7 +65,15 @@ export default async function Home() {
                     </div>
                 </div>
             </div>
-            <TimelineContent/>
+
+            <h2 className='font-bold text-3xl tracking-tight mb-8 text-center lg:text-start mt-24'>
+                Experience
+            </h2>
+
+            <div className="w-2/3">
+                <TimelineContent/>
+            </div>
+
             <ProjectsGrid projects={projects}/>
             <div
                 className="absolute -right-52 -bottom-40 bg-[#0094FF]/40 h-96 w-96 rounded-full blur-[190px] -z-10"></div>

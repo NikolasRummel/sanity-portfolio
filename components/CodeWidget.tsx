@@ -6,22 +6,19 @@ import {atomOneDark} from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 const CodeWidget = () => {
     return (
-        <div className="rounded-xl bg-[#292c34] shadow-md p-3 inline-block relative overflow-hidden">
+        <div className="rounded-xl bg-[#292c34] shadow-md p-3 w-full inline-block relative overflow-hidden">
             <div className="flex items-center justify-start">
                 <div className="h-3 w-3 bg-red-500 rounded-full mr-2"></div>
                 <div className="h-3 w-3 bg-yellow-400 rounded-full mr-2"></div>
                 <div className="h-3 w-3 bg-green-500 rounded-full"></div>
             </div>
             <div className="grid grid-cols-1">
-                <div className="bg-[#9167db]/80 h-32 w-96 rounded-full absolute -top-8  blur-[190px]"></div>
-                <div className="bg-[#0094FF]/70 h-32 w-96 rounded-full absolute -bottom-36 right-28  blur-[190px]"></div>
+                <div className="bg-[#9167db]/80 h-32 w-96 rounded-full absolute -top-8 blur-[190px]"></div>
+                <div className="bg-[#0094FF]/70 h-32 w-96 rounded-full absolute -bottom-36 right-28 blur-[190px]"></div>
                 <SyntaxHighlighter language="typescript" style={atomOneDark}>
                     {" const nikolas: Person = {\n" +
                         "        name: \"Nikolas\",\n" +
                         "        age: 19,\n" +
-                        "        description: \"Hi, I'm Nikolas, an ambitious 19-year-old upcoming computer science student. \"\n" +
-                        "            + \" With over 4 years of experience, I've been passionately crafting a wide range of projects,\"\n" +
-                        "            + \" primarily focusing on backend development using Java.\",\n" +
                         "        skills: [\n" +
                         "            \"Design and implementation of libraries or API's in Java\",\n" +
                         "            \"Good knowledge of Git and project management (scrum, kanban)\",\n" +
@@ -29,7 +26,7 @@ const CodeWidget = () => {
                         "        ],\n" +
                         "        stack: [\n" +
                         "            \"Java\", \"REST\", \"Unit Tests\", \"Integration Tests\", \"Git\", \"Maven\",\n" +
-                        "            \"Apache Camel\", \"XML\", \"JSON\", \"MongoDB\", \"SQL\", \"Jira\", \"Confluence\", \"Trello\"\n" +
+                        "            \"Apache Camel\", \"XML\", \"JSON\", \"MongoDB\", \"SQL\", \"Jira\", \"Confluence\"\n" +
                         "        ],\n" +
                         "        currentlyLearning: [\"Next.js\", \"Tailwind CSS\", \"Prisma\"],\n" +
                         "    };"}

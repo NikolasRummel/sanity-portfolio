@@ -4,7 +4,7 @@ import {getProjects} from "@/lib/sanity/sanity-utils";
 import {Project} from "@/types/project";
 
 export default async function Projects() {
-    const projects : Project[] = await getProjects();
+    const projects: Project[] = await getProjects();
 
     return (
         <div className="mt-32">
