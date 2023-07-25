@@ -23,7 +23,7 @@ const SearchBar:React.FC<SearchBarProps> = ({onSearch}) => {
             </div>
             <input
                 type="text"
-                className="rounded-full py-2 pl-12 pr-4 w-full bg-accent border border-gray-300"
+                className="rounded-full py-2 pl-12 pr-4 w-full bg-accent border border-gray-300 dark:border-gray-900"
                 placeholder="Search here"
                 value={searchQuery}
                 onChange={handleSearch}

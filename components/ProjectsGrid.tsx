@@ -3,10 +3,7 @@
 import React, {useState} from 'react';
 import SearchBar from "@/components/SearchBar";
 import {Project} from "@/types/project";
-import Image from "next/image";
-import ButtonLink from "@/components/ButtonLink";
-import mac from "@/public/images/macbook.png"
-import Link from "next/link";
+import ProjectCard from "@/components/ProjectCard";
 
 interface ProjectsGridProps {
     projects: Project[],
@@ -19,7 +16,7 @@ const ProjectsGrid = ({projects, showSearchBar}: ProjectsGridProps) => {
 
     const filteredPosts: Project[] = projects.filter((projects) =>
         projects.name.toLowerCase().includes(searchQuery.toString().toLowerCase()) ||
-        projects.content.toString().toLowerCase().includes(searchQuery.toString().toLowerCase())
+        projects.description.toString().toLowerCase().includes(searchQuery.toString().toLowerCase())
     );
 
     const backgroundColors: string[] = [
@@ -36,14 +33,17 @@ const ProjectsGrid = ({projects, showSearchBar}: ProjectsGridProps) => {
         "dark:via-[#fc963d]",
     ];
 
-    // @ts-ignore
-    const handleSearch = (query) => {
+    const handleSearch = (query : string) => {
         setSearchQuery(query);
     };
 
     return (
         <section className="mt-24">
-            <h2 className='font-bold text-3xl tracking-tight text-center lg:text-start'>Projects</h2>
+            <h1 className="text-4xl md:text-7xl font-extrabold">
+                <span className="bg-gradient-to-r from-sky-300 to-blue-800 bg-clip-text text-transparent">
+                    Projects
+                </span>
+            </h1>
 
             {showSearchBar && (
                 <div>
@@ -54,42 +54,11 @@ const ProjectsGrid = ({projects, showSearchBar}: ProjectsGridProps) => {
                 </div>
             )}
 
-            <div className="mt-12 grid md:grid-cols-1 lg:grid-cols-1 gap-8">
+            <div className="mt-12 grid md:grid-cols-1 lg:grid-cols-1 gap-8 ">
                 {filteredPosts.map((project: Project, index) => (
-                    <Link href={`/projects/${project.slug}`} key={project._id}
-                          className="rounded-3xl hover:scale-105 transition group">
-                        <div className="space-y-12">
-                            <div
-                                className={`relative w-full overflow-hidden border rounded-3xl bg-gradient-to-b ${backgroundColors[index % backgroundColors.length]}`}>
-                                <div
-                                    className={`w-full h-[1px] bg-gradient-to-r from-transparent ${borderColors[index % borderColors.length]} to-transparent`}></div>
-                                <div className="grid grid-cols-1 min-h-[500px] md:grid-cols-2 md:group-hover:grid-cols-3">
-                                    <div
-                                        className="md:absolute md:top-4 md:right-[-200px] md:w-[800px] md:group-hover:translate-x-[-220px] md:transition-transform">
-                                        <Image
-                                            src={mac}
-                                            alt="project"
-                                            objectFit="fill"
-                                            width={900}
-                                            height={552}
-                                            layout="intrinsic"
-                                        />
-                                    </div>
-                                    <div className="self-end col-span-1 m-8 text-center md:text-left">
-                                        <h2 className="mt-0 text-black dark:text-white">{project.name}</h2>
-                                        <p className="text-black dark:text-white">
-                                            {project.description}
-                                        </p>
-
-                                        <ButtonLink
-                                            text="Visit Project"
-                                            href={`/projects/${project.slug}`}
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </Link>
+                    <ProjectCard key={project.name} project={project}
+                                 background={backgroundColors[index % backgroundColors.length]}
+                                 border={borderColors[index % borderColors.length]}/>
                 ))}
             </div>
         </section>

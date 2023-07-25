@@ -1,13 +1,12 @@
 import classNames from 'classnames';
-import AnimationContainer from '@/lib/AnimationContainer';
 import Image from 'next/image';
 import {TimelineItemProps} from "@/types";
 
 export const Timeline = ({children}: { children: React.ReactNode }) => {
     return (
-        <AnimationContainer customClassName='w-full mb-16'>
+        <div className='w-full mb-16'>
             {children}
-        </AnimationContainer>
+        </div>
     );
 };
 

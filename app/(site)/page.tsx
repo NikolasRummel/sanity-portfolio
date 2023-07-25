@@ -1,13 +1,12 @@
 import Image from 'next/image'
 import TimelineContent from "@/components/TimelineContent";
-import ProjectsGrid from "@/components/ProjectsGrid";
 import React from "react";
-import {getProjects} from "@/lib/sanity/sanity-utils";
+import {getProject} from "@/lib/sanity/sanity-utils";
 import {Project} from "@/types/project";
-
+import ProjectCard from "@/components/ProjectCard";
 export default async function Home() {
 
-    const projects: Project[] = await getProjects();
+    const featuredProject: Project = await getProject("first-project");
 
     return (
         <section className="container grid items-center pb-8 pt-6 md:py-10">
@@ -17,7 +16,6 @@ export default async function Home() {
                         className="object-cover rounded-full shadow-2xl aspect-square"
                         src="/images/me.png"
                         alt="Pic of me"
-                        layout="responsive"
                         width={300}
                         height={300}
                     />
@@ -74,7 +72,13 @@ export default async function Home() {
                 <TimelineContent/>
             </div>
 
-            <ProjectsGrid projects={projects}/>
+            <h2 className='font-bold text-3xl tracking-tight mb-8 text-center lg:text-start mt-24'>
+                Featured Project
+            </h2>
+            <ProjectCard project={featuredProject}
+                      background={"from-[#4f79ff] to-[#a8caff]/20 dark:from-[#033FFF]/20 dark:to-[#4f79ff] dark:border-[#033FFF] border-[#4f79ff]"}
+                      border={"dark:via-[#4f79ff]"}
+            />
             <div
                 className="absolute -right-52 -bottom-40 bg-[#0094FF]/40 h-96 w-96 rounded-full blur-[190px] -z-10"></div>
         </section>
