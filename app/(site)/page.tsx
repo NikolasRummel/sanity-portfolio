@@ -76,8 +76,8 @@ export default async function Home() {
                 Featured Project
             </h2>
             <ProjectCard project={featuredProject}
-                      background={"from-[#4f79ff] to-[#a8caff]/20 dark:from-[#033FFF]/20 dark:to-[#4f79ff] dark:border-[#033FFF] border-[#4f79ff]"}
-                      border={"dark:via-[#4f79ff]"}
+                         background={"from-[#4f79ff] to-[#a8caff]/20 dark:from-[#033FFF]/20 dark:to-[#4f79ff] dark:border-[#033FFF] border-[#4f79ff]"}
+                         border={"dark:via-[#4f79ff]"}
             />
             <div
                 className="absolute -right-52 -bottom-40 bg-[#0094FF]/40 h-96 w-96 rounded-full blur-[190px] -z-10"></div>
