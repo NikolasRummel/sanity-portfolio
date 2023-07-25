@@ -28,7 +28,6 @@ export default async function Home() {
                         </span>
                     </h1>
 
-                    <div className="absolute -left-20 bg-[#0094FF]/40 h-72 w-72 rounded-full blur-[170px]"></div>
 
                     <p className="pt-5 lg:pr-16">
                         Hi, I&apos;m Nikolas, an ambitious 19-year-old upcoming computer science
