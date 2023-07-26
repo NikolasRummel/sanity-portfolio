@@ -30,7 +30,7 @@ const FeaturedBlogPostCard = ({post}: FeaturedBlogPostCardProps) => {
                     />
                 </div>
                 <Image
-                    className="rounded-3xl transform group-hover:scale-105 w-full object-cover h-96"
+                    className="rounded-3xl transform group-hover:scale-105 group-hover:opacity-80 w-full object-cover h-96"
                     src={post.image}
                     width={320}
                     height={184}
