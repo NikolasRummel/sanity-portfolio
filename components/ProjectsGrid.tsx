@@ -39,9 +39,13 @@ const ProjectsGrid = ({projects, showSearchBar}: ProjectsGridProps) => {
 
     return (
         <section className="mt-24">
-            <h1 className="text-4xl md:text-7xl font-extrabold">
-                <span className="bg-gradient-to-r from-sky-300 to-blue-800 bg-clip-text text-transparent">
-                    Projects
+            <h1 className="mb-28">
+                <span
+                    className="block text-base font-semibold tracking-wide text-center text-sky-600 dark:text-teal-400 uppercase">
+                  Projects
+                </span>
+                <span className="block max-w-2xl mx-auto mt-2 text-4xl font-bold leading-10 text-center sm:text-5xl">
+                  Discover some of my beloved creations.
                 </span>
             </h1>
 

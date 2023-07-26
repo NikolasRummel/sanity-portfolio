@@ -1,10 +1,11 @@
-import {getBlogPosts} from "@/lib/sanity/sanity-utils";
+import {getBlogPost} from "@/lib/sanity/sanity-utils";
 import {Post} from "@/types/post";
 import React from 'react';
-import BlogPostCard from "@/components/BlogPostCard";
+import FeaturedBlogPostCard from "@/components/FeaturedBlogPostCard";
 
 export default async function Blog() {
-    const blogPosts: Post[] = await getBlogPosts();
+    const featuredPost : Post = await getBlogPost("math-camp");
+
     return (
         <div className="my-32">
             <h1 className="mb-28">
@@ -16,11 +17,8 @@ export default async function Blog() {
                   Dive into personal posts and helpful content.
                 </span>
             </h1>
-            {blogPosts.map((post: Post, index: number) => (
-                <div key={index} className="mb-10">
-                    <BlogPostCard post={post}/>
-                </div>
-            ))}
+
+            <FeaturedBlogPostCard post={featuredPost}/>
         </div>
     );
 }
