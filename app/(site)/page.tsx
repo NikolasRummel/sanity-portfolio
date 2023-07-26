@@ -67,7 +67,7 @@ export default async function Home() {
                 Experience
             </h2>
 
-            <div className="w-2/3">
+            <div className="w-full lg:w-2/3">
                 <TimelineContent/>
             </div>
 
