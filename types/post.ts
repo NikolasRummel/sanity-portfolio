@@ -6,4 +6,5 @@ export type Post = {
     image: string;
     description: string;
     content: string;
+    category: string
 };

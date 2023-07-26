@@ -43,7 +43,8 @@ export async function getBlogPosts(): Promise<Post[]> {
             "slug": slug.current,
             "image": image.asset->url,
             description,
-            content
+            content,
+            category
         }`
     );
 }
@@ -57,7 +58,8 @@ export async function getBlogPost(slug: string): Promise<Post> {
             "slug": slug.current,
             "image": image.asset->url,
             description,
-            content
+            content,
+            category
         }`,
         { slug }
     );

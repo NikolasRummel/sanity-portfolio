@@ -9,7 +9,7 @@ interface BlogPostContentProps {
 
 const BlogPostContent = ({post}: BlogPostContentProps) => {
     const publishedOn = new Date(post._createdAt).toLocaleDateString(
-        "DE",
+        "US",
         {
             year: 'numeric',
             month: 'long',

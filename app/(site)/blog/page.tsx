@@ -1,10 +1,13 @@
-import {getBlogPost} from "@/lib/sanity/sanity-utils";
+import {getBlogPost, getBlogPosts} from "@/lib/sanity/sanity-utils";
 import {Post} from "@/types/post";
 import React from 'react';
 import FeaturedBlogPostCard from "@/components/FeaturedBlogPostCard";
+import BlogPostsGrid from "@/components/BlogPostsGrid";
 
 export default async function Blog() {
-    const featuredPost : Post = await getBlogPost("math-camp");
+    const featuredPost: Post = await getBlogPost("math-camp");
+    const allPosts: Post[] = await getBlogPosts();
+    const posts: Post[] = allPosts.filter((post) => post.title !== featuredPost.title);
 
     return (
         <div className="my-32">
@@ -19,6 +22,10 @@ export default async function Blog() {
             </h1>
 
             <FeaturedBlogPostCard post={featuredPost}/>
+
+            <div className="mt-32">
+                <BlogPostsGrid  posts={posts}/>
+            </div>
         </div>
     );
 }

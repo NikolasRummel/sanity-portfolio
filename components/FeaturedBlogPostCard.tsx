@@ -25,19 +25,15 @@ const FeaturedBlogPostCard = ({post}: FeaturedBlogPostCardProps) => {
                     <p>{post.description}</p>
 
                     <ButtonLink
-                        text="Visit"
+                        text="Read"
                         href={`/blog/${post.slug}`}
                     />
                 </div>
                 <Image
-                    className="rounded-3xl transform group-hover:scale-105"
-                    objectFit="fill"
+                    className="rounded-3xl transform group-hover:scale-105 w-full object-cover h-96"
                     src={post.image}
-                    placeholder="blur"
-                    blurDataURL={post.image}
-                    width={1200}
-                    height={684}
-                    layout="intrinsic"
+                    width={320}
+                    height={184}
                     alt={'article cover'}
                 />
             </div>

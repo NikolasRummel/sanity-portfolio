@@ -51,9 +51,6 @@ const ProjectsGrid = ({projects, showSearchBar}: ProjectsGridProps) => {
 
             {showSearchBar && (
                 <div>
-                    <p className="text-base mb-4">
-                        {filteredPosts.length} project(s) matching your search
-                    </p>
                     <SearchBar onSearch={handleSearch}/>
                 </div>
             )}

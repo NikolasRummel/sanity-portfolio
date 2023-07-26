@@ -37,6 +37,23 @@ const blogPost = {
             title: "Content",
             type: "markdown",
         },
+        {
+            name: 'category',
+            title: 'Category',
+            type: 'array',
+            of: [
+                {
+                    type: 'string',
+                },
+            ],
+            options: {
+                list: [
+                    { title: 'Personal', value: 'personal' },
+                    { title: 'Tech', value: 'tech' },
+                    { title: 'Education', value: 'education' },
+                ],
+            },
+        },
     ]
 }
 
