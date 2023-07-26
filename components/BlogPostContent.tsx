@@ -1,13 +1,16 @@
 import React from 'react';
 import Image from "next/image";
-import ReactMarkdown from "react-markdown";
 import {Post} from "@/types/post";
+import {serializeMdx} from "@/lib/mdx";
+import {MdxContent} from "@/app/(site)/blog/[post]/mdx-content";
 
 interface BlogPostContentProps {
     post: Post
 }
 
-const BlogPostContent = ({post}: BlogPostContentProps) => {
+const BlogPostContent = async ({post}: BlogPostContentProps) => {
+
+
     const publishedOn = new Date(post._createdAt).toLocaleDateString(
         "US",
         {
@@ -16,6 +19,10 @@ const BlogPostContent = ({post}: BlogPostContentProps) => {
             day: 'numeric'
         }
     );
+
+    const serialized = await serializeMdx(post.content);
+
+    // @ts-ignore
     return (
         <div>
             <h1 className="my-16">
@@ -46,13 +53,10 @@ const BlogPostContent = ({post}: BlogPostContentProps) => {
                 </div>
             )}
 
-            <div className={"mt-32"}>
-                <ReactMarkdown>
-                    {post.content}
-                </ReactMarkdown>
+            <div className={'mt-32'}>
+                <MdxContent source={serialized.serialized} />
             </div>
         </div>
     );
 };
-
 export default BlogPostContent;

@@ -5,6 +5,7 @@ type Props = {
     params: { post: string }
 }
 
+
 export default async function BlogPost({params}: Props) {
     const slug = params.post;
     const post = await getBlogPost(slug);
