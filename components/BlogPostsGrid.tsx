@@ -8,18 +8,15 @@ import {formatDate} from "@/lib/utils";
 const BlogPostsGrid = ({posts}: { posts: Post[] }) => {
     const [selectedCategory, setSelectedCategory] = useState("all");
 
-    // extract all categories from posts
-    const uniqueCategories = Array.from(new Set(posts.map((post) => post.category)))
-        .filter((category) => category !== null);
-
     const categories = [
-        {label: 'All', value: 'all'},
-        ...uniqueCategories.map((category) => ({label: category, value: category || 'unknown'})),
+        { label: 'All', value: 'all' },
+        { label: 'Personal', value: 'personal' },
+        { label: 'Tech', value: 'tech' },
     ];
 
     const filteredArticles = posts.filter(post => {
         if (selectedCategory === "all") return true;
-        return post.category === selectedCategory;
+        return post.category.toString() === selectedCategory.toString();
     });
 
     return (
