@@ -2,7 +2,7 @@ import React from 'react';
 import Image from "next/image";
 import {Post} from "@/types/post";
 import {serializeMdx} from "@/lib/mdx";
-import {MdxContent} from "@/app/(site)/blog/[post]/mdx-content";
+import {MdxContent} from "@/components/mdx-content";
 
 interface BlogPostContentProps {
     post: Post

@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import mac from "@/public/images/macbook.png";
 import ButtonLink from "@/components/ButtonLink";
 import {Project} from "@/types/project";
 
@@ -26,10 +25,10 @@ const ProjectCard = ({project, background, border}: ProjectCardProps) => {
                         <div
                             className="md:absolute md:top-4 md:right-[-200px] md:w-[800px] lg:group-hover:translate-x-[-220px] md:transition-transform ">
                             <Image
-                                src={mac}
+                                src={project.image}
                                 alt="project"
-                                width={900}
-                                height={552}
+                                width={4299}
+                                height={2499}
                             />
                         </div>
                         <div className="self-end col-span-1 m-8 text-center md:text-left">

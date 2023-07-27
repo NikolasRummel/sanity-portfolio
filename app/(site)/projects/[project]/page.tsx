@@ -1,6 +1,8 @@
 import {getProject} from "@/lib/sanity/sanity-utils";
-import {PortableText} from '@portabletext/react';
 import Image from "next/image"
+import {serializeMdx} from "@/lib/mdx";
+import {MdxContent} from "@/components/mdx-content";
+import React from "react";
 
 type Props = {
     params: { project: string }
@@ -9,6 +11,7 @@ type Props = {
 export default async function Project({params}: Props) {
     const slug = params.project;
     const project = await getProject(slug);
+    const serialized = await serializeMdx(project.content);
 
     return (
         <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
@@ -25,7 +28,7 @@ export default async function Project({params}: Props) {
                    className="mt-10 border-2 border-gray-700 object-cover rounded-xl"/>
 
             <div className="text-lg text-gray-700 mt-5">
-                <PortableText value={project.content}/>
+                <MdxContent source={serialized.serialized} />
             </div>
         </section>
     )

@@ -6,7 +6,7 @@ import {Project} from "@/types/project";
 import ProjectCard from "@/components/ProjectCard";
 export default async function Home() {
 
-    const featuredProject: Project = await getProject("first-project");
+    const featuredProject: Project = await getProject("einsteinmedia");
 
     return (
         <section className="container grid items-center pb-8 pt-6 md:py-10">
