@@ -9,7 +9,7 @@ export default async function Home() {
     const featuredProject: Project = await getProject("einsteinmedia");
 
     return (
-        <section className="container grid items-center pb-8 pt-6 md:py-10">
+        <div>
             <div className="inline-flex flex-col sm:flex-row space-x-0 pt-14">
                 <div className="relative w-full sm:w-96 h-96 sm:order-2">
                     <Image
@@ -78,8 +78,6 @@ export default async function Home() {
                          background={"from-[#4f79ff] to-[#a8caff]/20 dark:from-[#033FFF]/20 dark:to-[#4f79ff] dark:border-[#033FFF] border-[#4f79ff]"}
                          border={"dark:via-[#4f79ff]"}
             />
-            <div
-                className="absolute -right-52 -bottom-40 bg-[#0094FF]/40 h-96 w-96 rounded-full blur-[190px] -z-10"></div>
-        </section>
+        </div>
     )
 }

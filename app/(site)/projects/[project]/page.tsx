@@ -22,12 +22,6 @@ export default async function Project({params}: Props) {
     );
     return (
         <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
-
-            <header className="flex items-center justify-between">
-                <h1 className="bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent text-5xl drop-shadow font-extrabold">{project.name}</h1>
-            </header>
-
-
             <div>
                 <h1 className="my-16">
                     <span className="block  mx-auto mt-2 text-4xl font-bold leading-10 text-center sm:text-5xl">

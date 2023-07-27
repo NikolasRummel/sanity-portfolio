@@ -4,12 +4,11 @@ import {Metadata} from "next"
 import {siteConfig} from "@/config/site"
 import {fontSans} from "@/lib/fonts"
 import {cn} from "@/lib/utils"
-import {SiteHeader} from "@/components/navbar/site-header"
 import {TailwindIndicator} from "@/components/navbar/tailwind-indicator"
 import {ThemeProvider} from "@/components/navbar/theme-provider"
-import SiteFooter from "@/components/site-footer";
 import light from "@/public/images/light.png"
 import Image from "next/image";
+import Navbar from "@/components/navbar/navbar";
 
 export const metadata: Metadata = {
     title: {
@@ -40,26 +39,26 @@ export default function RootLayout({children}: RootLayoutProps) {
             <body
                 className={cn(
                     "min-h-screen bg-background font-sans",
-                    fontSans.variable
+                    fontSans.variable,
+                    "overflow-x-hidden"
                 )}
             >
             <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-                <div className="relative flex min-h-screen flex-col max-w-6xl mx-auto">
-                    <SiteHeader/>
-                    <div className="flex-1 ">
-                        <div className="top-0 ">
-                            <Image
-                                className="absolute -top-80 left-20"
-                                src={light}
-                                alt=""
-                                width={924}
-                                height={718}
-                                unoptimized
-                            />
-                        </div>
-                        {children}
-                    </div>
-                    <SiteFooter/>
+                <div className="relative z-[-1]">
+                    <Image
+                        className="absolute -top-80 left-20"
+                        src={light}
+                        alt=""
+                        width={924}
+                        height={718}
+                        unoptimized
+                    />
+                </div>
+
+                <Navbar/>
+
+                <div className="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8">
+                    {children}
                 </div>
                 <TailwindIndicator/>
             </ThemeProvider>
