@@ -9,6 +9,7 @@ import {ThemeProvider} from "@/components/navbar/theme-provider"
 import light from "@/public/images/light.png"
 import Image from "next/image";
 import Navbar from "@/components/navbar/navbar";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
     title: {
@@ -61,6 +62,7 @@ export default function RootLayout({children}: RootLayoutProps) {
                     {children}
                 </div>
                 <TailwindIndicator/>
+                <Footer/>
             </ThemeProvider>
             </body>
             </html>
