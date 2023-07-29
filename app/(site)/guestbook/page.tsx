@@ -2,8 +2,11 @@ import GuestBookMessage from "@/components/GuestBookMessage";
 import React from "react";
 import {Input} from "@/components/ui/input";
 import {Button} from "@/components/ui/button";
+import {auth} from "@clerk/nextjs";
 
-export default function Page() {
+export default async function Page() {
+    const {userId} = auth();
+
     return (
         <div className="min-h-screen justify-center mt-32">
             <h1 className="mb-28">
@@ -16,10 +19,18 @@ export default function Page() {
                 </span>
             </h1>
 
-            <div className="flex space-x-2 mb-10">
-                <Input placeholder="leave your message here..."/>
-                <Button>Send</Button>
-            </div>
+            {userId && (
+                <div className="flex space-x-2 mb-10">
+                    <Input placeholder="leave your message here..."/>
+                    <Button>Send</Button>
+                </div>
+            )}
+
+            {!userId && (
+                <div className="flex space-x-2 mb-10">
+                    <p>You are not logged in. Please <a href="/sign-in" className="font-medium border-b-2 border-blue-400 dark:border-teal-400 ">sign in</a> to leave a message here.</p>
+                </div>
+            )}
 
             <GuestBookMessage/>
             <GuestBookMessage/>

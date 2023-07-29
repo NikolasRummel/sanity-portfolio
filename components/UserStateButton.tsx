@@ -2,7 +2,7 @@ import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger
 import {Button} from "@/components/ui/button";
 import {Icons} from "@/components/icons";
 import Link from "next/link";
-import {SignOutButton, useAuth} from "@clerk/nextjs";
+import {SignOutButton, useAuth, UserButton} from "@clerk/nextjs";
 import {useRouter} from "next/navigation";
 
 const UserStateButton = () => {
@@ -12,7 +12,6 @@ const UserStateButton = () => {
         try {
             router.push('/');
         } catch (error) {
-            // Handle any error that occurred during sign-out
             console.error('Sign-out failed:', error);
         }
     };
@@ -21,9 +20,16 @@ const UserStateButton = () => {
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                     <Button variant="ghost" className="w-9 px-0">
-                        <Icons.user
-                            className="h-[1.2rem] w-[1.2rem]"/>
-                        <span className="sr-only">User</span>
+                        {isSignedIn && (
+                            <UserButton afterSignOutUrl="/"/>
+                        )}
+                        {!isSignedIn && (
+                            <div>
+                                <Icons.user
+                                    className="h-[1.2rem] w-[1.2rem]"/>
+                                <span className="sr-only">User</span>
+                            </div>
+                        )}
                     </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
