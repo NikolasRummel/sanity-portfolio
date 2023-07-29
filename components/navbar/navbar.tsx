@@ -46,6 +46,13 @@ export default function Navbar() {
                                     >
                                         Projects
                                     </Link>
+                                    <Link
+                                        href={"/guestbook"}
+                                        prefetch
+                                        className="text-gray-500 text-sm font-medium h-full inline-flex items-center px-1 pt-1"
+                                    >
+                                        Guestbook
+                                    </Link>
                                 </div>
                                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8 sm:items-center justify-end pt-2">
                                     <CommandMenu/>
@@ -140,6 +147,17 @@ export default function Navbar() {
                                 } `}
                             >
                                 Projects
+                            </Link>
+                            <Link
+                                href={"/guestbook"}
+                                prefetch
+                                className={`${
+                                    pathname == "/guestbook"
+                                        ? "bg-teal-50 border-teal-500 text-teal-500 block pl-3 pr-4 py-2 border-l-4 text-base font-medium dark:bg-gray-800"
+                                        : "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-teal-500 block pl-3 pr-4 py-2 dark:hover:bg-gray-700 border-l-4 text-base font-medium dark:text-white"
+                                } `}
+                            >
+                                Guestbook
                             </Link>
                         </div>
                     </Disclosure.Panel>
