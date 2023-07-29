@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/nextjs": "^4.23.1",
     "@emotion/css": "^11.11.2",
     "@headlessui/react": "^1.7.16",
     "@portabletext/react": "^3.0.4",

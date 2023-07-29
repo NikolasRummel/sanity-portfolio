@@ -2,7 +2,6 @@ import React from "react";
 import ProjectsGrid from "@/components/ProjectsGrid";
 import {getProjects} from "@/lib/sanity/sanity-utils";
 import {Project} from "@/types/project";
-
 export default async function Projects() {
     const projects: Project[] = await getProjects();
 
