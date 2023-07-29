@@ -22,7 +22,7 @@ const UserStateButton = () => {
                 <DropdownMenuTrigger asChild>
                     <Button variant="ghost" className="w-9 px-0">
                         <Icons.user
-                            className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"/>
+                            className="h-[1.2rem] w-[1.2rem]"/>
                         <span className="sr-only">User</span>
                     </Button>
                 </DropdownMenuTrigger>
