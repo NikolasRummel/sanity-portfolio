@@ -1,5 +1,5 @@
 import {UserProfile} from "@clerk/nextjs";
 
 export default function Page() {
-    return <div className="min-h-screen flex justify-center items-center"><UserProfile/></div>;
+    return <div className="min-h-screen my-20 flex justify-center items-center"><UserProfile/></div>;
 }
