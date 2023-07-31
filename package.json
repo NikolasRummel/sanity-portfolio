@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "host": "next start -p 8080"
+    "host": "next start -p 80"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.23.1",
