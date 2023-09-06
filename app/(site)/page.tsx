@@ -4,6 +4,7 @@ import React from "react";
 import {getProject} from "@/lib/sanity/sanity-utils";
 import {Project} from "@/types/project";
 import ProjectCard from "@/components/ProjectCard";
+
 export default async function Home() {
 
     const featuredProject: Project = await getProject("einsteinmedia");
@@ -23,16 +24,16 @@ export default async function Home() {
 
                 <div className="w-full sm:w-9/12 pt-20 sm:order-1">
                     <h1 className="text-4xl md:text-7xl font-extrabold">Hi, I&apos;m
-                        <span className="bg-gradient-to-r from-sky-300 to-blue-800 dark:from-teal-400 dark:to-teal-800 bg-clip-text text-transparent">
+                        <span
+                            className="bg-gradient-to-r from-sky-300 to-blue-800 dark:from-teal-400 dark:to-teal-800 bg-clip-text text-transparent">
                             &nbsp;Nikolas!
                         </span>
                     </h1>
 
                     <p className="pt-5 lg:pr-16">
-                        Hi, I&apos;m Nikolas, an ambitious 19-year-old upcoming computer science
-                        student.
-                        With over 4 years of experience, I&apos;ve been passionately crafting a wide range of
-                        projects, primarily focusing on backend development using Java.
+                        Hello, I&apos;m Nikolas, a 19-year-old aspiring computer science student with more than 4 years of
+                        experience. During this time, I&apos;ve dedicated myself to a variety of projects, with a primary
+                        focus on Java-based backend development.
                     </p>
                     <div className="flex items-center pt-5">
                         <div className="space-x-5 inline-flex">
