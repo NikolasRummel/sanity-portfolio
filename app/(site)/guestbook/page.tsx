@@ -18,29 +18,32 @@ export default async function Page() {
                   Leave your message in the Guestbook.
                 </span>
             </h1>
+            <div
+                className="flex items-center space-x-2 mb-10 border border-red-500  w-full h-fit px-3.5 rounded-md bg-red-500/30 ">
+              <span className="block max-w-7xl mx-auto my-2 font-medium  text-center">
+                 This site is currently in development, sorry!
+                </span>
+            </div>
 
-            {userId && (
-                <div className="flex space-x-2 mb-10">
-                    <Input placeholder="leave your message here..."/>
-                    <Button>Send</Button>
-                </div>
-            )}
+            <div className="blur-sm">
+                {userId && (
+                    <div className="flex space-x-2 mb-10">
+                        <Input placeholder="leave your message here..."/>
+                        <Button>Send</Button>
+                    </div>
+                )}
 
-            {!userId && (
-                <div className="flex space-x-2 mb-10">
-                    <p>You are not logged in. Please <a href="/sign-in" className="font-medium border-b-2 border-blue-400 dark:border-teal-400 ">sign in</a> to leave a message here.</p>
-                </div>
-            )}
+                {!userId && (
+                    <div
+                        className="flex items-center space-x-2 mb-10">
+                        <p className={"pt-2.5"}>You are not logged in. Please <span
+                                                                                 className="font-medium border-b-2 border-blue-400 dark:border-teal-400 ">sign
+                            in</span> to leave a message here.</p>
+                    </div>
+                )}
 
-            <GuestBookMessage/>
-            <GuestBookMessage/>
-            <GuestBookMessage/>
-            <GuestBookMessage/>
-            <GuestBookMessage/>
-            <GuestBookMessage/>
-            <GuestBookMessage/>
-            <GuestBookMessage/>
-            <GuestBookMessage/>
+                <GuestBookMessage/>
+            </div>
         </div>
     );
 }
