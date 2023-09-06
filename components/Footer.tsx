@@ -75,7 +75,7 @@ const Footer = () => {
                                 <nav aria-label="Footer Navigation - Legal" className="mt-6">
                                     <ul className="space-y-4 text-sm">
                                         <li>
-                                            <Link href="/" >
+                                            <Link href={"/impress"} >
                                                 Impress
                                             </Link>
                                         </li>

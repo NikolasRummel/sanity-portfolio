@@ -11,7 +11,8 @@ export default authMiddleware({
         "/guestbook",
         "/projects", "/projects/(.*)",
         "/sign-in", "/sign-up",
-        "/admin", "/admin/(.*)"
+        "/admin", "/admin/(.*)",
+        "/impress"
     ]
 });
 
