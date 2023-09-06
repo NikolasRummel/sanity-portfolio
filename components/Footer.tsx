@@ -76,7 +76,7 @@ const Footer = () => {
                                     <ul className="space-y-4 text-sm">
                                         <li>
                                             <Link href={"/impress"} >
-                                                Impress
+                                                Legal notice and impress information
                                             </Link>
                                         </li>
                                     </ul>
