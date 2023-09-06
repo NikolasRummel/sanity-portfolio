@@ -20,7 +20,7 @@ export default async function Page() {
             </h1>
             <div
                 className="flex items-center space-x-2 mb-10 border border-red-500  w-full h-fit px-3.5 rounded-md bg-red-500/30 ">
-              <span className="block max-w-7xl mx-auto my-2 font-medium  text-center">
+              <span className="block max-w-7xl mx-auto my-2 font-medium  text-center text-red-500">
                  This site is currently in development, sorry!
                 </span>
             </div>
