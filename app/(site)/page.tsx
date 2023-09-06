@@ -10,7 +10,7 @@ export default async function Home() {
 
     return (
         <div>
-            <div className="inline-flex flex-col sm:flex-row space-x-0 pt-14">
+            <div className="inline-flex flex-col sm:flex-row space-x-0 pt-14 mt-12">
                 <div className="relative w-full sm:w-96 h-96 sm:order-2">
                     <Image
                         className="object-cover rounded-full shadow-2xl aspect-square"
@@ -27,7 +27,6 @@ export default async function Home() {
                             &nbsp;Nikolas!
                         </span>
                     </h1>
-
 
                     <p className="pt-5 lg:pr-16">
                         Hi, I&apos;m Nikolas, an ambitious 19-year-old upcoming computer science

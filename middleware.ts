@@ -10,7 +10,8 @@ export default authMiddleware({
         "/blog", "/blog/(.*)",
         "/guestbook",
         "/projects", "/projects/(.*)",
-        "/sign-in", "/sign-up"
+        "/sign-in", "/sign-up",
+        "/admin", "/admin/(.*)"
     ]
 });
 
