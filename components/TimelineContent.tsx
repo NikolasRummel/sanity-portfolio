@@ -17,7 +17,11 @@ const TimelineContent = () => {
                 </TimelineItem.Title>
 
                 <TimelineItem.Description>
-                    Beschreibung
+                    I am pursuing a dual degree in Computer Science at DHBW Karlsruhe while simultaneously working at
+                    dmTECH. During my studies in the field of computer science at DHBW, I not only acquire solid
+                    theoretical knowledge but also have the opportunity to apply it directly in practice at my
+                    workplace. This unique combination of theory and practical experience is truly invaluable and allows
+                    for comprehensive professional growth.
                 </TimelineItem.Description>
             </TimelineItem>
 
