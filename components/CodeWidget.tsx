@@ -18,7 +18,7 @@ const CodeWidget = () => {
                 <SyntaxHighlighter language="typescript" style={atomOneDark}>
                     {" const nikolas: Person = {\n" +
                         "        name: \"Nikolas\",\n" +
-                        "        age: 19,\n" +
+                        "        age: 20,\n" +
                         "        skills: [\n" +
                         "            \"Design and implementation of libraries or API's in Java\",\n" +
                         "            \"Good knowledge of Git and project management (scrum, kanban)\",\n" +
