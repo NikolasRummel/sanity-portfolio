@@ -31,7 +31,7 @@ export default async function Home() {
                     </h1>
 
                     <p className="pt-5 lg:pr-16">
-                        Hello, I&apos;m Nikolas, a 19-year-old aspiring computer science student with more than 4 years of
+                        Hello, I&apos;m Nikolas, a 20-year-old aspiring computer science student with more than 4 years of
                         experience. During this time, I&apos;ve dedicated myself to a variety of projects, with a primary
                         focus on Java-based backend development.
                     </p>
