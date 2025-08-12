@@ -5,7 +5,6 @@ import Link from "next/link";
 import {usePathname} from "next/navigation";
 import {ThemeToggle} from "@/components/navbar/theme-toggle";
 import {CommandMenu} from "@/components/navbar/command-menu";
-import UserStateButton from "@/components/UserStateButton";
 
 export default function Navbar() {
     let pathname = usePathname() || "/";
@@ -46,24 +45,15 @@ export default function Navbar() {
                                     >
                                         Projects
                                     </Link>
-                                    <Link
-                                        href={"/guestbook"}
-                                        prefetch
-                                        className="text-gray-500 text-sm font-medium h-full inline-flex items-center px-1 pt-1"
-                                    >
-                                        Guestbook
-                                    </Link>
                                 </div>
                                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8 sm:items-center justify-end pt-2">
                                     <CommandMenu/>
                                     <ThemeToggle/>
-                                    <UserStateButton/>
                                 </div>
                             </div>
 
                             <div className="-mr-2 flex items-center sm:hidden">
                                 <ThemeToggle/>
-                                <UserStateButton/>
                                 <Disclosure.Button
                                     className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500 dark:hover:bg-gray-800">
                                     {open ? (
@@ -147,17 +137,6 @@ export default function Navbar() {
                                 } `}
                             >
                                 Projects
-                            </Link>
-                            <Link
-                                href={"/guestbook"}
-                                prefetch
-                                className={`${
-                                    pathname == "/guestbook"
-                                        ? "bg-teal-50 border-teal-500 text-teal-500 block pl-3 pr-4 py-2 border-l-4 text-base font-medium dark:bg-gray-800"
-                                        : "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-teal-500 block pl-3 pr-4 py-2 dark:hover:bg-gray-700 border-l-4 text-base font-medium dark:text-white"
-                                } `}
-                            >
-                                Guestbook
                             </Link>
                         </div>
                     </Disclosure.Panel>
