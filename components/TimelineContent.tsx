@@ -14,7 +14,11 @@ const TimelineContent = () => {
                 </TimelineItem.Title>
 
                 <TimelineItem.Description>
-                    I am currently attending an exchange semester at NTNU in Trondheim, Norway as part of my 5th semester. TODO
+                    I am currently attending an exchange semester at NTNU in Trondheim, Norway as part of my 5th semester.
+                    This experience allows me to immerse myself in a new academic environment, broaden my cultural
+                    horizons, and gain valuable international perspectives in the field of computer science.
+
+                    See more about my exhange semester <a className={"text-blue-500"} href="https://nikolas-rummel.de/blog/exchange-semester" >here</a>.
                 </TimelineItem.Description>
             </TimelineItem>
 

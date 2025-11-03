@@ -23,7 +23,7 @@ const ProjectCard = ({project, background, border}: ProjectCardProps) => {
                     <div className={`w-full h-[1px] bg-gradient-to-r from-transparent ${border} to-transparent`}></div>
                     <div className="grid grid-cols-1 min-h-[500px] grid-cols-1 md:grid-cols-2 lg:group-hover:grid-cols-3">
                         <div
-                            className="md:absolute md:top-4 md:right-[-200px] md:w-[800px] lg:group-hover:translate-x-[-220px] md:transition-transform ">
+                            className="md:absolute md:top-4 md:right-[-240px] md:w-[800px] lg:group-hover:translate-x-[-220px] md:transition-transform ">
                             <Image
                                 src={project.image}
                                 alt="project"

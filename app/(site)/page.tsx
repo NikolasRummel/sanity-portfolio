@@ -31,9 +31,9 @@ export default async function Home() {
                     </h1>
 
                     <p className="pt-5 lg:pr-16">
-                        Hello, I&apos;m Nikolas, a 21-year-old aspiring computer science student with more than 4 years of
+                        Hello, I&apos;m Nikolas, a 22-year-old aspiring computer science student with more than 4 years of
                         experience. During this time, I&apos;ve dedicated myself to a variety of projects, with a primary
-                        focus on Java-based backend development.
+                        focus on Fullstack Development using Java and some React frontend. Currently interested in AI and Data Science.
                     </p>
                     <div className="flex items-center pt-5">
                         <div className="space-x-5 inline-flex">
