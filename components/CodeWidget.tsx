@@ -16,20 +16,35 @@ const CodeWidget = () => {
                 <div className="bg-[#9167db]/80 h-32 w-96 rounded-full absolute -top-8 blur-[190px]"></div>
                 <div className="bg-[#0094FF]/70 h-32 w-96 rounded-full absolute -bottom-36 right-28 blur-[190px]"></div>
                 <SyntaxHighlighter language="typescript" style={atomOneDark}>
-                    {" const nikolas: Person = {\n" +
-                        "        name: \"Nikolas\",\n" +
-                        "        age: 22,\n" +
-                        "        skills: [\n" +
-                        "            \"Design and implementation of libraries or API's in Java\",\n" +
-                        "            \"Good knowledge of Git and project management (scrum, kanban)\",\n" +
-                        "            \"Software architectures such as microservices or messaging via pub/sub\",\n" +
-                        "        ],\n" +
-                        "        stack: [\n" +
-                        "            \"Java\", \"REST\", \"Unit Tests\", \"Integration Tests\", \"Git\", \"Maven\",\n" +
-                        "            \"Apache Camel\", \"XML\", \"JSON\", \"MongoDB\", \"SQL\", \"Jira\", \"Confluence\"\n" +
-                        "        ],\n" +
-                        "        currentlyLearning: [\"AI/ML\", \"Data Science\", \"Python\"],\n" +
-                        "    };"}
+                    {"const nikolas: Person = {\n" +
+                        "   studying: \"Computer Science, 5th Semester\",\n" +
+                        "   about: [\n" +
+                        "        \"Passionate full-stack developer focused on backend services with Java\",\n" +
+                        "        \"Frontend development with React and Next.js\",\n" +
+                        "        \"Interested in scalable architectures and integrating AI in full-stack projects\"\n" +
+                        "    ], \n" +
+                        "    technicalExperience: [\n" +
+                        "        \"Developed backend microservices with Java and Spring Boot\",\n" +
+                        "        \"Built responsive UIs with React, Next.js, and Tailwind CSS\",\n" +
+                        "        \"Implemented messaging systems (Pub/Sub) and monitoring with Datadog\",\n" +
+                        "        \"Deployed Dockerized services to GCP using CI/CD pipelines\",\n" +
+                        "        \"Optimized databases and search: SQL, MongoDB, Redis, Indexes, Fuzzy/Semantic Search\"\n" +
+                        "    ],\n" +
+                        "    collaborationExperience: [\n" +
+                        "        \"Worked in multicultural teams: Germany, Poland, exchange semester abroad\",\n" +
+                        "        \"Collaborated with non-technical teams for UI/UX feedback\",\n" +
+                        "        \"Experienced in working with agile (Scrum) and collaborative tools: Git, Jira, Confluence\"\n" +
+                        "    ],\n" +
+                        "    stack: [\n" +
+                        "        \"Java\", \"Spring Boot\", \"Maven\", \"Unit, Integration and E2E Tests\",\n" +
+                        "        \"React\", \"Next.js\", \"TypeScript\", \"Tailwind CSS\",\n" +
+                        "        \"SQL\", \"MongoDB\", \"Redis\", \"Indexes\", \"Fuzzy Search\", \"Semantic Search\",\n" +
+                        "        \"Docker\", \"CI/CD\", \"GCP\", \"Datadog\",\n" +
+                        "        \"Microservices\", \"Pub/Sub Messaging\", \"Apache Camel\",\n" +
+                        "        \"Git\", \"Scrum\", \"Jira\", \"Confluence\",\n" +
+                        "    ],\n" +
+                        "    currentlyLearning: [\"AI/ML\", \"Data Science\", \"Python\"],\n" +
+                        "};\n"}
                 </SyntaxHighlighter>
             </div>
         </div>

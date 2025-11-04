@@ -34,7 +34,7 @@ const TimelineContent = () => {
                     dmTECH. During my studies in the field of computer science at DHBW, I not only acquire solid
                     theoretical knowledge but also have the opportunity to apply it directly in practice at my
                     workplace. This unique combination of theory and practical experience is truly invaluable and allows
-                    for comprehensive professional growth.
+                    for comprehensive professional growth. In addition, I serve as class representative, coordinating with peers and supporting academic and organizational lectures.
                 </TimelineItem.Description>
             </TimelineItem>
 
@@ -53,6 +53,19 @@ const TimelineContent = () => {
                     methodologies, further enhancing my software engineering skills.
                 </TimelineItem.Description>
             </TimelineItem>
+
+            <TimelineItem logo={"/images/aes.png"}>
+                <TimelineItem.Title>
+                    <b>Technical Highschool (Abitur)</b>&nbsp;<i>Graduated 2023</i>
+                </TimelineItem.Title>
+
+                <TimelineItem.Description>
+                    Attended a technical high school with a focus on STEM subjects. Served as class representative and graduated as the top student in my year.
+                    Participated in a <a className={"text-blue-500"} href={"https://nikolas-rummel.de/blog/math-camp"}> one-week mathematics camp in Belgium</a> to deepen analytical and problem-solving skills.
+                    Started coding early by developing Minecraft plugins, gradually moving to more complex projects such as scaling and administrating game servers for 100+ users.
+                </TimelineItem.Description>
+            </TimelineItem>
+
 
         </Timeline>
     )

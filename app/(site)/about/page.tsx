@@ -1,7 +1,7 @@
 import CodeWidget from "@/components/CodeWidget";
 import React from "react";
 import Image from "next/image";
-import me from "@/public/images/me.png"
+import me from "@/public/images/hike.png"
 import TimelineContent from "@/components/TimelineContent";
 
 export default async function About() {
@@ -24,7 +24,7 @@ export default async function About() {
                 </div>
                 <div className="w-2/3">
                     <h2 className='font-bold text-3xl tracking-tight mb-8 text-center lg:text-start mt-24'>
-                        Experience
+                        My Journey
                     </h2>
                     <TimelineContent/>
                 </div>

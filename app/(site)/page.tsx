@@ -64,7 +64,7 @@ export default async function Home() {
             </div>
 
             <h2 className='font-bold text-3xl tracking-tight mb-8 text-center lg:text-start mt-24'>
-                Experience
+                My Journey
             </h2>
 
             <div className="w-full lg:w-2/3">
