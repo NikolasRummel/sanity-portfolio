@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Impress() {
     return (
-        <div className="mt-32 min-h-screen">
+        <div className="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 mt-32 min-h-screen">
             <h1 className="mb-28">
                 <span
                     className="block text-base font-semibold tracking-wide text-center text-sky-600 dark:text-teal-400 uppercase">
@@ -14,7 +14,7 @@ export default function Impress() {
             </h1>
             <p>
                 Nikolas Rummel<br/>
-                Wilhelm-Hausenstein-Allee 23A<br/>
+                Laurentiusstr. 56<br/>
                 Karlsruhe, Germany<br/>
             </p>
             <p>

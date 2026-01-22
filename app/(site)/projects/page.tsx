@@ -6,7 +6,7 @@ export default async function Projects() {
     const projects: Project[] = await getProjects();
 
     return (
-        <div className="mt-32">
+        <div className="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 mt-32">
             <ProjectsGrid projects={projects} showSearchBar={true}/>
         </div>
     )

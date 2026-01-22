@@ -11,7 +11,7 @@ export default async function BlogPost({params}: Props) {
     const post = await getBlogPost(slug);
 
     return (
-        <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
+        <section className="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 container grid items-center gap-6 pb-8 pt-6 md:py-10">
             <BlogPostContent post={post}/>
         </section>
     )

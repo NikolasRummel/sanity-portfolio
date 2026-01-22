@@ -10,7 +10,7 @@ export default async function Blog() {
     const posts: Post[] = allPosts.filter((post) => post.title !== featuredPost.title);
 
     return (
-        <div className="my-32">
+        <div className="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 my-32 ">
             <h1 className="mb-28">
                 <span
                     className="block text-base font-semibold tracking-wide text-center text-sky-600 dark:text-teal-400 uppercase">

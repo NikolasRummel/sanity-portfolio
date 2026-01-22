@@ -21,7 +21,7 @@ export default async function Project({params}: Props) {
         }
     );
     return (
-        <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
+        <section className="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 container grid items-center gap-6 pb-8 pt-6 md:py-10">
             <div>
                 <h1 className="my-16">
                     <span className="block  mx-auto mt-2 text-4xl font-bold leading-10 text-center sm:text-5xl">
