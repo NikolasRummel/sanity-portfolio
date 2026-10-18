@@ -62,7 +62,7 @@ export default async function Home() {
                             </div>
                         </FadeIn>
 
-                        <div className="w-full md:w-2/5 flex justify-center order-1 md:order-2">
+                        <div className="w-full md:w-2/5 flex flex-col items-center order-1 md:order-2">
                             <FadeIn>
                                 <div className="relative group">
                                     <div
@@ -77,7 +77,11 @@ export default async function Home() {
                                     />
                                 </div>
                             </FadeIn>
+                            <p className="mt-4 text-xs tracking-wider uppercase font-medium text-gray-400 dark:text-gray-500 flex items-center gap-1.5">
+                                <span>📍</span> Lofoten, Norway <span className="text-gray-300 dark:text-gray-700">|</span> Exchange Semester
+                            </p>
                         </div>
+
                     </div>
                 </section>
             </div>
