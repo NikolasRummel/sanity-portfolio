@@ -35,11 +35,8 @@ export default async function Home() {
                                 </span>
                             </h1>
                             <p className="mt-6 text-lg md:text-xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl">
-                                <span className="text-black dark:text-white font-semibold">Fullstack Engineer</span> with
-                                experience since high school, focused on <span className="italic">Java backends</span> and <span className="italic">React frontends</span>. I enjoy sharing knowledge and helping others grow,
-                                which is why I volunteer as a <span className="text-black dark:text-white font-semibold">supervisor for interns</span> and
-                                organize technical discovery days for school classes. Currently, I am exploring the practical
-                                integration of <span className="text-black dark:text-white font-semibold">Data Science & AI</span> into fullstack systems.
+                                <span className="text-black dark:text-white font-semibold">AI & ML Backend Engineer</span> focused
+                                on building robust <span className="italic">Python and Java architectures</span>, scalable machine learning pipelines, and intelligent NLP systems. Beyond software engineering, I am passionate about mentoring dual students at work and sharing knowledge as a <span className="text-black dark:text-white font-semibold">DHBW Lecturer for Distributed Systems</span>. When I&apos;m not coding, you&apos;ll likely find me out exploring nature on my motorcycle, hiking, or playing the piano.
                             </p>
 
                             <div className="mt-10 flex flex-wrap items-center gap-4 justify-center md:justify-start">

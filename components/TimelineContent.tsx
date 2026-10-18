@@ -6,51 +6,58 @@ const TimelineContent = () => {
 
     return (
         <Timeline>
-            <TimelineItem logo={"/images/ntnu.png"}>
-                <TimelineItem.Title>
-                    <a href="">
-                        <b>Exchange Semester at NTNU, Trondheim, Norway </b>&nbsp;<i> Aug. 2025 - current</i>
-                    </a>
-                </TimelineItem.Title>
-
-                <TimelineItem.Description>
-                    I am currently attending an exchange semester at NTNU in Trondheim, Norway as part of my 5th semester.
-                    This experience allows me to immerse myself in a new academic environment, broaden my cultural
-                    horizons, and gain valuable international perspectives in the field of computer science.
-
-                    See more about my exhange semester <a className={"text-blue-500"} href="https://nikolas-rummel.de/blog/exchange-semester" >here</a>.
-                </TimelineItem.Description>
-            </TimelineItem>
-
             <TimelineItem logo={"/images/dhbw.png"}>
                 <TimelineItem.Title>
                     <a href="">
-                        <b>Studying computer science </b>&nbsp;<i> Oct. 2023 - current</i>
+                        <b>Lecturer for Distributed Systems @ DHBW Karlsruhe</b>&nbsp;<i>Summer Semester 2027</i>
                     </a>
                 </TimelineItem.Title>
 
                 <TimelineItem.Description>
-                    I am pursuing a dual degree in Computer Science at DHBW Karlsruhe while simultaneously working at
-                    dmTECH. During my studies in the field of computer science at DHBW, I not only acquire solid
-                    theoretical knowledge but also have the opportunity to apply it directly in practice at my
-                    workplace. This unique combination of theory and practical experience is truly invaluable and allows
-                    for comprehensive professional growth. In addition, I serve as class representative, coordinating with peers and supporting academic and organizational lectures.
+                    Appointed as an official lecturer for the Distributed Systems course in the Data Science and AI program at DHBW Karlsruhe.
+                    Preparing lecture modules, syllabus materials, and practical Python-based exercises for upcoming engineering students.
                 </TimelineItem.Description>
             </TimelineItem>
 
             <TimelineItem logo={"/images/dmtech.png"}>
                 <TimelineItem.Title>
                     <a href="">
-                        <b>Software Engineer @dmTECH </b>&nbsp;<i> Jan. 2023 - jul. 2023</i>
+                        <b>AI & ML Backend Engineer @ dmTECH</b>&nbsp;<i>Oct. 2026 - present</i>
                     </a>
                 </TimelineItem.Title>
 
                 <TimelineItem.Description>
-                    During my 6-month tenure at dmTECH, I actively contributed to Java Springboot and Apache Camel
-                    integrations, gaining valuable experience in (REST) API&apos;s, debugging and utilizing Git for
-                    version control. Taking the initiative to independently create a service was a rewarding and
-                    enjoyable experience. Additionally, I familiarized myself with Scrum and project management
-                    methodologies, further enhancing my software engineering skills.
+                    Transitioned into a full-time role as an AI & ML Backend Engineer after successfully completing my dual computer science degree (B.Sc., grade 1.2).
+                    Focused on building scalable Python (FastAPI) and Java Spring backends, machine learning classification pipelines, structured NLP/LLM workflows, and cloud-native data architectures on Google Cloud.
+                    Additionally, I supervise interns, lead onboarding workshops, and mentor incoming dual students.
+                </TimelineItem.Description>
+            </TimelineItem>
+
+            <TimelineItem logo={"/images/dhbw.png"}>
+                <TimelineItem.Title>
+                    <a href="">
+                        <b>Dual Computer Science Studies (B.Sc.) @ DHBW & dmTECH</b>&nbsp;<i>Oct. 2023 - Sep. 2026</i>
+                    </a>
+                </TimelineItem.Title>
+
+                <TimelineItem.Description>
+                    Completed my dual Bachelor of Science degree in Computer Science with a 1.2 grade point average.
+                    Successfully combined theoretical computer science with practical software engineering at dmTECH.
+                    Authored my Bachelor&apos;s thesis focusing on unsupervised clustering, embeddings, and temporal anomaly detection on real customer service data.
+                    Served as class representative and gained international experience during an academic exchange semester at NTNU in Trondheim, Norway (Autumn 2025).
+                </TimelineItem.Description>
+            </TimelineItem>
+
+            <TimelineItem logo={"/images/dmtech.png"}>
+                <TimelineItem.Title>
+                    <a href="">
+                        <b>Software Engineering Intern & Working Student @ dmTECH</b>&nbsp;<i>Jan. 2023 - Sep. 2026</i>
+                    </a>
+                </TimelineItem.Title>
+
+                <TimelineItem.Description>
+                    Contributed to Java Spring Boot and Apache Camel integrations, gained deep experience in REST APIs, event-driven architectures, and backend microservices.
+                    Gradually expanded my scope toward data engineering and machine learning, laying the groundwork for automated service center analytics and scalable data pipelines using BigQuery, dbt, and Python.
                 </TimelineItem.Description>
             </TimelineItem>
 
@@ -61,11 +68,10 @@ const TimelineContent = () => {
 
                 <TimelineItem.Description>
                     Attended a technical high school with a focus on STEM subjects. Served as class representative and graduated as the top student in my year.
-                    Participated in a <a className={"text-blue-500"} href={"https://nikolas-rummel.de/blog/math-camp"}> one-week mathematics camp in Belgium</a> to deepen analytical and problem-solving skills.
+                    Participated in a <a className={"text-blue-500"} href={"https://nikolas-rummel.de/blog/math-camp"}>one-week mathematics camp in Belgium</a> to deepen analytical and problem-solving skills.
                     Started coding early by developing Minecraft plugins, gradually moving to more complex projects such as scaling and administrating game servers for 100+ users.
                 </TimelineItem.Description>
             </TimelineItem>
-
 
         </Timeline>
     )

@@ -5,16 +5,20 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 const CodeWidget = () => {
-    const codeString = `const nikolas: Developer = {
-  status: "B.Sc. Computer Science Student",
-  techstack: {
-    backend: ["Java", "Spring Boot", "Microservices"],
-    frontend: ["React", "Next.js", "TypeScript"],
-    infrastructure: ["Docker", "GCP", "K8s"]
-    others: ["Intern Mentorship", "Organization of school programs at dmTECH"]
+    const codeString = `const nikolas: Engineer = {
+  role: "AI & ML Backend Engineer",
+  company: "dmTECH GmbH",
+  focus: ["Python", "LLM", "ML Pipelines", "Cloud & Data"],
+  stack: {
+    backend: ["FastAPI", "Python", "Java Spring Boot"],
+    data: ["Scikit-learn", "BigQuery", "dbt", "PostgreSQL"],
+    cloud: ["Google Cloud (GCP)", "Terraform", "Docker"]
   },
-  learning: ["Machine Learning", "Golang", "Kubernetes"],
-  passion: "Learning new things and teaching others"
+  teaching: {
+    academic: "Distributed Systems Lecturer @ DHBW",
+    mentorship: "Supervising Interns & Dual Students"
+  },
+  hobbies: ["Motorcycle Riding", "Hiking & Nature", "Piano"]
 };`;
 
     return (
