@@ -28,7 +28,7 @@ const TimelineContent = () => {
 
                 <TimelineItem.Description>
                     Transitioned into a full-time role as an AI & ML Backend Engineer after successfully completing my dual computer science degree (B.Sc., grade 1.2).
-                    Focused on building scalable Python (FastAPI) and Java Spring backends, machine learning classification pipelines, structured NLP/LLM workflows, and cloud-native data architectures on Google Cloud.
+                    Focused on building scalable Python (FastAPI) and Java Spring backends, machine learning classification pipelines, structured NLP workflows, and cloud-native data architectures on Google Cloud.
                     Additionally, I supervise interns, lead onboarding workshops, and mentor incoming dual students.
                 </TimelineItem.Description>
             </TimelineItem>
@@ -41,8 +41,8 @@ const TimelineContent = () => {
                 </TimelineItem.Title>
 
                 <TimelineItem.Description>
-                    Completed my dual Bachelor of Science degree in Computer Science with a 1.2 grade point average.
-                    Successfully combined theoretical computer science with practical software engineering at dmTECH.
+                    Completed my dual Bachelor of Science degree in Computer Science with a 1.2 grade point average and 1.0 thesis.
+                    Transitioned from fullstack development towards AI & ML engineering during my practical phases at dmTECH.
                     Authored my Bachelor&apos;s thesis focusing on unsupervised clustering, embeddings, and temporal anomaly detection on real customer service data.
                     Served as class representative and gained international experience during an academic exchange semester at NTNU in Trondheim, Norway (Autumn 2025).
                 </TimelineItem.Description>
@@ -51,13 +51,13 @@ const TimelineContent = () => {
             <TimelineItem logo={"/images/dmtech.png"}>
                 <TimelineItem.Title>
                     <a href="">
-                        <b>Software Engineering Intern & Working Student @ dmTECH</b>&nbsp;<i>Jan. 2023 - Sep. 2026</i>
+                        <b>Java Backend Engineer @ dmTECH</b>&nbsp;<i>Jan. 2023 - Sep. 2023</i>
                     </a>
                 </TimelineItem.Title>
 
                 <TimelineItem.Description>
-                    Contributed to Java Spring Boot and Apache Camel integrations, gained deep experience in REST APIs, event-driven architectures, and backend microservices.
-                    Gradually expanded my scope toward data engineering and machine learning, laying the groundwork for automated service center analytics and scalable data pipelines using BigQuery, dbt, and Python.
+                    Started working as a Java Backend Engineer alongside my final school phase (Abitur).
+                    Contributed to Java Spring Boot and Apache Camel integrations, gained deep experience in REST APIs, event-driven architectures, and backend microservices before officially starting my dual studies.
                 </TimelineItem.Description>
             </TimelineItem>
 
