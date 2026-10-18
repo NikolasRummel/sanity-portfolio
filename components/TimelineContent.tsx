@@ -61,7 +61,7 @@ const TimelineContent = () => {
                 </TimelineItem.Description>
             </TimelineItem>
 
-            <TimelineItem logo={"/images/aes.png"}>
+            <TimelineItem logo={"/images/aes.png"} last={true}>
                 <TimelineItem.Title>
                     <b>Technical Highschool (Abitur)</b>&nbsp;<i>Graduated 2023</i>
                 </TimelineItem.Title>
