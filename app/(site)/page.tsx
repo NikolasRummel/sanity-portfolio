@@ -1,8 +1,9 @@
 import Image from 'next/image'
+import Link from "next/link";
 import TimelineContent from "@/components/TimelineContent";
 import React from "react";
 import {getProject} from "@/lib/content";
-import {Mail, ExternalLink, Download} from "lucide-react";
+import {Mail, ExternalLink, Download, ArrowRight} from "lucide-react";
 import {Github, Linkedin} from "@/components/icons";
 import BentoGrid from "@/components/BentoGrid";
 import {FadeIn, Float} from "@/components/MotionWrappers";
@@ -13,7 +14,6 @@ export default async function Home() {
 
     const projectSlugs = [
         "venade-cloud-distributed-game-infrastructure",
-        "algoexplorer",
         "time-tracking-dashboard",
         "semantic_search",
     ];
@@ -42,7 +42,7 @@ export default async function Home() {
                             </p>
 
                             <div className="mt-10 flex flex-wrap items-center gap-4 justify-center md:justify-start">
-                                <a href="mailto:rml.nikolas@gmail.com"
+                                <a href="mailto:kontakt@nikolas-rummel.de"
                                    className="group px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all shadow-lg shadow-blue-500/25 flex items-center gap-2">
                                     Contact Me <Mail size={18}
                                                      className="group-hover:translate-x-1 transition-transform"/>
@@ -80,11 +80,24 @@ export default async function Home() {
                                 </div>
                             </FadeIn>
                             <p className="mt-4 text-xs tracking-wider uppercase font-medium text-gray-400 dark:text-gray-500 flex items-center gap-1.5">
-                                <span>📍</span> Lofoten, Norway <span className="text-gray-300 dark:text-gray-700">|</span> Exchange Semester
+                                <span>📍</span> Karlsruhe, Germany
                             </p>
                         </div>
 
                     </div>
+                </section>
+                <section aria-label="KI für Unternehmen in Karlsruhe" lang="de" className="mt-10 md:-mt-24 mb-24 md:mb-32">
+                    <Link href="/ki-fuer-unternehmen"
+                          className="group flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl border border-teal-600/30 bg-teal-50 dark:bg-teal-950/30 dark:border-teal-400/30 p-6 md:p-8 hover:border-teal-600 dark:hover:border-teal-400 transition-colors">
+                        <div>
+                            <p className="mb-1 text-sm font-semibold uppercase tracking-wide text-teal-800 dark:text-teal-300">Für Unternehmen in Karlsruhe</p>
+                            <h2 className="text-2xl font-bold text-black dark:text-white">KI-Lösungen für kleine und mittlere Betriebe</h2>
+                            <p className="mt-2 mb-0 text-base text-gray-700 dark:text-gray-300">Postfach sortieren, Chatbot für eure Unterlagen, Rechnungen automatisch auslesen – mit festem Preis.</p>
+                        </div>
+                        <span className="shrink-0 inline-flex items-center gap-2 rounded-xl bg-teal-700 px-6 py-3 font-bold text-white group-hover:bg-teal-800 transition-colors">
+                            Zum Angebot <ArrowRight size={18} aria-hidden="true"/>
+                        </span>
+                    </Link>
                 </section>
             </div>
 
@@ -114,11 +127,11 @@ export default async function Home() {
                                 <span className="hidden md:block h-px w-32 bg-gradient-to-r from-zinc-800 to-transparent dark:from-zinc-200 dark:to-transparent"></span>
                             </h2>
 
-                            <a href="/projects"
+                            <Link href="/projects"
                                className="text-zinc-400 dark:text-zinc-500 hover:text-blue-400 dark:hover:text-blue-600 transition-colors text-sm font-bold flex items-center gap-1 group">
                                 View All Projects
                                 <ExternalLink size={14} className="group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform"/>
-                            </a>
+                            </Link>
                         </div>
 
                         {/* The Grid */}

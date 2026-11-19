@@ -2,10 +2,12 @@
 
 import React, {useState} from 'react';
 import Image from "next/image";
+import {useRouter} from "next/navigation";
 import {Post} from "@/types/post";
 import {formatDate} from "@/lib/utils";
 
 const BlogPostsGrid = ({posts}: { posts: Post[] }) => {
+    const router = useRouter();
     const [selectedCategory, setSelectedCategory] = useState("all");
 
     const categories = [
@@ -38,7 +40,7 @@ const BlogPostsGrid = ({posts}: { posts: Post[] }) => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {filteredArticles.map((article, index) => (
                     <div key={index} className="group grid-item h-4/5" onClick={() => {
-                        window.location.href = `/blog/${article.slug}`;
+                        router.push(`/blog/${article.slug}`);
                     }}>
                         <Image src={article.image} width="1000" height="1000" alt="Blog image" className="w-full h-96 object-cover rounded-xl group-hover:opacity-80 "/>
                         <h2 className="mt-2 mb-1">{article.title}</h2>

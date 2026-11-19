@@ -5,6 +5,7 @@ import Link from "next/link";
 import {usePathname} from "next/navigation";
 import {ThemeToggle} from "@/components/navbar/theme-toggle";
 import {CommandMenu} from "@/components/navbar/command-menu";
+import {siteConfig} from "@/config/site";
 
 export default function Navbar() {
     let pathname = usePathname() || "/";
@@ -13,31 +14,23 @@ export default function Navbar() {
             {({open}) => (
                 <>
                     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 lg:fixed lg:top-0 lg:left-0 lg:right-0 lg:z-50 lg:backdrop-blur-2xl">
-                        <div className="flex justfiy-between h-16">
+                        <div className="flex justify-between h-16">
                             <div className="flex justify-between w-full">
                                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8 sm:items-center">
-                                    <Link
-                                        href="/"
-                                        prefetch
-                                        className="text-gray-500 text-sm font-medium h-full inline-flex items-center px-1 pt-1"
-                                    >
-                                        Home
-                                    </Link>
-                                    <Link
-                                        href={"/blog"}
-                                        prefetch
-                                        className="text-gray-500 text-sm font-medium h-full inline-flex items-center px-1 pt-1"
-                                    >
-                                        Blog
-                                    </Link>
-
-                                    <Link
-                                        href={"/projects"}
-                                        prefetch
-                                        className="text-gray-500 text-sm font-medium h-full inline-flex items-center px-1 pt-1"
-                                    >
-                                        Projects
-                                    </Link>
+                                    {siteConfig.mainNav.map((item) => (
+                                        <Link
+                                            key={item.href}
+                                            href={item.href}
+                                            lang={item.lang}
+                                            prefetch
+                                            aria-current={pathname === item.href ? "page" : undefined}
+                                            className={`text-sm font-medium h-full inline-flex items-center px-1 pt-1 hover:text-teal-600 dark:hover:text-teal-400 ${
+                                                pathname === item.href ? "text-teal-600 dark:text-teal-400" : "text-gray-600 dark:text-gray-400"
+                                            }`}
+                                        >
+                                            {item.title}
+                                        </Link>
+                                    ))}
                                 </div>
                                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8 sm:items-center justify-end pt-2">
                                     <CommandMenu/>
@@ -87,40 +80,22 @@ export default function Navbar() {
 
                     <Disclosure.Panel className="sm:hidden">
                         <div className="pt-2 pb-3 space-y-1">
-                            <Link
-                                href="/"
-                                prefetch
-                                className={`${
-                                    pathname == "/"
-                                        ? "bg-teal-50  border-teal-500 text-teal-500 block pl-3 pr-4 py-2 border-l-4 text-base font-medium dark:bg-gray-800"
-                                        : "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-teal-500 block pl-3 pr-4 py-2 dark:hover:bg-gray-700 border-l-4 text-base font-medium dark:text-white"
-                                } `}
-                            >
-                                Home
-                            </Link>
-
-                            <Link
-                                href={"/blog"}
-                                prefetch
-                                className={`${
-                                    pathname == "/blog"
-                                        ? "bg-teal-50 border-teal-500 text-teal-500 block pl-3 pr-4 py-2 border-l-4 text-base font-medium dark:bg-gray-800"
-                                        : "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-teal-500 block pl-3 pr-4 py-2 dark:hover:bg-gray-700 border-l-4 text-base font-medium dark:text-white"
-                                } `}
-                            >
-                                Blog
-                            </Link>
-                            <Link
-                                href={"/projects"}
-                                prefetch
-                                className={`${
-                                    pathname == "/projects"
-                                        ? "bg-teal-50 border-teal-500 text-teal-500 block pl-3 pr-4 py-2 border-l-4 text-base font-medium dark:bg-gray-800"
-                                        : "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-teal-500 block pl-3 pr-4 py-2 dark:hover:bg-gray-700 border-l-4 text-base font-medium dark:text-white"
-                                } `}
-                            >
-                                Projects
-                            </Link>
+                            {siteConfig.mainNav.map((item) => (
+                                <Link
+                                    key={item.href}
+                                    href={item.href}
+                                    lang={item.lang}
+                                    prefetch
+                                    aria-current={pathname === item.href ? "page" : undefined}
+                                    className={`${
+                                        pathname == item.href
+                                            ? "bg-teal-50  border-teal-500 text-teal-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium dark:bg-gray-800 dark:text-teal-400"
+                                            : "border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-teal-600 block pl-3 pr-4 py-2 dark:hover:bg-gray-700 border-l-4 text-base font-medium dark:text-white"
+                                    } `}
+                                >
+                                    {item.title}
+                                </Link>
+                            ))}
                         </div>
                     </Disclosure.Panel>
                 </>

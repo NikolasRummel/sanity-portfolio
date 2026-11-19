@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import {useRouter} from "next/navigation";
 import ButtonLink from "@/components/ButtonLink";
 import { Project } from "@/types/project";
 
@@ -11,11 +12,12 @@ interface ProjectCardProps {
 }
 
 const ProjectCardSmall = ({ project, background, border }: ProjectCardProps) => {
+    const router = useRouter();
     return (
         <div
             className="rounded-3xl hover:scale-[1.03] transition-all duration-300 group cursor-pointer h-full"
             onClick={() => {
-                window.location.href = `/projects/${project.slug}`;
+                router.push(`/projects/${project.slug}`);
             }}
         >
             <div className={`relative h-full w-full overflow-hidden border rounded-3xl bg-gradient-to-b ${background} flex flex-col`}>

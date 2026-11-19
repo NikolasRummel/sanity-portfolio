@@ -127,7 +127,7 @@ const BentoGrid = () => {
                             <h3 className="font-bold text-white dark:text-zinc-900 leading-tight">Distributed Systems<br/>Lecturer
                             </h3>
                             <p className="text-[11px] text-zinc-500 dark:text-zinc-400 leading-tight mt-1 font-medium">
-                                DHBW Karlsruhe (Summer 2027)<br/>
+                                DHBW Karlsruhe (Summer Semester 2027)<br/>
                                 <span className="text-[9px] text-sky-400/80 uppercase tracking-wide">Data Science & AI Program</span>
                             </p>
                         </div>

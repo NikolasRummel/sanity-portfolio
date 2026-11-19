@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from "next/image";
+import {useRouter} from "next/navigation";
 import {Post} from "@/types/post";
 import ButtonLink from "@/components/ButtonLink";
 
@@ -10,10 +11,11 @@ interface FeaturedBlogPostCardProps {
 }
 
 const FeaturedBlogPostCard = ({post}: FeaturedBlogPostCardProps) => {
+    const router = useRouter();
     return (
         <div className="space-y-2 text-left hover:cursor-pointer group"
              onClick={() => {
-                 window.location.href = `/blog/${post.slug}`;
+                 router.push(`/blog/${post.slug}`);
              }}
         >
             <div className="grid grid-cols-1 md:grid-cols-2 md:gap-8">

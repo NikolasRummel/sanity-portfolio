@@ -22,7 +22,7 @@ const TimelineContent = () => {
             <TimelineItem logo={"/images/dmtech.png"}>
                 <TimelineItem.Title>
                     <a href="">
-                        <b>AI & ML Backend Engineer @ dmTECH</b>&nbsp;<i>Oct. 2026 - present</i>
+                        <b>AI & ML Backend Engineer @ dmTECH</b>&nbsp;<i>since Oct. 2026</i>
                     </a>
                 </TimelineItem.Title>
 
