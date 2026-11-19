@@ -1,54 +1,69 @@
-import React from "react";
+import type {Metadata} from "next"
+import React from "react"
+import Placeholder from "@/components/legal/Placeholder"
+import {siteConfig} from "@/config/site"
+
+export const metadata: Metadata = {
+    title: "Impressum",
+    robots: {index: false},
+}
+
+const heading = "mt-12 mb-2 block text-base font-semibold tracking-wide text-center text-sky-600 dark:text-teal-400 uppercase"
 
 export default function Impress() {
     return (
-        <div className="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 mt-32 min-h-screen">
-            <h1 className="mb-28">
-                <span
-                    className="block text-base font-semibold tracking-wide text-center text-sky-600 dark:text-teal-400 uppercase">
-                  Impress
+        <div lang="de" className="max-w-3xl w-full mx-auto px-4 sm:px-6 lg:px-8 mt-32 min-h-screen">
+            <h1 className="mb-16 text-center">
+                <span className="block text-base font-semibold tracking-wide text-sky-600 dark:text-teal-400 uppercase">
+                    Impressum
                 </span>
-                <span className="block max-w-2xl mx-auto mt-2 text-4xl font-bold leading-10 text-center ">
-                    Information pursuant to § 5 TMG
+                <span className="block mt-2 text-4xl font-bold leading-10">
+                    Angaben gemäß § 5 DDG
                 </span>
             </h1>
+
             <p>
                 Nikolas Rummel<br/>
                 Laurentiusstr. 56<br/>
-                Karlsruhe, Germany<br/>
-            </p>
-            <p>
-                E-Mail Address: <u>hello@nikolas.rummel.de</u>
+                <Placeholder>PLZ</Placeholder> Karlsruhe<br/>
             </p>
 
-            <span
-                className="mt-16 block text-base font-semibold tracking-wide text-center text-sky-600 dark:text-teal-400 uppercase">
-                Liability for Contents
-            </span>
+            <h2 className={heading}>Kontakt</h2>
             <p>
-                As a service provider, I am liable for my own contents on this website
-                according to Sec. 7, paragraph 1 of the German Telemedia Act (TMG). However,
-                according to Sec. 8 to 10 of the German Telemedia Act (TMG), I am not obligated
-                to permanently monitor submitted or stored information or to search for evidence
-                that indicates illegal activities.
-            </p>
-            <p>
-                Legal obligations to remove information or to block the use of
-                information remain unchallenged. In this case, liability is only possible
-                at the time of knowledge about a specific violation of law. Illegal
-                contents will be removed immediately upon my knowledge of them.
+                E-Mail: <a className="underline" href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a><br/>
+                Telefon: <Placeholder>Telefonnummer (oder anderer schneller Kontaktweg)</Placeholder>
             </p>
 
-            <span
-                className="block text-base font-semibold tracking-wide text-center text-sky-600 dark:text-teal-400 uppercase">
-                Liability for Links
-            </span>
+            <h2 className={heading}>Umsatzsteuer</h2>
             <p>
-                My website includes links to external third-party websites. I do not
-                have influence over the contents of those websites; therefore, I cannot
-                guarantee their contents. Providers or administrators of linked
-                websites are always responsible for their own contents.
+                <Placeholder>Umsatzsteuer-ID nach § 27a UStG, falls vorhanden. Andernfalls Hinweis zur Kleinunternehmerregelung (§ 19 UStG) falls zutreffend. Bitte mit Steuerberatung klären.</Placeholder>
+            </p>
+
+            <h2 className={heading}>Haftung für Inhalte</h2>
+            <p>
+                Als Diensteanbieter bin ich nach den allgemeinen Gesetzen für eigene Inhalte auf diesen
+                Seiten verantwortlich (§ 7 Abs. 1 DDG). Nach den §§ 8 bis 10 DDG bin ich jedoch nicht
+                verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach
+                Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+            </p>
+            <p>
+                Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den
+                allgemeinen Gesetzen bleiben unberührt. Eine Haftung ist erst ab dem Zeitpunkt der Kenntnis
+                einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden entsprechender Rechtsverletzungen
+                werde ich diese Inhalte umgehend entfernen.
+            </p>
+
+            <h2 className={heading}>Haftung für Links</h2>
+            <p>
+                Diese Website enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen
+                Einfluss habe. Für diese fremden Inhalte kann ich keine Gewähr übernehmen. Für die Inhalte
+                der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich.
+            </p>
+
+            <p className="mt-12 text-sm text-gray-600 dark:text-gray-400">
+                Hinweis: Die Haftungshinweise sind aus der bisherigen englischen Fassung übernommen und von
+                TMG auf DDG angepasst. Bitte rechtlich prüfen lassen.
             </p>
         </div>
-    );
+    )
 }
