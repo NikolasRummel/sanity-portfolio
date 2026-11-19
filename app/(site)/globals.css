@@ -1,8 +1,7 @@
 @import 'prism-themes/themes/prism-one-dark.min.css';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@config '../../tailwind.config.js';
 
 @layer base {
   h1 {

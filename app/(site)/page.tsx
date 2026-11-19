@@ -2,7 +2,8 @@ import Image from 'next/image'
 import TimelineContent from "@/components/TimelineContent";
 import React from "react";
 import {getProject} from "@/lib/sanity/sanity-utils";
-import {Github, Linkedin, Mail, ExternalLink, Download} from "lucide-react";
+import {Mail, ExternalLink, Download} from "lucide-react";
+import {Github, Linkedin} from "@/components/icons";
 import BentoGrid from "@/components/BentoGrid";
 import {FadeIn, Float} from "@/components/MotionWrappers";
 import FeaturedProjectsGrid from "@/components/FeaturedProjectsGrid";

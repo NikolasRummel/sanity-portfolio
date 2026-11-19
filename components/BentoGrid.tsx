@@ -1,13 +1,13 @@
 "use client"; // Required for Framer Motion in Next.js App Router
 
 import React from 'react';
-import {motion} from 'framer-motion';
+import {motion, type Variants} from 'framer-motion';
 import {Cpu, Database, Layers, GraduationCap, Cloud} from "lucide-react";
 import CodeWidget from "@/components/CodeWidget";
 
 const BentoGrid = () => {
     // Container variant for staggering children
-    const containerVariants = {
+    const containerVariants: Variants = {
         hidden: {opacity: 0},
         visible: {
             opacity: 1,
@@ -19,7 +19,7 @@ const BentoGrid = () => {
     };
 
     // Individual card variant
-    const itemVariants = {
+    const itemVariants: Variants = {
         hidden: {y: 20, opacity: 0},
         visible: {
             y: 0,

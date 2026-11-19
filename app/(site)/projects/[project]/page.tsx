@@ -5,11 +5,11 @@ import {MdxContent} from "@/components/mdx-content";
 import React from "react";
 
 type Props = {
-    params: { project: string }
+    params: Promise<{ project: string }>
 }
 
 export default async function Project({params}: Props) {
-    const slug = params.project;
+    const slug = (await params).project;
     const project = await getProject(slug);
     const serialized = await serializeMdx(project.content);
     const publishedOn = new Date(project._createdAt).toLocaleDateString(

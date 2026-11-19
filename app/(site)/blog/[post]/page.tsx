@@ -2,12 +2,12 @@ import {getBlogPost} from "@/lib/sanity/sanity-utils";
 import BlogPostContent from "@/components/BlogPostContent";
 
 type Props = {
-    params: { post: string }
+    params: Promise<{ post: string }>
 }
 
 
 export default async function BlogPost({params}: Props) {
-    const slug = params.post;
+    const slug = (await params).post;
     const post = await getBlogPost(slug);
 
     return (
