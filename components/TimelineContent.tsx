@@ -68,7 +68,7 @@ const TimelineContent = () => {
 
                 <TimelineItem.Description>
                     Attended a technical high school with a focus on STEM subjects. Served as class representative and graduated as the top student in my year.
-                    Participated in a <a className={"text-blue-500"} href={"https://nikolas-rummel.de/blog/math-camp"}>one-week mathematics camp in Belgium</a> to deepen analytical and problem-solving skills.
+                    Participated in a <a className={"text-blue-500"} href={"/blog/math-camp"}>one-week mathematics camp in Belgium</a> to deepen analytical and problem-solving skills.
                     Started coding early by developing Minecraft plugins, gradually moving to more complex projects such as scaling and administrating game servers for 100+ users.
                 </TimelineItem.Description>
             </TimelineItem>
