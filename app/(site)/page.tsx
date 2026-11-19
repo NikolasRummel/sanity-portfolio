@@ -1,12 +1,13 @@
 import Image from 'next/image'
 import TimelineContent from "@/components/TimelineContent";
 import React from "react";
-import {getProject} from "@/lib/sanity/sanity-utils";
+import {getProject} from "@/lib/content";
 import {Mail, ExternalLink, Download} from "lucide-react";
 import {Github, Linkedin} from "@/components/icons";
 import BentoGrid from "@/components/BentoGrid";
 import {FadeIn, Float} from "@/components/MotionWrappers";
 import FeaturedProjectsGrid from "@/components/FeaturedProjectsGrid";
+import {Project} from "@/types/project";
 
 export default async function Home() {
 
@@ -17,9 +18,9 @@ export default async function Home() {
         "semantic_search",
     ];
 
-    const projects = await Promise.all(
-        projectSlugs.map((slug) => getProject(slug))
-    );
+    const projects = projectSlugs
+        .map((slug) => getProject(slug))
+        .filter((p): p is Project => !!p);
 
     return (
         <div className="overflow-x-hidden">

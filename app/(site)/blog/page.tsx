@@ -1,13 +1,13 @@
-import {getBlogPost, getBlogPosts} from "@/lib/sanity/sanity-utils";
+import {getBlogPost, getBlogPosts} from "@/lib/content";
 import {Post} from "@/types/post";
 import React from 'react';
 import FeaturedBlogPostCard from "@/components/FeaturedBlogPostCard";
 import BlogPostsGrid from "@/components/BlogPostsGrid";
 
 export default async function Blog() {
-    const featuredPost: Post = await getBlogPost("math-camp");
-    const allPosts: Post[] = await getBlogPosts();
-    const posts: Post[] = allPosts.filter((post) => post.title !== featuredPost.title);
+    const allPosts: Post[] = getBlogPosts();
+    const featuredPost: Post = allPosts.find((p) => p.slug === "math-camp") ?? allPosts[0];
+    const posts: Post[] = allPosts.filter((post) => post.slug !== featuredPost.slug);
 
     return (
         <div className="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 my-32 ">

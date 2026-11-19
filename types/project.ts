@@ -1,10 +1,9 @@
 export type Project = {
-    _id: string,
-    _createdAt: Date,
-    name: string,
-    slug: string,
-    image: string,
-    url: string,
-    description: string,
+    slug: string;
+    name: string;
+    image: string;
+    url: string;
+    description: string;
     content: string;
-}
+    createdAt: string;
+};

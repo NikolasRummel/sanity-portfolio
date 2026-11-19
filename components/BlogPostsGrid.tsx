@@ -16,7 +16,7 @@ const BlogPostsGrid = ({posts}: { posts: Post[] }) => {
 
     const filteredArticles = posts.filter(post => {
         if (selectedCategory === "all") return true;
-        return post.category.toString() === selectedCategory.toString();
+        return post.category.includes(selectedCategory);
     });
 
     return (
@@ -43,7 +43,7 @@ const BlogPostsGrid = ({posts}: { posts: Post[] }) => {
                         <Image src={article.image} width="1000" height="1000" alt="Blog image" className="w-full h-96 object-cover rounded-xl group-hover:opacity-80 "/>
                         <h2 className="mt-2 mb-1">{article.title}</h2>
                         <div className="relative flex">
-                            <p className="text-base">{formatDate(article._createdAt)}</p>
+                            <p className="text-base">{formatDate(article.createdAt)}</p>
                             {/* <p className="text-base absolute right-0">6 min read</p>*/}
                         </div>
                     </div>

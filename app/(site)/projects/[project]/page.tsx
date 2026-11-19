@@ -1,18 +1,24 @@
-import {getProject} from "@/lib/sanity/sanity-utils";
+import {getProject, getProjects} from "@/lib/content";
 import Image from "next/image"
 import {serializeMdx} from "@/lib/mdx";
 import {MdxContent} from "@/components/mdx-content";
 import React from "react";
+import {notFound} from "next/navigation";
 
 type Props = {
     params: Promise<{ project: string }>
 }
 
+export function generateStaticParams() {
+    return getProjects().map((x) => ({project: x.slug}));
+}
+
 export default async function Project({params}: Props) {
     const slug = (await params).project;
-    const project = await getProject(slug);
+    const project = getProject(slug);
+    if (!project) notFound();
     const serialized = await serializeMdx(project.content);
-    const publishedOn = new Date(project._createdAt).toLocaleDateString(
+    const publishedOn = new Date(project.createdAt).toLocaleDateString(
         "US",
         {
             year: 'numeric',

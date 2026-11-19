@@ -11,7 +11,7 @@ interface BlogPostContentProps {
 const BlogPostContent = async ({post}: BlogPostContentProps) => {
 
 
-    const publishedOn = new Date(post._createdAt).toLocaleDateString(
+    const publishedOn = new Date(post.createdAt).toLocaleDateString(
         "US",
         {
             year: 'numeric',
