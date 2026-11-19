@@ -14,11 +14,6 @@ const nextConfig = {
                 hostname: 'cdn.discordapp.com',
                 port: ''
             },
-            {
-                protocol: 'https',
-                hostname: 'res.cloudinary.com',
-                port: ''
-            },
         ]
     }
 }

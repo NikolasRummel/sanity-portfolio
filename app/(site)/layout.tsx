@@ -6,7 +6,6 @@ import {fontSans} from "@/lib/fonts"
 import {cn} from "@/lib/utils"
 import {TailwindIndicator} from "@/components/navbar/tailwind-indicator"
 import {ThemeProvider} from "@/components/navbar/theme-provider"
-import {Analytics} from "@vercel/analytics/next"
 import light from "@/public/images/light.png"
 import Image from "next/image";
 import Navbar from "@/components/navbar/navbar";
@@ -50,7 +49,6 @@ export default function RootLayout({children}: RootLayoutProps) {
 
             <main className="w-full">
                 {children}
-                <Analytics/>
             </main>
 
             <TailwindIndicator/>
