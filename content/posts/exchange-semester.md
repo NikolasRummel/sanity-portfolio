@@ -1,7 +1,7 @@
 ---
 title: "Exchange Semester @NTNU Trondheim, Norway"
 slug: "exchange-semester"
-image: "https://cdn.sanity.io/images/6elo1maj/production/3ac778db7c9f28dd4232de86eea41b189d5cf170-1200x787.jpg"
+image: "/images/content/exchange-semester-1200x787.jpg"
 imageAlt: "ntnu building"
 category: ["personal", "education"]
 createdAt: "2025-10-18T16:01:13Z"
@@ -27,8 +27,8 @@ Overall, studying here has been a mix of challenging coursework, amazing people,
 
 Check out some photos from my trip to Lofoten and snapshots of daily life here in Trondheim below!
 
-![alt](https://cdn.sanity.io/images/6elo1maj/production/7e3bba049f7984a2f9947ba86b5ab41938122ad2-1024x768.jpg?w=450)
-![alt](https://cdn.sanity.io/images/6elo1maj/production/9884efde0e04bdb92daf400a176e45a376397665-1024x768.jpg?w=450)
-![alt](https://cdn.sanity.io/images/6elo1maj/production/9b7f0863cb72b96d4e915a42312c7512add716a1-480x360.jpg?w=450)
-![alt](https://cdn.sanity.io/images/6elo1maj/production/ba998dee01c40f27666f6cebe9406d9fc86d96af-1024x768.jpg?w=450)
-![alt](https://cdn.sanity.io/images/6elo1maj/production/d6072ad3be6a4c52fc17760d516fddd0f1984485-768x1024.jpg?w=450)
+![alt](/images/content/exchange-semester-1024x768.jpg)
+![alt](/images/content/exchange-semester-1024x768.jpg)
+![alt](/images/content/exchange-semester-480x360.jpg)
+![alt](/images/content/exchange-semester-1024x768.jpg)
+![alt](/images/content/exchange-semester-768x1024.jpg)

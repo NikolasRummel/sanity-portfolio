@@ -2,7 +2,7 @@
 title: "Venade Cloud — Distributed Game Infrastructure"
 slug: "venade-cloud-distributed-game-infrastructure"
 description: "High-performance backend infrastructure designed to orchestrate and scale a global network of game servers for Hytale"
-image: "https://cdn.sanity.io/images/6elo1maj/production/06ae4820221be6a394fdb3bc753342e31f2d0a75-1383x498.png"
+image: "/images/content/venade-cloud-distributed-game-infrastructure-1383x498.png"
 imageAlt: "architecture image"
 url: "https://venade.net/"
 createdAt: "2026-01-22T20:02:40Z"

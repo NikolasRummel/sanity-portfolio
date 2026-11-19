@@ -2,7 +2,7 @@
 title: "Mathcamp in Belgium: My Impressions on Mathematical Modeling and Python"
 slug: "math-camp"
 description: "In this blog post, I will share my experience attending a math camp in Belgium focused on mathematical modeling and Python. Join me as I delve into the world of problem-solving, mathematical concepts, and the exciting world of programming with Python. "
-image: "https://cdn.sanity.io/images/6elo1maj/production/0bc09062e0497f81f0590d8cccc07793fc35bcf8-1280x960.jpg"
+image: "/images/content/math-camp-1280x960.jpg"
 imageAlt: "alt"
 category: ["personal", "education"]
 createdAt: "2023-07-25T16:58:04Z"
@@ -232,13 +232,8 @@ plt.show()
 ```
 
 ## Output
-![output](https://cdn.discordapp.com/attachments/1134098500829851659/1134098602403299418/algorithm_output.png)
 
 # Images
-![our room](https://cdn.discordapp.com/attachments/1134098500829851659/1134098604911497327/our_room.jpg)<br/>
-![work](https://cdn.discordapp.com/attachments/1134098500829851659/1134098611492368544/working.jpg)<br/>
-![team](https://cdn.discordapp.com/attachments/1134098500829851659/1134098610838057021/vortrag.jpeg)<br/>
-![all participants](https://cdn.discordapp.com/attachments/1134098500829851659/1134098602776612904/all.jpg "all participants and supervisors")
 
 Go back [Home](/).
 

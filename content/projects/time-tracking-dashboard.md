@@ -2,7 +2,7 @@
 title: "Time Tracking Dashboard"
 slug: "time-tracking-dashboard"
 description: "GitLab analytics dashboard developed for a DHBW software engineering project to visualize issue-based time tracking; the tool is now utilized by the Software Engineering professor as a demonstration tool during lectures."
-image: "https://cdn.sanity.io/images/6elo1maj/production/317a73f59485be9ab4e77af40a3fee549190dca9-3456x2234.gif"
+image: "/images/content/time-tracking-dashboard-3456x2234.gif"
 imageAlt: "demo"
 url: "https://github.com/NikolasRummel/gitlab-timetracking-analysis/tree/main"
 createdAt: "2026-01-22T20:06:26Z"

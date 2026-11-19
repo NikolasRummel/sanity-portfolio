@@ -2,7 +2,7 @@
 title: "Semantic Search for a CSM Tool"
 slug: "semantic_search"
 description: "Exploring semantic search for a Customer Service Management tool at dmTECH, using Python to process data, create vectors, and simulate queries."
-image: "https://cdn.sanity.io/images/6elo1maj/production/85cd728b76b0db9c41157c18679bd0177d9ef845-1640x1384.png"
+image: "/images/content/semantic_search-1640x1384.png"
 imageAlt: "vector space"
 createdAt: "2025-10-18T21:45:33Z"
 updatedAt: "2025-11-04T23:28:23Z"
