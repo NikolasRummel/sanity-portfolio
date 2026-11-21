@@ -2,7 +2,7 @@ import './globals.css'
 import {Metadata, Viewport} from "next"
 
 import {siteConfig} from "@/config/site"
-import {fontSans} from "@/lib/fonts"
+import {fontDisplay, fontSans} from "@/lib/fonts"
 import {cn} from "@/lib/utils"
 import {TailwindIndicator} from "@/components/navbar/tailwind-indicator"
 import {ThemeProvider} from "@/components/navbar/theme-provider"
@@ -39,10 +39,10 @@ interface RootLayoutProps {
 export default function RootLayout({children}: RootLayoutProps) {
     return (
         <html lang="en" suppressHydrationWarning>
-        <body className={cn("min-h-screen bg-background font-sans", fontSans.variable, "overflow-x-hidden")}>
+        <body className={cn("min-h-screen font-sans", fontSans.variable, fontDisplay.variable)}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <div className="relative z-[-1]">
-                <Image className="absolute -top-80 left-20" src={light} alt="" width={924} height={718} unoptimized/>
+            <div className="beam-wrap">
+                <Image className="beam" src={light} alt="" width={924} height={718} unoptimized priority/>
             </div>
 
             <Navbar/>

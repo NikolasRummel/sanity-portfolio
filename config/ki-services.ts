@@ -17,9 +17,9 @@ export const kiServices = {
     },
 
     hero: {
-        eyebrow: "Für Betriebe in Karlsruhe und Umgebung",
-        title: "Weniger Routine im Büro. Mehr Zeit für euer Geschäft.",
-        text: "Ich richte KI-Helfer ein, die euch Mail-, Such- und Schreibarbeit abnehmen – verständlich erklärt, mit festem Preis und ohne Technik-Wissen auf eurer Seite.",
+        title: "Weniger Routine. Mehr Zeit für euer Geschäft.",
+        text: "Ich richte KI-Helfer ein, die euch Mail-, Such- und Schreibarbeit abnehmen.",
+        note: "Für Betriebe in Karlsruhe und Umgebung, verständlich erklärt, mit festem Preis und ohne Technik-Wissen auf eurer Seite.",
     },
 
     // Zwei Demos direkt unter dem Hero

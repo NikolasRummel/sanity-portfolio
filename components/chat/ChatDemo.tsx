@@ -1,6 +1,6 @@
 "use client"
 
-import {useEffect, useRef, useState} from "react"
+import {useEffect, useRef, useState, useSyncExternalStore} from "react"
 import {AnimatePresence, motion, useInView, useReducedMotion} from "framer-motion"
 import {Bot, FileText, RotateCcw} from "lucide-react"
 import {cn} from "@/lib/utils"
@@ -27,7 +27,10 @@ function Dots() {
  * Startet erst im Sichtfeld, läuft in Schleife, zeigt bei reduzierter Bewegung alles statisch.
  */
 export default function ChatDemo({scenario, className, minHeight = "h-[26rem]"}: {scenario: ChatScenario; className?: string; minHeight?: string}) {
-    const reduce = useReducedMotion()
+    const prefersReduced = useReducedMotion()
+    const mounted = useSyncExternalStore(() => () => {}, () => true, () => false)
+    // erst nach dem Mounten auswerten, sonst weicht das Client-HTML vom Server-HTML ab
+    const reduce = mounted && !!prefersReduced
     const ref = useRef<HTMLDivElement>(null)
     const scroller = useRef<HTMLDivElement>(null)
     const inView = useInView(ref, {amount: 0.4})
