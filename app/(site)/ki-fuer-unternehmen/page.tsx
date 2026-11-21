@@ -1,8 +1,12 @@
 import type {Metadata} from "next"
-import {ArrowRight, CheckCircle2, ShieldCheck} from "lucide-react"
+import {notFound} from "next/navigation"
+import {ArrowRight, CheckCircle2, FileText, Mail, MessageSquare, ShieldCheck} from "lucide-react"
+import ChatDemo from "@/components/chat/ChatDemo"
+import HeroPreview from "@/components/radar/HeroPreview"
+import {handbuchChat, kundenChat} from "@/config/chat-scenarios"
 import {FadeIn} from "@/components/MotionWrappers"
 import {ctaHref, kiServices as c} from "@/config/ki-services"
-import {siteConfig} from "@/config/site"
+import {showKiServices, siteConfig} from "@/config/site"
 
 export const metadata: Metadata = {
     title: c.meta.title,
@@ -17,6 +21,8 @@ export const metadata: Metadata = {
     },
 }
 
+const packageIcons = {postfach: Mail, chatbot: MessageSquare, rechnungen: FileText}
+
 function CtaButton({className = ""}: {className?: string}) {
     return (
         <a
@@ -30,18 +36,52 @@ function CtaButton({className = ""}: {className?: string}) {
 }
 
 export default function KiFuerUnternehmen() {
+    if (!showKiServices) notFound()
     return (
         <div lang="de" className="overflow-x-hidden">
-            {/* 1. Hero */}
-            <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 md:pt-44 md:pb-28">
-                <FadeIn className="max-w-3xl">
-                    <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-teal-800 dark:text-teal-300">{c.hero.eyebrow}</p>
-                    <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">{c.hero.title}</h1>
-                    <p className="mt-6 text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">{c.hero.text}</p>
-                    <div className="mt-10">
-                        <CtaButton/>
-                    </div>
-                </FadeIn>
+            {/* 1. Hero mit Live-Chat-Demo */}
+            <section className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16 md:pt-44 md:pb-24">
+                <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 -top-10 -z-10 h-[32rem] bg-[radial-gradient(ellipse_at_70%_20%,rgba(20,184,166,0.18),transparent_60%)]"/>
+                <div className="grid items-center gap-12 lg:grid-cols-2">
+                    <FadeIn>
+                        <p className="mb-4 inline-block rounded-full border border-teal-700/30 bg-teal-50 px-3 py-1 text-sm font-semibold text-teal-900 dark:bg-teal-950/40 dark:text-teal-200">{c.hero.eyebrow}</p>
+                        <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">{c.hero.title}</h1>
+                        <p className="mt-6 text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">{c.hero.text}</p>
+                        <div className="mt-10 flex flex-wrap items-center gap-4">
+                            <CtaButton/>
+                            <a href="#demos" className="font-bold underline underline-offset-4">Demos ansehen</a>
+                        </div>
+                    </FadeIn>
+                    <FadeIn delay={0.15}><ChatDemo scenario={handbuchChat}/></FadeIn>
+                </div>
+            </section>
+
+            {/* Zwei Demos */}
+            <section id="demos" aria-labelledby="demos-titel" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 scroll-mt-24">
+                <h2 id="demos-titel" className="font-bold text-3xl md:text-4xl tracking-tight">{c.demos.title}</h2>
+                <p className="mt-3 text-lg text-gray-700 dark:text-gray-300">{c.demos.intro}</p>
+                <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-2">
+                    <article className="flex flex-col rounded-3xl border border-gray-200 bg-zinc-50 p-6 dark:border-gray-800 dark:bg-zinc-900/40">
+                        <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-teal-800 dark:text-teal-300">{c.demos.radar.eyebrow}</p>
+                        <h3 className="text-2xl font-bold tracking-tight">{c.demos.radar.title}</h3>
+                        <p className="mt-2 text-base text-gray-700 dark:text-gray-300">{c.demos.radar.text}</p>
+                        <div className="my-4 flex-1"><HeroPreview/></div>
+                        <a href={c.demos.radar.href} className="group inline-flex items-center gap-2 font-bold text-teal-800 hover:text-teal-900 dark:text-teal-300">
+                            {c.demos.radar.label}
+                            <ArrowRight size={18} aria-hidden="true" className="transition-transform group-hover:translate-x-1"/>
+                        </a>
+                    </article>
+                    <article className="flex flex-col rounded-3xl border border-gray-200 bg-zinc-50 p-6 dark:border-gray-800 dark:bg-zinc-900/40">
+                        <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-teal-800 dark:text-teal-300">{c.demos.chat.eyebrow}</p>
+                        <h3 className="text-2xl font-bold tracking-tight">{c.demos.chat.title}</h3>
+                        <p className="mt-2 text-base text-gray-700 dark:text-gray-300">{c.demos.chat.text}</p>
+                        <div className="my-4 flex-1"><ChatDemo scenario={kundenChat} minHeight="h-[19rem]"/></div>
+                        <a href={ctaHref()} className="group inline-flex items-center gap-2 font-bold text-teal-800 hover:text-teal-900 dark:text-teal-300">
+                            {c.demos.chat.label}
+                            <ArrowRight size={18} aria-hidden="true" className="transition-transform group-hover:translate-x-1"/>
+                        </a>
+                    </article>
+                </div>
             </section>
 
             {/* 2. Pakete */}
@@ -52,7 +92,15 @@ export default function KiFuerUnternehmen() {
                     <ul className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3">
                         {c.packages.items.map((p) => (
                             <li key={p.id}
-                                className="flex flex-col rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-zinc-950">
+                                className="flex flex-col rounded-2xl border border-gray-200 bg-white p-6 transition-shadow hover:shadow-lg hover:shadow-teal-900/10 dark:border-gray-800 dark:bg-zinc-950">
+                                {(() => {
+                                    const Icon = packageIcons[p.id]
+                                    return (
+                                        <span className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-teal-100 text-teal-800 dark:bg-teal-900/40 dark:text-teal-300">
+                                            <Icon size={24} aria-hidden="true"/>
+                                        </span>
+                                    )
+                                })()}
                                 <h3 className="text-xl font-bold text-black dark:text-white">{p.name}</h3>
                                 <p className="mt-3 mb-6 flex-1 text-base text-gray-700 dark:text-gray-300">{p.result}</p>
                                 <dl className="flex items-end justify-between border-t border-gray-200 pt-4 dark:border-gray-800">

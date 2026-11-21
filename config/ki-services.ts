@@ -22,6 +22,25 @@ export const kiServices = {
         text: "Ich richte KI-Helfer ein, die euch Mail-, Such- und Schreibarbeit abnehmen – verständlich erklärt, mit festem Preis und ohne Technik-Wissen auf eurer Seite.",
     },
 
+    // Zwei Demos direkt unter dem Hero
+    demos: {
+        title: "Zwei Demos zum Anschauen",
+        intro: "Beide laufen mit erfundenen Beispieldaten. So seht ihr in einer Minute, was möglich ist.",
+        radar: {
+            eyebrow: "Postfach-Radar",
+            title: "Auffälligkeiten im Postfach sofort sehen",
+            text: "Themen entdecken, Verläufe mit Alarmen ansehen und neue Anfragen live einordnen lassen.",
+            label: "Interaktive Demo öffnen",
+            href: "/ki-fuer-unternehmen/postfach-radar",
+        },
+        chat: {
+            eyebrow: "Chatbot für eure Unterlagen",
+            title: "Fragen stellen, Antworten mit Quelle bekommen",
+            text: "Der Bot kennt eure Dokumente, antwortet in normaler Sprache und sagt dazu, wo es steht.",
+            label: "Das möchte ich für meinen Betrieb",
+        },
+    },
+
     packages: {
         title: "Drei Pakete mit festem Rahmen",
         intro: "Jedes Paket löst eine konkrete Aufgabe. Der genaue Preis steht im Angebot nach unserem Gespräch.",

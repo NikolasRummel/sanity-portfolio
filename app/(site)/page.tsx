@@ -9,6 +9,7 @@ import BentoGrid from "@/components/BentoGrid";
 import {FadeIn, Float} from "@/components/MotionWrappers";
 import FeaturedProjectsGrid from "@/components/FeaturedProjectsGrid";
 import {Project} from "@/types/project";
+import {showKiServices} from "@/config/site";
 
 export default async function Home() {
 
@@ -86,7 +87,7 @@ export default async function Home() {
 
                     </div>
                 </section>
-                <section aria-label="KI für Unternehmen in Karlsruhe" lang="de" className="mt-10 md:-mt-24 mb-24 md:mb-32">
+                {showKiServices && <section aria-label="KI für Unternehmen in Karlsruhe" lang="de" className="mt-10 md:-mt-24 mb-24 md:mb-32">
                     <Link href="/ki-fuer-unternehmen"
                           className="group flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl border border-teal-600/30 bg-teal-50 dark:bg-teal-950/30 dark:border-teal-400/30 p-6 md:p-8 hover:border-teal-600 dark:hover:border-teal-400 transition-colors">
                         <div>
@@ -98,7 +99,7 @@ export default async function Home() {
                             Zum Angebot <ArrowRight size={18} aria-hidden="true"/>
                         </span>
                     </Link>
-                </section>
+                </section>}
             </div>
 
             <BentoGrid/>

@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import {showKiServices} from '@/config/site'
 
 const Footer = () => {
     return (
@@ -41,7 +42,7 @@ const Footer = () => {
                                     <ul className="space-y-4 text-sm">
                                         <li><Link href="/">Home</Link></li>
                                         <li><Link href="/projects">Projects</Link></li>
-                                        <li><Link href="/ki-fuer-unternehmen" lang="de">KI für Unternehmen</Link></li>
+                                        {showKiServices && <li><Link href="/ki-fuer-unternehmen" lang="de">KI für Unternehmen</Link></li>}
                                     </ul>
                                 </nav>
                             </div>
