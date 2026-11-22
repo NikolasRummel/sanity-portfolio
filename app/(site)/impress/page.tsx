@@ -1,6 +1,5 @@
 import type {Metadata} from "next"
 import React from "react"
-import Placeholder from "@/components/legal/Placeholder"
 
 export const metadata: Metadata = {
     title: "Impressum",
@@ -23,11 +22,6 @@ export default function Impress() {
             <h2 >Kontakt</h2>
             <p>
                 E-Mail: <a href="mailto:rml.nikolas@gmail.com">rml.nikolas@gmail.com</a>
-            </p>
-
-            <h2 >Umsatzsteuer</h2>
-            <p>
-                <Placeholder>Umsatzsteuer-ID nach § 27a UStG, falls vorhanden. Andernfalls Hinweis zur Kleinunternehmerregelung (§ 19 UStG) falls zutreffend. Bitte mit Steuerberatung klären.</Placeholder>
             </p>
 
             <h2 >Haftung für Inhalte</h2>
