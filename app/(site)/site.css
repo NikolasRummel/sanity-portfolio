@@ -274,3 +274,8 @@
 @media (min-width: 64rem) { .journey { grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: var(--space-3xl); } .journey__product { position: sticky; top: 6rem; } }
 @media (min-width: 64rem) { .journey--single { grid-template-columns: minmax(0, 1fr); } }
 
+
+/* Postfach-Radar: kurzes Aufleuchten der Themenzeile, wenn eine Anfrage dort einsortiert wurde */
+@keyframes radar-hit { from { background: var(--color-accent-soft); } to { background: transparent; } }
+.radar-hit { animation: radar-hit 1.2s var(--ease-out, ease-out) both; }
+@media (prefers-reduced-motion: reduce) { .radar-hit { animation: none; } }

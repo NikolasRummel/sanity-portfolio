@@ -1,11 +1,14 @@
 "use client"
 
-import {useMemo, useState, type KeyboardEvent} from "react"
+import {useMemo, useRef, useState, type KeyboardEvent} from "react"
 import {AnimatePresence, motion} from "framer-motion"
 import {AlertTriangle, BarChart3, Layers, ScanSearch, TrendingUp} from "lucide-react"
 import {MapChart, TrendChart} from "@/components/radar/RadarCharts"
 import {cn} from "@/lib/utils"
 import {findSpikes, formatDay, formatNumber, radar, shortTitle, topics} from "@/lib/radar"
+import {useClassifier} from "@/lib/radar-client"
+import ClassifyResult from "@/components/radar/ClassifyResult"
+import Placeholders from "@/components/radar/Placeholders"
 
 const TABS = [
     {id: "overview", label: "Übersicht", icon: BarChart3},
@@ -109,18 +112,6 @@ function ThresholdSlider({value, onChange}: { value: number; onChange: (v: numbe
             <span>Alarm ab {formatNumber(value, 1)} Standardabweichungen über dem Normalwert
                 <span className="text-(--color-muted)"> (niedriger = mehr Alarme)</span></span>
         </label>
-    )
-}
-
-function Placeholders({text}: { text: string }) {
-    return (
-        <>
-            {text.split(/(\[[A-Z_]+\])/).map((part, i) =>
-                /^\[[A-Z_]+\]$/.test(part)
-                    ? <span key={i} className="mx-0.5 rounded-md bg-(--color-accent-soft) px-1.5 py-0.5 text-xs font-bold text-(--color-ink)">{part}</span>
-                    : <span key={i}>{part}</span>,
-            )}
-        </>
     )
 }
 
@@ -240,56 +231,71 @@ function MapView({clusterId, onSelect}: { clusterId: number; onSelect: (id: numb
 }
 
 function Classify() {
-    const [index, setIndex] = useState(0)
-    const probe = radar.probes[index]
-    const unsure = probe.probability < 0.6
+    const {state, run} = useClassifier()
+    const [text, setText] = useState("")
+    const [last, setLast] = useState("")
+    const input = useRef<HTMLTextAreaElement>(null)
+    const loading = state.status === "loading"
+
+    const submit = (value: string) => {
+        const v = value.trim()
+        if (!v || loading) return
+        setLast(v)
+        void run(v)
+    }
+    /** Beispiel ins Textfeld übernehmen, nicht sofort senden. */
+    const fill = (value: string) => {
+        setText(value)
+        requestAnimationFrame(() => {
+            const el = input.current
+            if (!el) return
+            el.focus()
+            el.setSelectionRange(value.length, value.length)
+        })
+    }
+
     return (
         <div className="space-y-5">
             <p className="mb-0 text-sm text-(--color-ink-2)">
-                Wählt eine Beispiel-Anfrage. Der Radar entfernt persönliche Angaben und ordnet sie einem Thema zu, so wie jede neue Nachricht im Postfach.
+                Schreibt eine Anfrage oder übernehmt ein Beispiel ins Textfeld. Die Anfrage geht an die echte Pipeline: Sie wird anonymisiert, eingebettet und einem Thema zugeordnet, so wie jede neue Nachricht im Postfach.
             </p>
             <div className="grid gap-5 lg:grid-cols-2">
-                <ul className="space-y-2" aria-label="Beispiel-Anfragen">
-                    {radar.probes.map((p, i) => (
-                        <li key={p.text}>
-                            <button onClick={() => setIndex(i)} aria-pressed={i === index}
-                                    className={cn(
-                                        "w-full rounded-xl border p-3 text-left text-sm transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-(--color-focus)",
-                                        i === index ? "border-(--color-accent) bg-(--color-accent-soft)" : "border-(--color-rule) hover:border-(--color-accent)",
-                                    )}>
-                                {p.text}
+                <div className="space-y-3">
+                    <form onSubmit={(e) => { e.preventDefault(); submit(text) }} className="grid gap-2">
+                        <label htmlFor="radar-classify-input" className="text-sm font-bold">Eigene Anfrage</label>
+                        <div className="relative">
+                            <textarea id="radar-classify-input" ref={input} value={text} onChange={(e) => setText(e.target.value)} rows={4} maxLength={600}
+                                      onKeyDown={(e) => { if ((e.metaKey || e.ctrlKey) && e.key === "Enter") { e.preventDefault(); submit(text) } }}
+                                      placeholder="z. B. Mein Gutscheincode wird im Warenkorb nicht akzeptiert …"
+                                      className="w-full resize-none rounded-xl border border-(--color-rule) bg-(--color-paper) p-3 pb-7 text-base transition-shadow focus:border-(--color-accent) focus:outline-none focus:ring-2 focus:ring-(--color-accent)/30"/>
+                            <span className="pointer-events-none absolute bottom-2 right-3 text-xs tabular-nums text-(--color-muted)">{text.length}/600</span>
+                        </div>
+                        <div className="flex flex-wrap items-center gap-3">
+                            <button type="submit" disabled={!text.trim() || loading} className="btn" style={{minHeight: 44}}>
+                                {loading ? "Wird eingeordnet …" : "Einordnen"}
                             </button>
-                        </li>
-                    ))}
-                </ul>
-                <AnimatePresence mode="wait">
-                    <motion.div key={index} initial={{opacity: 0, y: 8}} animate={{opacity: 1, y: 0}} exit={{opacity: 0}} transition={{duration: 0.18}}
-                                className={cn(card, "space-y-4 p-5 lg:sticky lg:top-24 lg:self-start")} aria-live="polite">
-                        <div>
-                            <p className="mb-1 text-sm font-medium text-(--color-muted)">1. Anonymisiert</p>
-                            <p className="mb-0 text-sm leading-relaxed text-(--color-ink)"><Placeholders text={probe.anonymized}/></p>
                         </div>
-                        <div>
-                            <p className="mb-1 text-sm font-medium text-(--color-muted)">2. Thema</p>
-                            <p className="mb-0 text-xl font-bold text-(--color-accent-hi)">{probe.title}</p>
-                        </div>
-                        <div>
-                            <p className="mb-1 text-sm font-medium text-(--color-muted)">3. Sicherheit</p>
-                            <div className="flex items-center gap-3">
-                                <div className="h-2 flex-1 rounded-full bg-(--color-paper-3)" role="img" aria-label={`Sicherheit ${Math.round(probe.probability * 100)} Prozent`}>
-                                    <div className="h-2 rounded-full bg-(--color-accent)" style={{width: `${probe.probability * 100}%`}}/>
-                                </div>
-                                <span className="text-sm font-bold tabular-nums">{Math.round(probe.probability * 100)} %</span>
-                            </div>
-                            {unsure && (
-                                <p className="mb-0 mt-2 flex items-start gap-2 text-sm text-(--r-alert)">
-                                    <AlertTriangle size={16} className="mt-0.5 shrink-0" aria-hidden="true"/>
-                                    Eher unsicher: Die Nachricht passt zu mehreren Themen. Der Radar würde sie zur Kontrolle markieren.
-                                </p>
-                            )}
-                        </div>
-                    </motion.div>
-                </AnimatePresence>
+                    </form>
+                    <div>
+                        <p className="mb-1.5 text-xs text-(--color-muted)">Beispiel ins Textfeld übernehmen:</p>
+                        <ul className="space-y-2" aria-label="Beispiel-Anfragen">
+                            {radar.probes.map((p) => (
+                                <li key={p.text}>
+                                    <button type="button" onClick={() => fill(p.text)} aria-pressed={text === p.text}
+                                            className={cn(
+                                                "w-full rounded-xl border p-3 text-left text-sm transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-(--color-focus)",
+                                                text === p.text ? "border-(--color-accent) bg-(--color-accent-soft)" : "border-(--color-rule) hover:border-(--color-accent)",
+                                            )}>
+                                        {p.text}
+                                    </button>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+                <div className="lg:sticky lg:top-24 lg:self-start">
+                    <ClassifyResult state={state} onRetry={() => submit(last)} className={cn(card, "p-5")}/>
+                </div>
             </div>
         </div>
     )
