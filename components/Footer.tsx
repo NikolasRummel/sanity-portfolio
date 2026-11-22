@@ -37,7 +37,7 @@ const Footer = () => {
                             <li><Link href="/">Startseite</Link></li>
                             <li><Link href="/projects">Projekte</Link></li>
                             <li><Link href="/blog">Blog</Link></li>
-                            <li><Link href="/ki-fuer-unternehmen/postfach-radar#demo" lang="de">Live-Demo: Postfach-Radar</Link></li>
+                            {showKiServices && <li><Link href="/ki-fuer-unternehmen/postfach-radar#demo" lang="de">Live-Demo: Postfach-Radar</Link></li>}
                             {showKiServices && <li><Link href="/ki-fuer-unternehmen" lang="de">KI für Unternehmen</Link></li>}
                         </ul>
                     </nav>
