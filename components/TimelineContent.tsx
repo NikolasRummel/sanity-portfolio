@@ -1,6 +1,7 @@
 'use client';
 
 import {Timeline, TimelineItem} from './TimeLine';
+import {showKiServices} from '@/config/site';
 
 const TimelineContent = () => {
 
@@ -43,7 +44,7 @@ const TimelineContent = () => {
                 <TimelineItem.Description>
                     Duales Bachelorstudium der Informatik mit einem Notendurchschnitt von 1,2 und einer Bachelorarbeit mit der Note 1,0 abgeschlossen.
                     In den Praxisphasen bei dmTECH habe ich mich von der Fullstack-Entwicklung hin zu AI & ML Engineering entwickelt.
-                    Meine Bachelorarbeit zu unüberwachtem Clustering, Embeddings und zeitlicher Anomalieerkennung auf echten Kundenservice-Daten habe ich anschließend als Produkt umgesetzt: den Postfach-Radar.
+                    {showKiServices && "Meine Bachelorarbeit zu unüberwachtem Clustering, Embeddings und zeitlicher Anomalieerkennung auf echten Kundenservice-Daten habe ich anschließend als Produkt umgesetzt: den Postfach-Radar. "}
                     Außerdem war ich Kurssprecher und habe bei einem Auslandssemester an der NTNU in Trondheim, Norwegen (Herbst 2025) internationale Erfahrung gesammelt.
                 </TimelineItem.Description>
             </TimelineItem>

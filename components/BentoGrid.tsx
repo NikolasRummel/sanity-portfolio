@@ -6,6 +6,7 @@ import Link from "next/link";
 import {ArrowRight} from "lucide-react";
 import CodeWidget from "@/components/CodeWidget";
 import MiniRadar from "@/components/radar/MiniRadar";
+import {showKiServices} from "@/config/site";
 
 const BentoGrid = () => {
     const containerVariants: Variants = {
@@ -62,6 +63,7 @@ const BentoGrid = () => {
                             Studiengang Data Science & KI
                         </p>
                     </motion.div>
+                    {showKiServices && (
                     <motion.div variants={itemVariants} className="cap__tile cap__demo" lang="de">
                             <div>
                                 <p className="small">Live-Demo</p>
@@ -76,6 +78,7 @@ const BentoGrid = () => {
                             </div>
                             <MiniRadar/>
                         </motion.div>
+                    )}
                 </div>
             </motion.div>
         </section>
