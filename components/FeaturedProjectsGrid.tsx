@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { Project } from "@/types/project";
-import ProjectCard from "@/components/ProjectCard";
 import ProjectCardSmall from "@/components/ProjectCardSmall";
 
 interface FeaturedLandingGridProps {
@@ -10,8 +9,7 @@ interface FeaturedLandingGridProps {
 }
 
 const FeaturedLandingGrid = ({ projects }: FeaturedLandingGridProps) => {
-    // Exact color arrays from your existing component
-    const backgroundColors: string[] = [
+        const backgroundColors: string[] = [
         "from-[#4f79ff] to-[#a8caff]/20 dark:from-[#1b4dff]/20 dark:to-[#4f79ff] dark:border-[#1b4dff] border-[#4f79ff]",
         "from-[#2bd5f8] to-[#c5f4ff]/20 dark:from-[#0a6f8e]/20 dark:to-[#2bd5f8] dark:border-[#0a6f8e] border-[#2bd5f8]",
         "from-[#1eeabf] to-[#b6fff0]/20 dark:from-[#068d6d]/20 dark:to-[#1eeabf] dark:border-[#068d6d] border-[#1eeabf]",

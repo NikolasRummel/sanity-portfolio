@@ -19,7 +19,7 @@ export default async function Project({params}: Props) {
     if (!project) notFound();
     const serialized = await serializeMdx(project.content);
     const publishedOn = new Date(project.createdAt).toLocaleDateString(
-        "US",
+        "de-DE",
         {
             year: 'numeric',
             month: 'long',
@@ -27,41 +27,32 @@ export default async function Project({params}: Props) {
         }
     );
     return (
-        <section className="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 container grid items-center gap-6 pb-8 pt-6 md:py-10">
-            <div>
-                <h1 className="my-16">
-                    <span className="block  mx-auto mt-2 text-4xl font-bold leading-10 text-center sm:text-5xl">
-                  {project.name}
-                </span>
-                    <span
-                        className="mt-2 block text-base font-semibold tracking-wide text-center text-sky-600 dark:text-teal-400 uppercase">
-                  {publishedOn}
-                </span>
-                </h1>
+        <section className="ki page container" style={{paddingBottom: "var(--section-gap-s)"}}>
+            <header className="page-head" style={{maxWidth: "44rem", marginInline: "auto"}}>
+                <h1>{project.name}</h1>
+                <p className="small">{publishedOn}</p>
+            </header>
 
-                {project.image && (
-                    <div className="items-center">
-                        <Image
-                            src={project.image}
-                            alt={":("}
-                            width={4299}
-                            height={2499}
-                            priority
-                        />
-                    </div>
-                )}
-
-                <div className="flex justify-center mt-32">
-                    <a target="_blank" rel="noopener noreferrer"
-                       href={project.url}
-                       className="bg-gray-100 rounded-lg text-gray-500 font-bold py-3 px-4 whitespace-nowrap hover:bg-teal-500 hover:text-teal-100 transition">
-                        View project on Github
-                    </a>
+            {project.image && (
+                <div className="article-cover">
+                    <Image
+                        src={project.image}
+                        alt=""
+                        width={4299}
+                        height={2499}
+                        priority
+                    />
                 </div>
+            )}
 
-                <div className={'mt-32'}>
-                    <MdxContent source={serialized.serialized}/>
-                </div>
+            <div style={{display: "flex", justifyContent: "center", marginBottom: "var(--space-2xl)"}}>
+                <a target="_blank" rel="noopener noreferrer" href={project.url} className="btn">
+                    Projekt auf GitHub ansehen
+                </a>
+            </div>
+
+            <div className="prose">
+                <MdxContent source={serialized.serialized}/>
             </div>
         </section>
     )

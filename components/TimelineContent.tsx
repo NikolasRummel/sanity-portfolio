@@ -9,42 +9,42 @@ const TimelineContent = () => {
             <TimelineItem logo={"/images/dhbw.png"}>
                 <TimelineItem.Title>
                     <a href="">
-                        <b>Lecturer for Distributed Systems @ DHBW Karlsruhe</b>&nbsp;<i>Summer Semester 2027</i>
+                        <b>Dozent für Verteilte Systeme @ DHBW Karlsruhe</b>&nbsp;<i>Sommersemester 2027</i>
                     </a>
                 </TimelineItem.Title>
 
                 <TimelineItem.Description>
-                    Appointed as an official lecturer for the Distributed Systems course in the Data Science and AI program at DHBW Karlsruhe.
-                    Preparing lecture modules, syllabus materials, and practical Python-based exercises for upcoming engineering students.
+                    Offiziell berufen als Dozent für die Vorlesung Verteilte Systeme im Studiengang Data Science und KI an der DHBW Karlsruhe.
+                    Ich bereite Vorlesungsmodule, Lehrmaterialien und praktische Python-Übungen für die kommenden Studierenden vor.
                 </TimelineItem.Description>
             </TimelineItem>
 
             <TimelineItem logo={"/images/dmtech.png"}>
                 <TimelineItem.Title>
                     <a href="">
-                        <b>AI & ML Backend Engineer @ dmTECH</b>&nbsp;<i>Oct. 2026 - present</i>
+                        <b>AI & ML Backend Engineer @ dmTECH</b>&nbsp;<i>seit Okt. 2026</i>
                     </a>
                 </TimelineItem.Title>
 
                 <TimelineItem.Description>
-                    Transitioned into a full-time role as an AI & ML Backend Engineer after successfully completing my dual computer science degree (B.Sc., grade 1.2).
-                    Focused on building scalable Python (FastAPI) and Java Spring backends, machine learning classification pipelines, structured NLP workflows, and cloud-native data architectures on Google Cloud.
-                    Additionally, I supervise interns, lead onboarding workshops, and mentor incoming dual students.
+                    Nach dem erfolgreichen Abschluss meines dualen Informatikstudiums (B.Sc.) in die Vollzeitstelle als AI & ML Backend Engineer gewechselt.
+                    Schwerpunkt: skalierbare Python-(FastAPI)- und Java-Spring-Backends, Machine-Learning-Klassifikationspipelines, strukturierte NLP-Workflows und Cloud-native Datenarchitekturen auf der Google Cloud.
+                    Zusätzlich betreue ich Praktikanten, leite Onboarding-Workshops und begleite neue duale Studierende.
                 </TimelineItem.Description>
             </TimelineItem>
 
             <TimelineItem logo={"/images/dhbw.png"}>
                 <TimelineItem.Title>
                     <a href="">
-                        <b>Dual Computer Science Studies (B.Sc.) @ DHBW & dmTECH</b>&nbsp;<i>Oct. 2023 - Sep. 2026</i>
+                        <b>Duales Informatikstudium (B.Sc.) @ DHBW & dmTECH</b>&nbsp;<i>Okt. 2023 - Sep. 2026</i>
                     </a>
                 </TimelineItem.Title>
 
                 <TimelineItem.Description>
-                    Completed my dual Bachelor of Science degree in Computer Science with a 1.2 grade point average and 1.0 thesis.
-                    Transitioned from fullstack development towards AI & ML engineering during my practical phases at dmTECH.
-                    Authored my Bachelor&apos;s thesis focusing on unsupervised clustering, embeddings, and temporal anomaly detection on real customer service data.
-                    Served as class representative and gained international experience during an academic exchange semester at NTNU in Trondheim, Norway (Autumn 2025).
+                    Duales Bachelorstudium der Informatik mit einem Notendurchschnitt von 1,2 und einer Bachelorarbeit mit der Note 1,0 abgeschlossen.
+                    In den Praxisphasen bei dmTECH habe ich mich von der Fullstack-Entwicklung hin zu AI & ML Engineering entwickelt.
+                    Meine Bachelorarbeit zu unüberwachtem Clustering, Embeddings und zeitlicher Anomalieerkennung auf echten Kundenservice-Daten habe ich anschließend als Produkt umgesetzt: den Postfach-Radar.
+                    Außerdem war ich Kurssprecher und habe bei einem Auslandssemester an der NTNU in Trondheim, Norwegen (Herbst 2025) internationale Erfahrung gesammelt.
                 </TimelineItem.Description>
             </TimelineItem>
 
@@ -56,20 +56,8 @@ const TimelineContent = () => {
                 </TimelineItem.Title>
 
                 <TimelineItem.Description>
-                    Started working as a Java Backend Engineer alongside my final school phase (Abitur).
-                    Contributed to Java Spring Boot and Apache Camel integrations, gained deep experience in REST APIs, event-driven architectures, and backend microservices before officially starting my dual studies.
-                </TimelineItem.Description>
-            </TimelineItem>
-
-            <TimelineItem logo={"/images/aes.png"} last={true}>
-                <TimelineItem.Title>
-                    <b>Technical Highschool (Abitur)</b>&nbsp;<i>Graduated 2023</i>
-                </TimelineItem.Title>
-
-                <TimelineItem.Description>
-                    Attended a technical high school with a focus on STEM subjects. Served as class representative and graduated as the top student in my year.
-                    Participated in a <a className={"text-blue-500"} href={"https://nikolas-rummel.de/blog/math-camp"}>one-week mathematics camp in Belgium</a> to deepen analytical and problem-solving skills.
-                    Started coding early by developing Minecraft plugins, gradually moving to more complex projects such as scaling and administrating game servers for 100+ users.
+                    Neben der letzten Schulphase (Abitur) als Java Backend Engineer gestartet.
+                    Mitarbeit an Java-Spring-Boot- und Apache-Camel-Integrationen und viel Erfahrung mit REST-APIs, ereignisgesteuerten Architekturen und Backend-Microservices, bevor mein duales Studium begann.
                 </TimelineItem.Description>
             </TimelineItem>
 

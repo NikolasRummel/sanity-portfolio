@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import ButtonLink from "@/components/ButtonLink";
+import {useRouter} from "next/navigation";
 import { Project } from "@/types/project";
 
 interface ProjectCardProps {
@@ -11,11 +11,12 @@ interface ProjectCardProps {
 }
 
 const ProjectCardSmall = ({ project, background, border }: ProjectCardProps) => {
+    const router = useRouter();
     return (
         <div
             className="rounded-3xl hover:scale-[1.03] transition-all duration-300 group cursor-pointer h-full"
             onClick={() => {
-                window.location.href = `/projects/${project.slug}`;
+                router.push(`/projects/${project.slug}`);
             }}
         >
             <div className={`relative h-full w-full overflow-hidden border rounded-3xl bg-gradient-to-b ${background} flex flex-col`}>
@@ -40,10 +41,17 @@ const ProjectCardSmall = ({ project, background, border }: ProjectCardProps) => 
                     </p>
 
                     <div className="mt-auto pt-4">
-                        <ButtonLink
-                            text="View Project"
+<a
                             href={`/projects/${project.slug}`}
-                        />
+                            className="group/btn inline-flex items-center rounded-full px-6 py-2.5 font-semibold text-white dark:text-black bg-black/30 dark:bg-white/80 no-underline hover:text-white"
+                        >
+                            Projekt ansehen
+                            <svg className="mt-0.5 ml-2 -mr-1 stroke-2 stroke-white dark:stroke-black" fill="none"
+                                 width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
+                                <path className="transition opacity-0 group-hover/btn:opacity-100" d="M0 5h7"></path>
+                                <path className="transition group-hover/btn:translate-x-[3px]" d="M1 1l4 4-4 4"></path>
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>

@@ -6,8 +6,10 @@ export default async function Projects() {
     const projects: Project[] = getProjects();
 
     return (
-        <div className="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 mt-32">
-            <ProjectsGrid projects={projects} showSearchBar={true}/>
+        <div className="ki page">
+            <div className="container" style={{paddingBottom: "var(--section-gap-s)"}}>
+                <ProjectsGrid projects={projects} showSearchBar={true}/>
+            </div>
         </div>
     )
 }

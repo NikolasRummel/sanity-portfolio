@@ -1,94 +1,83 @@
+/* Hallmark · shape: Pinned run (KI page) · genre: atmospheric · theme: Refract (deal 1/3, seed personal-portfolio-freelance-software-bfa1·e7c06b7a·2026-11-21·r0) · redesign: full
+ * hero: Corridor-head over a Stage (KI page) · nav: floating pill · footer: mast · imagery: the product (chat demo, radar preview) · signature: a demo held in place while one package at a time scrolls past it, a screen each · refract: water/pool, the user's own light beam in place of the generated canvas, cool paper kept with a flat editorial structure, a mix by request
+ * axes: light/grotesk-sans/cool · posture: restrained · contrast: pass · fold: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V3 · weakest: V, the beam is the owner's image so the light cannot move */
+/* Hallmark · waive 44c · hero stage is the chat card plus the staircase that bleeds below it · the card is centred on the text and the staircase is decoration */
+/* Hallmark · waive 39b · the radar demo's cluster rows are buttons in a dense working view · 90px list rows are the content and wider than the 44px minimum target */
+/* Hallmark · waive 72 · radar demo rows sit inside bordered list cards · the 16px inset is the card padding on a dense panel */
+/* Hallmark · waive 79 · list, article and legal pages open on a short page head and then the content the visitor came for · the head is not a hero stage and the content follows directly under the fold */
+/* Hallmark · waive 49b · footer legal link at 320px, the owner's own wording · a wrapped legal link is readable and its text is not reworded */
 @import 'prism-themes/themes/prism-one-dark.min.css';
 
 @import 'tailwindcss';
 @config '../../tailwind.config.js';
+@import "./tokens.css";
+@import "./base.css" layer(base);
+@import "./site.css";
+
+/* The old teal utilities used by pages not yet redesigned follow the Refract accent. */
+@theme inline {
+  --color-teal-50: var(--color-accent-soft);
+  --color-teal-100: var(--color-accent-soft);
+  --color-teal-200: var(--color-shade);
+  --color-teal-300: var(--color-accent);
+  --color-teal-400: var(--color-accent);
+  --color-teal-500: var(--color-accent);
+  --color-teal-600: var(--color-accent);
+  --color-teal-700: var(--color-accent);
+  --color-teal-800: var(--color-accent-hi);
+  --color-teal-900: var(--color-accent-hi);
+  --color-teal-950: var(--color-accent-soft);
+}
 
 @layer base {
-  h1 {
-    @apply text-3xl font-semibold;
-  }
-  h2 {
-    @apply text-3xl font-semibold;
-  }
-  p {
-    @apply mb-4 text-xl
-  }
-  a {
-    @apply hover:text-blue-400;
-  }
-
   :root {
     --background: 58, 0%, 99%;
     --foreground: 222.2 84% 4.9%;
-
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
-
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-
     --primary: 222.2 47.4% 11.2%;
     --primary-foreground: 210 40% 98%;
-
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
-
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
-
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-
     --ring: 215 20.2% 65.1%;
-
     --radius: 0.5rem;
   }
 
   .dark {
     --background: 224 71% 4%;
     --foreground: 213 31% 91%;
-
     --muted: 223 47% 11%;
     --muted-foreground: 215.4 16.3% 56.9%;
-
     --accent: 216 34% 17%;
     --accent-foreground: 210 40% 98%;
-
     --popover: 224 71% 4%;
     --popover-foreground: 215 20.2% 65.1%;
-
     --border: 216 34% 17%;
     --input: 216 34% 17%;
-
     --card: 224 71% 4%;
     --card-foreground: 213 31% 91%;
-
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 1.2%;
-
     --secondary: 222.2 47.4% 11.2%;
     --secondary-foreground: 210 40% 98%;
-
     --destructive: 0 63% 31%;
     --destructive-foreground: 210 40% 98%;
-
     --ring: 216 34% 17%;
-
     --radius: 0.5rem;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
   }
 }

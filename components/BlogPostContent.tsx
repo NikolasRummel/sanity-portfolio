@@ -12,7 +12,7 @@ const BlogPostContent = async ({post}: BlogPostContentProps) => {
 
 
     const publishedOn = new Date(post.createdAt).toLocaleDateString(
-        "US",
+        "de-DE",
         {
             year: 'numeric',
             month: 'long',
@@ -22,39 +22,20 @@ const BlogPostContent = async ({post}: BlogPostContentProps) => {
 
     const serialized = await serializeMdx(post.content);
 
-    // @ts-ignore
     return (
         <div>
-            <h1 className="my-16">
-                    <span className="block  mx-auto mt-2 text-4xl font-bold leading-10 text-center sm:text-5xl">
-                  {post.title}
-                </span>
-                <span
-                    className="mt-2 block text-base font-semibold tracking-wide text-center text-sky-600 dark:text-teal-400 uppercase">
-                  {publishedOn}
-                </span>
-            </h1>
+            <header className="page-head" style={{maxWidth: "44rem", marginInline: "auto"}}>
+                <h1>{post.title}</h1>
+                <p className="small">{publishedOn}</p>
+            </header>
             {post.image && (
-                <div>
-                    <div
-                        className="aspect-video lg:aspect-[2/1]"
-                        style={{position: 'relative', overflow: 'hidden'}}
-                    >
-                        <Image
-                            className="rounded-3xl"
-                            layout="fill"
-                            sizes="100vw"
-                            objectFit="cover"
-                            src={post.image}
-                            alt={":("}
-                            priority
-                        />
-                    </div>
+                <div className="article-cover">
+                    <Image src={post.image} alt="" width={1600} height={800} sizes="100vw" priority style={{objectFit: "cover"}}/>
                 </div>
             )}
 
-            <div className={'mt-32'}>
-                <MdxContent source={serialized.serialized} />
+            <div className="prose">
+                <MdxContent source={serialized.serialized}/>
             </div>
         </div>
     );
