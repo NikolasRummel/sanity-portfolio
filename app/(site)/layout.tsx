@@ -18,7 +18,6 @@ export const metadata: Metadata = {
         template: `%s - ${siteConfig.name}`,
     },
     description: siteConfig.description,
-    alternates: {canonical: "/"},
     openGraph: {
         type: "website",
         locale: "de_DE",
@@ -34,8 +33,6 @@ export const metadata: Metadata = {
     },
     icons: {
         icon: "/favicon.ico",
-        shortcut: "/favicon-16x16.png",
-        apple: "/apple-touch-icon.png",
     },
 }
 

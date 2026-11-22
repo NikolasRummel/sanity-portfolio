@@ -1,8 +1,15 @@
+import type {Metadata} from "next";
 import {getBlogPosts} from "@/lib/content";
 import {Post} from "@/types/post";
 import React from 'react';
 import FeaturedBlogPostCard from "@/components/FeaturedBlogPostCard";
 import BlogPostsGrid from "@/components/BlogPostsGrid";
+
+export const metadata: Metadata = {
+    title: "Blog",
+    description: "Beiträge von Nikolas Rummel über Studium, Auslandssemester, Arbeit und Projekte.",
+    alternates: {canonical: "/blog"},
+}
 
 export default async function Blog() {
     const allPosts: Post[] = getBlogPosts();

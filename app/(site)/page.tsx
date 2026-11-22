@@ -1,3 +1,4 @@
+import type {Metadata} from "next";
 import Image from 'next/image'
 import Link from "next/link";
 import TimelineContent from "@/components/TimelineContent";
@@ -10,6 +11,10 @@ import {FadeIn} from "@/components/MotionWrappers";
 import FeaturedProjectsGrid from "@/components/FeaturedProjectsGrid";
 import {Project} from "@/types/project";
 import {showKiServices} from "@/config/site";
+
+export const metadata: Metadata = {
+    alternates: {canonical: "/"},
+}
 
 export default async function Home() {
 
