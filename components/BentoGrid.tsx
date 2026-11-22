@@ -34,13 +34,14 @@ const BentoGrid = () => {
                         <div>
                             <h3>AI & ML Backend Engineering</h3>
                             <p style={{marginTop: "var(--space-md)"}}>
-                                Ich baue robuste Architekturen für KI- und datenintensive Dienste und kombiniere skalierbare Python-(FastAPI)- und Java-(Spring)-Backends mit Machine-Learning-Pipelines, strukturierten LLM-Workflows und Cloud-nativen Datenplattformen.
+                                Bei dmTECH arbeite ich an der Automatisierung im Kundenservice. Dafür baue ich skalierbare Python-(FastAPI)- und Java-(Spring)-Backends, Machine-Learning-Pipelines und strukturierte NLP-Workflows auf der Google Cloud.
+                                {showKiServices && " Aus meiner Bachelorarbeit zu Embeddings, Clustering und Anomalieerkennung auf Kundenservice-Daten habe ich ein eigenes Produkt gemacht: den Postfach-Radar, den du weiter unten direkt ausprobieren kannst."}
                             </p>
                         </div>
                         <div>
                             <p className="small" style={{marginBottom: "var(--space-sm)"}}>Kern-Stack</p>
                             <div className="tags">
-                                {['Python', 'FastAPI', 'Java Spring', 'Google Cloud', 'PostgreSQL', 'BigQuery', 'Terraform'].map(t => (
+                                {['Python', 'FastAPI', 'Java Spring', 'LLMs', 'Embeddings', 'Vektordatenbanken', 'PostgreSQL', 'BigQuery', 'Google Cloud', 'Terraform'].map(t => (
                                     <span key={t} className="tag">{t}</span>
                                 ))}
                             </div>

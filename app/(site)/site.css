@@ -276,6 +276,6 @@
 
 
 /* Postfach-Radar: kurzes Aufleuchten der Themenzeile, wenn eine Anfrage dort einsortiert wurde */
-@keyframes radar-hit { from { background: var(--color-accent-soft); } to { background: transparent; } }
+@keyframes radar-hit { from { background: color-mix(in oklab, var(--color-accent) 40%, transparent); } to { background: var(--color-accent-soft); } }
 .radar-hit { animation: radar-hit 1.2s var(--ease-out, ease-out) both; }
 @media (prefers-reduced-motion: reduce) { .radar-hit { animation: none; } }

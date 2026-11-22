@@ -5,7 +5,7 @@ import {AnimatePresence, motion, useReducedMotion} from "framer-motion"
 import {AlertTriangle, RotateCcw, Send, Zap} from "lucide-react"
 import ClassifyResult from "@/components/radar/ClassifyResult"
 import {formatNumber, radar, topics} from "@/lib/radar"
-import {useClassifier} from "@/lib/radar-client"
+import {REVEAL_STEP, useClassifier} from "@/lib/radar-client"
 import {cn} from "@/lib/utils"
 
 const MAX_CHARS = 600
@@ -36,8 +36,10 @@ export default function MiniRadar() {
     const [hit, setHit] = useState<{id: number; n: number} | null>(null)
     const {state: api, run: classify, reset: resetApi} = useClassifier()
     const [running, setRunning] = useState(false)
+    const [busy, setBusy] = useState(false)
     const timer = useRef<ReturnType<typeof setInterval> | undefined>(undefined)
     const input = useRef<HTMLTextAreaElement>(null)
+    const epoch = useRef(0)
 
     useEffect(() => () => clearInterval(timer.current), [])
 
@@ -47,16 +49,24 @@ export default function MiniRadar() {
 
     const submit = async (raw: string) => {
         const value = raw.trim()
-        if (!value || loading) return
+        if (!value || loading || busy) return
         setLastInput(value)
+        const mine = epoch.current
+        setBusy(true)
         const r = await classify(value)
-        if (!r) return
+        if (!r || mine !== epoch.current) { if (mine === epoch.current) setBusy(false); return }
+        setText("")
+        // Die Themenliste rechts erst aktualisieren, wenn das Thema links eingeblendet wird (dritter Block).
+        if (!reduce) await new Promise((resolve) => setTimeout(resolve, REVEAL_STEP * 2 * 1000 + 200))
+        if (mine !== epoch.current) return
         if (r.topicId !== null) {
             const i = stats.findIndex((s) => s.id === r.topicId)
             setCounts((c) => c.map((n, k) => (k === i ? n + 1 : n)))
             setHit((h) => ({id: r.topicId as number, n: (h?.n ?? 0) + 1}))
+        } else {
+            setHit(null)
         }
-        setText("")
+        setBusy(false)
     }
 
     /** Beispiel in das Textfeld übernehmen (nicht senden), damit man es noch anpassen kann. */
@@ -84,14 +94,14 @@ export default function MiniRadar() {
 
     const reset = () => {
         clearInterval(timer.current)
-        setRunning(false); setCounts(initial()); setText(""); setHit(null); resetApi()
+        epoch.current++
+        setRunning(false); setBusy(false); setCounts(initial()); setText(""); setHit(null); resetApi()
     }
 
     const alarms = stats
         .map((s, i) => ({...s, count: counts[i], z: (counts[i] - s.mean) / s.sigma}))
         .filter((s) => s.count > s.threshold)
         .sort((a, b) => b.z - a.z)
-    const matched = topicId !== null ? stats.find((s) => s.id === topicId) : null
     const spring = reduce ? {duration: 0} : {type: "spring" as const, stiffness: 140, damping: 20}
 
     return (
@@ -119,7 +129,7 @@ export default function MiniRadar() {
                                 {text.length}/{MAX_CHARS}
                             </span>
                         </div>
-                        <button type="submit" disabled={!text.trim() || loading} className="btn justify-self-start" style={{minHeight: 48}}>
+                        <button type="submit" disabled={!text.trim() || loading || busy} className="btn justify-self-start" style={{minHeight: 48}}>
                             {loading ? "Wird eingeordnet …" : "Eingang simulieren"} <Send size={16} aria-hidden="true"/>
                         </button>
                     </form>
@@ -159,15 +169,24 @@ export default function MiniRadar() {
                             const over = counts[i] > s.threshold
                             const isHit = hit?.id === s.id
                             return (
-                                <li key={isHit ? `${s.id}-${hit?.n}` : s.id} className={cn("-mx-3 grid gap-2 rounded-lg px-3 py-2", isHit && "radar-hit")}>
+                                <li key={isHit ? `${s.id}-${hit?.n}` : s.id}
+                                    className={cn(
+                                        "-mx-3 grid gap-2 rounded-lg px-3 py-2 transition-colors duration-300",
+                                        isHit && "radar-hit bg-(--color-accent-soft)",
+                                    )}>
                                     <div className="flex items-baseline justify-between gap-4 text-sm">
-                                        <span className={matched?.id === s.id ? "font-bold" : ""}>{s.title}</span>
+                                        <span className="flex flex-wrap items-center gap-2">
+                                            <span className={isHit ? "font-bold text-(--color-ink)" : ""}>{s.title}</span>
+                                            {isHit && (
+                                                <span className="rounded-full bg-(--color-accent) px-2 py-0.5 text-[11px] font-bold leading-none text-(--color-accent-ink)">Erkannt</span>
+                                            )}
+                                        </span>
                                         <motion.span key={counts[i]} initial={reduce ? false : {scale: 1.35}} animate={{scale: 1}}
-                                                     className={cn("tabular-nums", over ? "font-bold text-amber-700 dark:text-amber-300" : "text-(--color-muted)")}>
+                                                     className={cn("tabular-nums", over ? "font-bold text-amber-700 dark:text-amber-300" : isHit ? "font-bold text-(--color-ink)" : "text-(--color-muted)")}>
                                             {formatNumber(counts[i])}
                                         </motion.span>
                                     </div>
-                                    <div className="relative h-2 rounded-full bg-(--color-paper)" role="img"
+                                    <div className={cn("relative h-2 rounded-full", isHit ? "bg-(--color-light)" : "bg-(--color-paper)")} role="img"
                                          aria-label={`${s.title}: ${counts[i]} Anfragen, Alarmschwelle ${Math.round(s.threshold)}`}>
                                         <motion.div className={cn("h-full rounded-full", over ? "bg-amber-500" : "bg-(--color-accent)")}
                                                     initial={false} animate={{width: `${(counts[i] / max) * 100}%`}} transition={spring}/>

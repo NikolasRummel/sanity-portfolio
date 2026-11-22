@@ -5,7 +5,7 @@ import {AnimatePresence, motion, useReducedMotion} from "framer-motion"
 import {AlertTriangle, Check, RotateCcw} from "lucide-react"
 import Placeholders from "@/components/radar/Placeholders"
 import {cn} from "@/lib/utils"
-import type {ClassifierState} from "@/lib/radar-client"
+import {REVEAL_STEP, type ClassifierState} from "@/lib/radar-client"
 
 const STEPS = ["Persönliche Daten entfernen", "Text einbetten", "Thema zuordnen"]
 
@@ -72,34 +72,40 @@ export default function ClassifyResult({state, onRetry, className}: {
 
                 {state.status === "done" && (
                     <motion.div key="done" initial="hidden" animate="show" exit={{opacity: 0}}
-                                variants={{show: {transition: {staggerChildren: reduce ? 0 : 0.14}}}} className="grid gap-5">
+                                variants={{show: {transition: {staggerChildren: reduce ? 0 : REVEAL_STEP}}}} className="grid gap-5">
                         {(() => {
                             const r = state.result
                             const pct = Math.round(r.probability * 100)
-                            const item = {hidden: reduce ? {} : {opacity: 0, y: 8}, show: {opacity: 1, y: 0, transition: {duration: 0.25}}}
+                            const item = {hidden: reduce ? {} : {opacity: 0, y: 8}, show: {opacity: 1, y: 0, transition: {duration: 0.35}}}
+                            const label = "mb-1.5 text-xs font-medium uppercase tracking-wide text-(--color-muted)"
                             return (
                                 <>
                                     <motion.div variants={item}>
-                                        <p className="mb-1 text-xs font-medium uppercase tracking-wide text-(--color-muted)">Eingang → anonymisiert</p>
-                                        <p className="mb-1 text-(--color-muted) line-through decoration-(--color-rule)">{r.original}</p>
+                                        <p className={label}>Eingang</p>
+                                        <p className="mb-0 text-(--color-muted)">{r.original}</p>
+                                    </motion.div>
+                                    <motion.div variants={item}>
+                                        <p className={label}>Anonymisiert</p>
                                         <p className="mb-0 leading-relaxed text-(--color-ink)"><Placeholders text={r.anonymized}/></p>
                                     </motion.div>
                                     <motion.div variants={item}>
-                                        <p className="mb-1 text-xs font-medium uppercase tracking-wide text-(--color-muted)">Erkanntes Thema</p>
-                                        <p className="mb-0 text-lg font-bold text-(--color-accent-hi)">{r.topicId === null ? "Nicht zugeordnet" : r.title}</p>
+                                        <p className={cn(label, "mb-2")}>Erkanntes Thema</p>
+                                        <p className="mb-0 rounded-xl border border-(--color-accent)/40 bg-(--color-accent-soft) px-4 py-3 text-xl font-bold leading-snug text-(--color-ink) sm:text-2xl">
+                                            {r.topicId === null ? "Nicht zugeordnet" : r.title}
+                                        </p>
                                     </motion.div>
-                                    <motion.div variants={item}>
-                                        <p className="mb-1 text-xs font-medium uppercase tracking-wide text-(--color-muted)">Sicherheit</p>
-                                        <div className="flex items-center gap-3">
-                                            <div className="h-2 flex-1 overflow-hidden rounded-full bg-(--color-paper-3)" role="img" aria-label={`Sicherheit ${pct} Prozent`}>
-                                                <motion.div className="h-2 rounded-full bg-(--color-accent)" initial={{width: 0}} animate={{width: `${pct}%`}}
-                                                            transition={reduce ? {duration: 0} : {duration: 0.7, ease: "easeOut", delay: 0.2}}/>
+                                    <motion.div variants={item} className="grid gap-1.5">
+                                        <div className="flex items-center gap-3 text-xs text-(--color-muted)">
+                                            <span>Sicherheit</span>
+                                            <div className="h-1 flex-1 overflow-hidden rounded-full bg-(--color-paper-3)" role="img" aria-label={`Sicherheit ${pct} Prozent`}>
+                                                <motion.div className="h-1 rounded-full bg-(--color-muted)" initial={{width: 0}} animate={{width: `${pct}%`}}
+                                                            transition={reduce ? {duration: 0} : {duration: 0.7, ease: "easeOut", delay: 0.1}}/>
                                             </div>
-                                            <span className="font-bold tabular-nums">{pct} %</span>
+                                            <span className="tabular-nums">{pct} %</span>
                                         </div>
                                         {r.probability < 0.6 && (
-                                            <p className="mb-0 mt-2 flex items-start gap-2 text-amber-800 dark:text-amber-300">
-                                                <AlertTriangle size={16} className="mt-0.5 shrink-0" aria-hidden="true"/>
+                                            <p className="mb-0 flex items-start gap-2 text-xs text-amber-800 dark:text-amber-300">
+                                                <AlertTriangle size={14} className="mt-0.5 shrink-0" aria-hidden="true"/>
                                                 Eher unsicher: Die Nachricht passt zu mehreren Themen. Der Radar würde sie zur Kontrolle markieren.
                                             </p>
                                         )}

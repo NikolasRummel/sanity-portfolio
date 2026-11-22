@@ -11,6 +11,7 @@ const CodeWidget = () => {
   focus: ["Python", "LLM", "ML Pipelines", "Cloud & Data"],
   stack: {
     backend: ["FastAPI", "Python", "Java Spring Boot"],
+    ai: ["LLMs", "Embeddings", "Vektordatenbanken"],
     data: ["Scikit-learn", "BigQuery", "dbt", "PostgreSQL"],
     cloud: ["Google Cloud (GCP)", "Terraform", "Docker"]
   },
