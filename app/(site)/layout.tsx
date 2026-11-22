@@ -12,11 +12,26 @@ import Navbar from "@/components/navbar/navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
+    metadataBase: new URL(siteConfig.url),
     title: {
         default: siteConfig.name,
         template: `%s - ${siteConfig.name}`,
     },
     description: siteConfig.description,
+    alternates: {canonical: "/"},
+    openGraph: {
+        type: "website",
+        locale: "de_DE",
+        siteName: siteConfig.name,
+        title: siteConfig.name,
+        description: siteConfig.description,
+        url: "/",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: siteConfig.name,
+        description: siteConfig.description,
+    },
     icons: {
         icon: "/favicon.ico",
         shortcut: "/favicon-16x16.png",

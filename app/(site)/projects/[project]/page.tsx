@@ -4,6 +4,7 @@ import {serializeMdx} from "@/lib/mdx";
 import {MdxContent} from "@/components/mdx-content";
 import React from "react";
 import {notFound} from "next/navigation";
+import type {Metadata} from "next";
 
 type Props = {
     params: Promise<{ project: string }>
@@ -11,6 +12,24 @@ type Props = {
 
 export function generateStaticParams() {
     return getProjects().map((x) => ({project: x.slug}));
+}
+
+export async function generateMetadata({params}: Props): Promise<Metadata> {
+    const project = getProject((await params).project);
+    if (!project) return {};
+    return {
+        title: project.name,
+        description: project.description,
+        alternates: {canonical: `/projects/${project.slug}`},
+        openGraph: {
+            type: "article",
+            title: project.name,
+            description: project.description,
+            url: `/projects/${project.slug}`,
+            publishedTime: project.createdAt,
+            ...(project.image.startsWith("/") ? {images: [project.image]} : {}),
+        },
+    };
 }
 
 export default async function Project({params}: Props) {
