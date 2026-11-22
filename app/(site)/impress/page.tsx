@@ -1,7 +1,6 @@
 import type {Metadata} from "next"
 import React from "react"
 import Placeholder from "@/components/legal/Placeholder"
-import {siteConfig} from "@/config/site"
 
 export const metadata: Metadata = {
     title: "Impressum",
@@ -18,13 +17,12 @@ export default function Impress() {
             <p>
                 Nikolas Rummel<br/>
                 Laurentiusstr. 56<br/>
-                <Placeholder>PLZ</Placeholder> Karlsruhe<br/>
+                76135 Karlsruhe
             </p>
 
             <h2 >Kontakt</h2>
             <p>
-                E-Mail: <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a><br/>
-                Telefon: <Placeholder>Telefonnummer (oder anderer schneller Kontaktweg)</Placeholder>
+                E-Mail: <a href="mailto:rml.nikolas@gmail.com">rml.nikolas@gmail.com</a>
             </p>
 
             <h2 >Umsatzsteuer</h2>
