@@ -272,4 +272,5 @@
 .journey__product { display: grid; gap: var(--space-md); padding: var(--space-xl); border-radius: var(--radius-card); background: var(--color-light); box-shadow: var(--edge-light), var(--shadow-card); }
 .ki .journey__product p:not(.small) { color: var(--color-ink-2); line-height: 1.6; }
 @media (min-width: 64rem) { .journey { grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: var(--space-3xl); } .journey__product { position: sticky; top: 6rem; } }
+@media (min-width: 64rem) { .journey--single { grid-template-columns: minmax(0, 1fr); } }
 

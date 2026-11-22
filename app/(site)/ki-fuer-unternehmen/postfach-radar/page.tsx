@@ -1,10 +1,11 @@
 import type {Metadata} from "next"
 import dynamic from "next/dynamic"
+import {notFound} from "next/navigation"
 import {ArrowRight} from "lucide-react"
 import {FadeIn} from "@/components/MotionWrappers"
 import HeroPreview from "@/components/radar/HeroPreview"
 import {radarCtaHref, radarPage as c} from "@/config/postfach-radar"
-import {siteConfig} from "@/config/site"
+import {showKiServices, siteConfig} from "@/config/site"
 
 const RadarDemo = dynamic(() => import("@/components/radar/RadarDemo"), {
     loading: () => <div className="demo-card" style={{height: 600}} aria-hidden="true"/>,
@@ -33,6 +34,8 @@ function CtaButton() {
 }
 
 export default function PostfachRadar() {
+    if (!showKiServices) notFound()
+
     return (
         <div lang="de" className="ki">
             <section className="ki-hero" aria-labelledby="hero-titel">

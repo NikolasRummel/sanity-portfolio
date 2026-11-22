@@ -7,6 +7,7 @@ export type SiteConfig = typeof siteConfig
  */
 export const showKiServices = process.env.NEXT_PUBLIC_SHOW_KI_SERVICES === "true"
 
+const kiDemoNavItem = {title: "Live-Demo", href: "/ki-fuer-unternehmen/postfach-radar#demo", lang: "de"}
 const kiNavItem = {title: "KI für Unternehmen", href: "/ki-fuer-unternehmen", lang: "de"}
 
 export const siteConfig = {
@@ -18,8 +19,7 @@ export const siteConfig = {
         {title: "Startseite", href: "/", lang: "de"},
         {title: "Projekte", href: "/projects", lang: "de"},
         {title: "Blog", href: "/blog", lang: "de"},
-        {title: "Live-Demo", href: "/ki-fuer-unternehmen/postfach-radar#demo", lang: "de"},
-        ...(showKiServices ? [kiNavItem] : []),
+        ...(showKiServices ? [kiDemoNavItem, kiNavItem] : []),
     ],
     links: {
         github: "https://github.com/NikolasRummel",

@@ -9,6 +9,7 @@ import BentoGrid from "@/components/BentoGrid";
 import {FadeIn} from "@/components/MotionWrappers";
 import FeaturedProjectsGrid from "@/components/FeaturedProjectsGrid";
 import {Project} from "@/types/project";
+import {showKiServices} from "@/config/site";
 
 export default async function Home() {
 
@@ -40,9 +41,11 @@ export default async function Home() {
                                 <a href="/cv.pdf" className="btn btn--clear">
                                     Lebenslauf <Download size={18} aria-hidden="true"/>
                                 </a>
-                                <Link href="/ki-fuer-unternehmen/postfach-radar#demo" className="btn btn--clear" lang="de">
-                                    Live-Demo <ArrowRight size={18} aria-hidden="true"/>
-                                </Link>
+                                {showKiServices && (
+                                    <Link href="/ki-fuer-unternehmen/postfach-radar#demo" className="btn btn--clear" lang="de">
+                                        Live-Demo <ArrowRight size={18} aria-hidden="true"/>
+                                    </Link>
+                                )}
                                 <div className="socials">
                                     <a href="https://github.com/NikolasRummel/" aria-label="GitHub"><Github size={24}/></a>
                                     <a href="https://www.linkedin.com/in/nikolas-rummel-311486206/" aria-label="LinkedIn"><Linkedin size={24}/></a>
@@ -71,8 +74,9 @@ export default async function Home() {
                 <div className="container">
                     <FadeIn>
                         <div className="head"><h2 id="journey">Mein Werdegang</h2></div>
-                        <div className="journey">
+                        <div className={showKiServices ? "journey" : "journey journey--single"}>
                             <TimelineContent/>
+                            {showKiServices && (
                             <aside className="journey__product" aria-label="Bachelorarbeit als Produkt">
                                 <p className="small">Von der Bachelorarbeit zum Produkt</p>
                                 <h3>Postfach-Radar</h3>
@@ -85,6 +89,7 @@ export default async function Home() {
                                         Zur Demo <ArrowRight size={16} aria-hidden="true" style={{display: "inline", marginLeft: 4}}/>
                                     </Link>
                             </aside>
+                            )}
                         </div>
                     </FadeIn>
                 </div>
