@@ -8,19 +8,12 @@ export const metadata: Metadata = {
     robots: {index: false},
 }
 
-const heading = "mt-12 mb-2 block text-base font-semibold tracking-wide text-center text-sky-600 dark:text-teal-400 uppercase"
 
 export default function Impress() {
     return (
-        <div lang="de" className="max-w-3xl w-full mx-auto px-4 sm:px-6 lg:px-8 mt-32 min-h-screen">
-            <h1 className="mb-16 text-center">
-                <span className="block text-base font-semibold tracking-wide text-sky-600 dark:text-teal-400 uppercase">
-                    Impressum
-                </span>
-                <span className="block mt-2 text-4xl font-bold leading-10">
-                    Angaben gemäß § 5 DDG
-                </span>
-            </h1>
+        <div lang="de" className="ki page container prose" style={{minHeight: "100svh"}}>
+            <header><h1>Impressum</h1>
+            <p className="lead" style={{color: "var(--color-muted)", fontSize: "var(--text-lead)"}}>Angaben gemäß § 5 DDG</p></header>
 
             <p>
                 Nikolas Rummel<br/>
@@ -28,18 +21,18 @@ export default function Impress() {
                 <Placeholder>PLZ</Placeholder> Karlsruhe<br/>
             </p>
 
-            <h2 className={heading}>Kontakt</h2>
+            <h2 >Kontakt</h2>
             <p>
-                E-Mail: <a className="underline" href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a><br/>
+                E-Mail: <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a><br/>
                 Telefon: <Placeholder>Telefonnummer (oder anderer schneller Kontaktweg)</Placeholder>
             </p>
 
-            <h2 className={heading}>Umsatzsteuer</h2>
+            <h2 >Umsatzsteuer</h2>
             <p>
                 <Placeholder>Umsatzsteuer-ID nach § 27a UStG, falls vorhanden. Andernfalls Hinweis zur Kleinunternehmerregelung (§ 19 UStG) falls zutreffend. Bitte mit Steuerberatung klären.</Placeholder>
             </p>
 
-            <h2 className={heading}>Haftung für Inhalte</h2>
+            <h2 >Haftung für Inhalte</h2>
             <p>
                 Als Diensteanbieter bin ich nach den allgemeinen Gesetzen für eigene Inhalte auf diesen
                 Seiten verantwortlich (§ 7 Abs. 1 DDG). Nach den §§ 8 bis 10 DDG bin ich jedoch nicht
@@ -53,7 +46,7 @@ export default function Impress() {
                 werde ich diese Inhalte umgehend entfernen.
             </p>
 
-            <h2 className={heading}>Haftung für Links</h2>
+            <h2 >Haftung für Links</h2>
             <p>
                 Diese Website enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen
                 Einfluss habe. Für diese fremden Inhalte kann ich keine Gewähr übernehmen. Für die Inhalte

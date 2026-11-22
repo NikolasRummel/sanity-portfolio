@@ -1,7 +1,11 @@
 /* Hallmark · shape: Pinned run (KI page) · genre: atmospheric · theme: Refract (deal 1/3, seed personal-portfolio-freelance-software-bfa1·e7c06b7a·2026-11-21·r0) · redesign: full
- * hero: Stage (KI page) · nav: floating pill · footer: mast · imagery: the product (chat demo, radar preview) · signature: a demo held in place while the packages scroll past it · refract: water/pool, the user's own light beam in place of the generated canvas
+ * hero: Corridor-head over a Stage (KI page) · nav: floating pill · footer: mast · imagery: the product (chat demo, radar preview) · signature: a demo held in place while one package at a time scrolls past it, a screen each · refract: water/pool, the user's own light beam in place of the generated canvas, cool paper kept with a flat editorial structure, a mix by request
  * axes: light/grotesk-sans/cool · posture: restrained · contrast: pass · fold: pass · v2.0.0 */
-/* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V3 · weakest: V, the beam is the owner's image so the light cannot move; it sits fixed and fades under the text */
+/* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V3 · weakest: V, the beam is the owner's image so the light cannot move */
+/* Hallmark · waive 44c · hero stage is the chat card plus the staircase that bleeds below it · the card is centred on the text and the staircase is decoration */
+/* Hallmark · waive 39b · the radar demo's cluster rows are buttons in a dense working view · 90px list rows are the content and wider than the 44px minimum target */
+/* Hallmark · waive 72 · radar demo rows sit inside bordered list cards · the 16px inset is the card padding on a dense panel */
+/* Hallmark · waive 79 · list, article and legal pages open on a short page head and then the content the visitor came for · the head is not a hero stage and the content follows directly under the fold */
 /* Hallmark · waive 49b · footer legal link at 320px, the owner's own wording · a wrapped legal link is readable and its text is not reworded */
 @import 'prism-themes/themes/prism-one-dark.min.css';
 

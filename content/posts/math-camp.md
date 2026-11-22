@@ -1,67 +1,64 @@
 ---
-title: "Mathcamp in Belgium: My Impressions on Mathematical Modeling and Python"
+title: "Mathecamp in Belgien: Meine Eindrücke zu mathematischer Modellierung und Python"
 slug: "math-camp"
-description: "In this blog post, I will share my experience attending a math camp in Belgium focused on mathematical modeling and Python. Join me as I delve into the world of problem-solving, mathematical concepts, and the exciting world of programming with Python. "
+description: "In diesem Beitrag berichte ich von meiner Teilnahme an einem Mathecamp in Belgien zu mathematischer Modellierung und Python: Problemlösen, mathematische Konzepte und die spannende Welt des Programmierens mit Python."
 image: "/images/content/math-camp-1280x960.jpg"
-imageAlt: "alt"
+imageAlt: "Mathecamp"
 category: ["personal", "education"]
 createdAt: "2023-07-25T16:58:04Z"
 updatedAt: "2023-09-30T20:39:18Z"
 ---
 
+# Was ist die CAMMP-Woche?
 
+Die Modellierungswoche ist eine Projektwoche, in der Schülerinnen und Schüler
+gemeinsam mit Lehrkräften und wissenschaftlicher Unterstützung an echten Problemen aus der
+Forschung von Unternehmen oder Universitätsinstituten arbeiten.
 
+**Einige Beispiele für solche Probleme:**
 
-# What is the CAMMP week
-
-The modeling week is a project week in which high school students work together
-with teachers and scientific support on real problems from the
-research of companies or university institutes.
-
-**Some examples are the following problems:**
-
-1. How to design solar power plants to make them competitive? (TSK Flagsol)
-2. In spaceflight, how to control robots to take soil samples? (Enceladus Explorer Initiative, DLR)
-3. How can your city's bus routes be optimized so that the bus finally arrives on time? (IVU Traffic Technologies AG)
-4. How can optimal bone implants for accident victims be developed? (RWTH Aachen University Hospital)
+1. Wie müssen Solarkraftwerke ausgelegt werden, damit sie wettbewerbsfähig sind? (TSK Flagsol)
+2. Wie lassen sich in der Raumfahrt Roboter steuern, die Bodenproben entnehmen? (Enceladus Explorer Initiative, DLR)
+3. Wie können die Buslinien einer Stadt so optimiert werden, dass der Bus endlich pünktlich kommt? (IVU Traffic Technologies AG)
+4. Wie lassen sich optimale Knochenimplantate für Unfallopfer entwickeln? (Uniklinik RWTH Aachen)
 <br/>
 
-Each group is given an individual task to work on during the five days.
-They are always supervised by a scientist.
-At the end of the week, the student teams present their results
-to company representatives at a representative closing event in Aachen or Karlsruhe.
-The families of the participants and representatives of the schools are
-cordially invited to attend. The week also includes a supporting program with a
-sports competition, a barbecue and other leisure activities,
-as well as a study information event.
+Jede Gruppe bekommt eine eigene Aufgabe, an der sie fünf Tage lang arbeitet.
+Dabei wird sie stets von einer Wissenschaftlerin oder einem Wissenschaftler betreut.
+Am Ende der Woche präsentieren die Teams ihre Ergebnisse
+Unternehmensvertretern bei einer Abschlussveranstaltung in Aachen oder Karlsruhe.
+Die Familien der Teilnehmenden und Vertreter der Schulen sind
+herzlich eingeladen. Zur Woche gehört außerdem ein Rahmenprogramm mit
+Sportwettkampf, Grillabend und weiteren Freizeitaktivitäten
+sowie eine Studieninformationsveranstaltung.
 
-# Our Task
-For the purpose of in-situ exploration of thick ice layers both on Earth and on the icy moons of our solar system, e.g. Europa, fusion robots are being developed. One advantage of this technology is that it requires extremely low maintenance and can also be operated well autonomously. The fusion robots, also called cryo-robots, can be individually loaded with scientific payloads (i.e., equipped with certain measuring instruments) melt through the ice. However, work is also underway to send an entire smart grid of smaller melting probes into the ice.
-Each of the elements of this smart grid, also called pingers or probes, can melt into the ice in a directionally stable manner, i.e., along a straight trajectory that is not necessarily vertically oriented.
-Furthermore, each pinger is equipped with an acoustic emitter and an acoustic receiver, so that acoustic so that acoustic waves can be transmitted and received. There are large pingers (cylinders of length 1m with a diameter of 20cm) which can emit an acoustic signal up to a distance of 3km and small pingers (cylinders of length 1m with a diameter of 15cm) which can emit an acoustic signal up to a distance of 2km. The individual 'wave beams' of the signal cover a circular cross-section with approximate diameter 2*pinger diameter. Only one signal packet can be transmitted at a time.
+# Unsere Aufgabe
+Für die In-situ-Erkundung dicker Eisschichten, sowohl auf der Erde als auch auf den Eismonden unseres Sonnensystems, z. B. Europa, werden Schmelzroboter entwickelt. Ein Vorteil dieser Technologie: Sie ist extrem wartungsarm und lässt sich gut autonom betreiben. Die Schmelzroboter, auch Kryoroboter genannt, können individuell mit wissenschaftlicher Nutzlast (also bestimmten Messinstrumenten) bestückt werden und sich durch das Eis schmelzen. Es wird aber auch daran gearbeitet, ein ganzes Smart Grid aus kleineren Schmelzsonden ins Eis zu schicken.
+Jedes Element dieses Smart Grids, auch Pinger oder Sonden genannt, kann sich richtungsstabil ins Eis schmelzen, d. h. entlang einer geraden Bahn, die nicht unbedingt senkrecht verläuft.
+Außerdem ist jeder Pinger mit einem akustischen Sender und einem akustischen Empfänger ausgestattet, sodass akustische Wellen gesendet und empfangen werden können. Es gibt große Pinger (Zylinder von 1 m Länge und 20 cm Durchmesser), die ein akustisches Signal bis zu 3 km weit senden können, und kleine Pinger (Zylinder von 1 m Länge und 15 cm Durchmesser) mit einer Reichweite von 2 km. Die einzelnen „Wellenstrahlen“ des Signals decken einen kreisförmigen Querschnitt mit einem Durchmesser von etwa dem Doppelten des Pingerdurchmessers ab. Es kann immer nur ein Signalpaket gleichzeitig gesendet werden.
 
 
-The pingers are synchronized in time, so that the travel times of the waves between the pingers can be measured and stored (we assume here that the challenge of data communication is solved ...). By means of a so-called time-of-flight tomography, it is thus possible to infer local heterogeneities in the ice, for example due to density variations, or salt, or water deposition.
-Here, however, we are not concerned with the time-of-flight tomography itself, but with the ice volume covered by the pinger-to-pinger beams. The pinger is in constant sinking motion. In terrestrial applications, the necessary melting power comes from a generator that sets a nominal sinking rate and can be turned off. For extraterrestrial applications, RTGs (so-called Radio Thermal Generators) are planned, in which radioactive material decays according to a certain decay curve and produces heat (continuously). Candidate materials are curium, uranium or plutonium (see data sheet).
-The goal is to control and send the pingers (or melting probes) of the RTGS, arranged in a smart grid, into the ice in such a way that the investigated ice volume can be maximized.
+Die Pinger sind zeitlich synchronisiert, sodass die Laufzeiten der Wellen zwischen den Pingern gemessen und gespeichert werden können (wir nehmen hier an, dass die Herausforderung der Datenkommunikation gelöst ist ...). Mit einer sogenannten Laufzeittomographie lassen sich so lokale Inhomogenitäten im Eis erkennen, etwa durch Dichteschwankungen, Salz oder Wassereinschlüsse.
+Uns geht es hier aber nicht um die Laufzeittomographie selbst, sondern um das Eisvolumen, das von den Strahlen zwischen den Pingern abgedeckt wird. Der Pinger sinkt dabei ständig. Bei irdischen Anwendungen kommt die nötige Schmelzleistung von einem Generator, der eine Soll-Sinkgeschwindigkeit vorgibt und abgeschaltet werden kann. Für außerirdische Anwendungen sind RTGs (sogenannte Radioisotopengeneratoren) vorgesehen, in denen radioaktives Material nach einer bestimmten Zerfallskurve zerfällt und dabei (kontinuierlich) Wärme erzeugt. Kandidaten für das Material sind Curium, Uran oder Plutonium (siehe Datenblatt).
+Ziel ist es, die als Smart Grid angeordneten Pinger (bzw. Schmelzsonden) der RTGs so zu steuern und ins Eis zu schicken, dass das untersuchte Eisvolumen maximal wird.
 
-**Your Task**
-- Develop a model that can be used to describe the ice volume studied under an arbitrary setup (launch order of pingers, distribution of radioactive material, melt direction).
-- Then develop an operational experimental setup (starting order of pingers, distribution of radioactive material, melting direction) with which the investigated ice volume can be maximized. Consider the following three scenarios:
-- Only large pingers are considered (10 in total).
-- Only small pingers are considered (10 pieces in total).
-- A mixture of small and large pingers is considered.
+**Eure Aufgabe**
+- Entwickelt ein Modell, mit dem sich das untersuchte Eisvolumen für einen beliebigen Aufbau beschreiben lässt (Startreihenfolge der Pinger, Verteilung des radioaktiven Materials, Schmelzrichtung).
+- Entwickelt anschließend einen praxistauglichen Versuchsaufbau (Startreihenfolge der Pinger, Verteilung des radioaktiven Materials, Schmelzrichtung), mit dem das untersuchte Eisvolumen maximiert wird. Betrachtet dabei drei Szenarien:
+- Es werden nur große Pinger betrachtet (insgesamt 10).
+- Es werden nur kleine Pinger betrachtet (insgesamt 10 Stück).
+- Es wird eine Mischung aus kleinen und großen Pingern betrachtet.
 
 # Code
-In order to calculate the scanned volume with the now derived formulas, I was mainly responsible for developing an algorithm for this in Python. With my previous knowledge in Java and some help from the supervisor in the beginning, I was able to develop it.
-## Importation of libs
+Um das gescannte Volumen mit den hergeleiteten Formeln zu berechnen, war ich hauptsächlich für die Entwicklung eines passenden Algorithmus in Python zuständig. Mit meinem Vorwissen in Java und etwas Hilfe des Betreuers zu Beginn konnte ich ihn entwickeln.
+## Bibliotheken importieren
 ```python
 import numpy as np
 import scipy.integrate as integrate
 from matplotlib import pyplot as plt
 ```
 
-## Constant variables
+## Konstanten
 ```python
 s = 20000 # thickness of ice in m
 T = 200 # difference of temperature
@@ -70,7 +67,7 @@ t = 10*365*86400 # 10 years in seconds
 l = 18.1*365*86400 # 18.1 years in seconds A = np.pi*r*r # Surface of pinger at front a=3
 ```
 
-## Pinger Class
+## Klasse Pinger
 ```python
 class Pinger:
     x = [] # X values for plotting
@@ -101,7 +98,7 @@ class Pinger:
 
 ```
 
-## Algorithm for the total volume of n pingers
+## Algorithmus für das Gesamtvolumen von n Pingern
 ```python
 def totalVolume(pingers):
     tempVolume = 0 # will be returned
@@ -143,7 +140,7 @@ def totalVolume(pingers):
 
 ```
 
-## Function for the 3km sending radius
+## Funktion für den Senderadius von 3 km
 ```python
 def volumenWithLimitation(y1, y2, x1, x2): # days until > 3km m1 = calcNeededPower(y1)
   m2 = calcNeededPower(y2)
@@ -231,9 +228,9 @@ print(vGes)
 plt.show()
 ```
 
-## Output
+## Ausgabe
 
-# Images
+# Bilder
 
-Go back [Home](/).
+Zurück zur [Startseite](/).
 

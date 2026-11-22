@@ -17,7 +17,7 @@ export default function HeroPreview() {
     const [sx, sy] = pts[spike.dayIndex - from]
 
     return (
-        <div className="rounded-3xl border border-gray-200 bg-white p-5 shadow-xl shadow-teal-900/10 dark:border-gray-800 dark:bg-zinc-950">
+        <div className="demo-card p-5">
             <div className="flex items-center justify-between gap-3">
                 <p className="mb-0 text-sm font-bold">{topic.title}</p>
                 <span className="flex items-center gap-1.5 rounded-full bg-amber-100 px-2.5 py-1 text-xs font-bold text-amber-900 dark:bg-amber-900/40 dark:text-amber-200">
@@ -27,14 +27,14 @@ export default function HeroPreview() {
             <svg viewBox={`0 0 ${w} ${h}`} className="mt-4 w-full" role="img"
                  aria-label={`Verlauf der Anfragen zu ${topic.title} mit Alarm am ${formatDay(spike.day)}`}>
                 <motion.path d={path} fill="none" strokeWidth={2.5} strokeLinejoin="round" strokeLinecap="round"
-                             className="stroke-teal-700 dark:stroke-teal-300"
+                             className="stroke-(--color-accent)"
                              initial={{pathLength: 0}} animate={{pathLength: 1}} transition={{duration: 1.6, ease: "easeInOut"}}/>
                 <motion.g initial={{opacity: 0}} animate={{opacity: 1}} transition={{delay: 1.5}}>
                     <circle cx={sx} cy={sy} r={14} className="fill-amber-500/30 motion-safe:animate-ping" style={{transformOrigin: `${sx}px ${sy}px`}}/>
-                    <path d={`M${sx} ${sy - 8} L${sx + 8} ${sy} L${sx} ${sy + 8} L${sx - 8} ${sy} Z`} className="fill-amber-600 stroke-white dark:stroke-zinc-950" strokeWidth={2}/>
+                    <path d={`M${sx} ${sy - 8} L${sx + 8} ${sy} L${sx} ${sy + 8} L${sx - 8} ${sy} Z`} className="fill-amber-600 stroke-(--color-light)" strokeWidth={2}/>
                 </motion.g>
             </svg>
-            <p className="mb-0 mt-3 text-sm text-gray-600 dark:text-gray-400">
+            <p className="mb-0 mt-3 text-sm text-(--color-muted)">
                 {formatNumber(spike.count)} Anfragen an einem Tag, üblich sind {formatNumber(spike.mean)}.
             </p>
         </div>

@@ -38,7 +38,7 @@ interface RootLayoutProps {
 
 export default function RootLayout({children}: RootLayoutProps) {
     return (
-        <html lang="en" suppressHydrationWarning>
+        <html lang="de" suppressHydrationWarning>
         <body className={cn("min-h-screen font-sans", fontSans.variable, fontDisplay.variable)}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <div className="beam-wrap">

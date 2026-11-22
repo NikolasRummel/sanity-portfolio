@@ -1,9 +1,9 @@
 ---
 title: "Time Tracking Dashboard"
 slug: "time-tracking-dashboard"
-description: "GitLab analytics dashboard developed for a DHBW software engineering project to visualize issue-based time tracking; the tool is now utilized by the Software Engineering professor as a demonstration tool during lectures."
+description: "GitLab-Analyse-Dashboard, entwickelt für ein DHBW-Projekt im Software Engineering, um die Zeiterfassung auf Basis von Issues zu visualisieren. Der Software-Engineering-Professor nutzt das Tool inzwischen als Demonstrationswerkzeug in Vorlesungen."
 image: "/images/content/time-tracking-dashboard-3456x2234.gif"
-imageAlt: "demo"
+imageAlt: "Demo"
 url: "https://github.com/NikolasRummel/gitlab-timetracking-analysis/tree/main"
 createdAt: "2026-01-22T20:06:26Z"
 updatedAt: "2026-01-22T20:06:26Z"
@@ -11,75 +11,75 @@ updatedAt: "2026-01-22T20:06:26Z"
 
 # Time Tracking Dashboard
 
-GitLab analytics dashboard developed for a DHBW software engineering project to visualize issue-based time tracking; the tool is now utilized by the Software Engineering professor as a demonstration tool during lectures.
+GitLab-Analyse-Dashboard, entwickelt für ein DHBW-Projekt im Software Engineering, um die Zeiterfassung auf Basis von Issues zu visualisieren. Der Software-Engineering-Professor nutzt das Tool inzwischen als Demonstrationswerkzeug in Vorlesungen.
 
 
 > [!NOTE]  
-> This project was developed in a short amount of time, so the code quality is not great.  
-> It’s more a "it just works somehow" kind of project.
+> Dieses Projekt ist in kurzer Zeit entstanden, daher ist die Codequalität nicht überragend.  
+> Es ist eher ein „Hauptsache, es läuft irgendwie“-Projekt.
 > 
-## Features
+## Funktionen
 
-- 📊 **Project Overview**: Sprint metrics, velocity tracking, and category distribution
-- 📈 **Time Series Charts**: Weekly performance trends and team activity comparison
-- 🎯 **Team & Categories**: Pie charts and bar charts for time allocation analysis
-- ⚡ **Productivity Analysis**: Hourly and weekly productivity patterns
-- 👥 **Team Collaboration**: Network visualization of team collaboration
-- 📋 **Issue Analysis**: Issue complexity and time analysis
-- 📅 **Detailed Activity**: GitHub-style activity heatmap
+- 📊 **Projektübersicht**: Sprint-Kennzahlen, Velocity-Tracking und Kategorieverteilung
+- 📈 **Zeitreihendiagramme**: Wöchentliche Leistungstrends und Vergleich der Teamaktivität
+- 🎯 **Team & Kategorien**: Kreis- und Balkendiagramme zur Analyse der Zeitverteilung
+- ⚡ **Produktivitätsanalyse**: Produktivitätsmuster nach Uhrzeit und Woche
+- 👥 **Teamzusammenarbeit**: Netzwerkdarstellung der Zusammenarbeit im Team
+- 📋 **Issue-Analyse**: Komplexität und Zeitaufwand von Issues
+- 📅 **Detaillierte Aktivität**: Aktivitäts-Heatmap im GitHub-Stil
 
 ## Demo
 
 ![Dashboard Demo](public/images/dashboard-demo.gif)
 
 
-## Configuration
+## Konfiguration
 
-### 1. GitLab API Configuration
+### 1. GitLab-API konfigurieren
 
-Edit `config/dashboardConfig.ts` and update the following settings:
+Bearbeite `config/dashboardConfig.ts` und passe die folgenden Einstellungen an:
 
 ```typescript
 export const GITLAB_CONFIG = {
     API_URL: 'https://gitlab.com/api/graphql',
-    GROUP_PATH: 'your-group/your-project', // Replace with your GitLab group/project path
-    TOKEN: 'your-gitlab-token', // Replace with your GitLab personal access token
+    GROUP_PATH: 'your-group/your-project', // Durch den Pfad deiner GitLab-Gruppe/deines Projekts ersetzen
+    TOKEN: 'your-gitlab-token', // Durch deinen persönlichen GitLab-Access-Token ersetzen
     ISSUE_BASE_URL: 'https://gitlab.com/your-group/your-project/-/issues'
 } as const;
 ```
 
-#### Getting Your GitLab Token
+#### GitLab-Token erstellen
 
-1. Go to GitLab → Settings → Access Tokens
-2. Create a new token with `read_api` scope
-3. Copy the token and paste it in the config file
+1. In GitLab auf Settings → Access Tokens gehen
+2. Einen neuen Token mit dem Scope `read_api` erstellen
+3. Den Token kopieren und in die Konfigurationsdatei einfügen
 
-### 2. Team Members Configuration
+### 2. Teammitglieder konfigurieren
 
-Update the team members list in `config/dashboardConfig.ts`:
+Passe die Liste der Teammitglieder in `config/dashboardConfig.ts` an:
 
 ```typescript
 export const TEAM_MEMBERS = [
     "username1",
     "username2", 
     "username3",
-    // Add all team member usernames
+    // Alle Benutzernamen der Teammitglieder ergänzen
 ] as const;
 ```
 
-### 3. Date Range Configuration
+### 3. Zeitraum konfigurieren
 
-Update the date range in `app/page.tsx`:
+Passe den Zeitraum in `app/page.tsx` an:
 
 ```typescript
-// Set your desired date range
-const startDate = new Date('2024-01-01'); // Start date
-const endDate = new Date('2024-12-31');   // End date
+// Gewünschten Zeitraum festlegen
+const startDate = new Date('2024-01-01'); // Startdatum
+const endDate = new Date('2024-12-31');   // Enddatum
 ```
 
-### 4. Categories Configuration
+### 4. Kategorien konfigurieren
 
-The dashboard uses these default categories. You can modify them in `config/dashboardConfig.ts`:
+Das Dashboard verwendet diese Standardkategorien. Du kannst sie in `config/dashboardConfig.ts` ändern:
 
 ```typescript
 export const CATEGORIES = {
@@ -93,13 +93,13 @@ export const CATEGORIES = {
 
 
 > [!WARNING]  
-> Make sure your GitLab issues have labels that match these categories.
+> Stelle sicher, dass deine GitLab-Issues Labels haben, die zu diesen Kategorien passen.
 > 
 
-## Contributing
+## Mitwirken
 
-If you want to improve this projects, feel free to create a fork :)
+Wenn du das Projekt verbessern möchtest, erstelle gern einen Fork :)
 
 ## Support
-If you need help with setting up the project (for instance the api key or adding the labels to the issues on gitlab), feel free to contact me on discord:
+Wenn du Hilfe bei der Einrichtung brauchst (zum Beispiel beim API-Key oder beim Hinzufügen der Labels zu den GitLab-Issues), schreib mir gern auf Discord:
 [cubepixels](https://discord.com/users/cubepixels)

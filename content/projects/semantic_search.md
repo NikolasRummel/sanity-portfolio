@@ -1,18 +1,18 @@
 ---
-title: "Semantic Search for a CSM Tool"
+title: "Semantische Suche für ein CSM-Tool"
 slug: "semantic_search"
-description: "Exploring semantic search for a Customer Service Management tool at dmTECH, using Python to process data, create vectors, and simulate queries."
+description: "Untersuchung einer semantischen Suche für ein Customer-Service-Management-Tool bei dmTECH: Mit Python Daten verarbeiten, Vektoren erzeugen und Suchanfragen simulieren."
 image: "/images/content/semantic_search-1640x1384.png"
-imageAlt: "vector space"
+imageAlt: "Vektorraum"
 createdAt: "2025-10-18T21:45:33Z"
 updatedAt: "2025-11-04T23:28:23Z"
 ---
 
-## DHBW Project at dmTECH: Semantic Search for a CSM Tool
+## DHBW-Projekt bei dmTECH: Semantische Suche für ein CSM-Tool
 
-As part of my **Project Work 1 at DHBW** at **dmTECH**, I explored the feasibility of implementing **semantic search** for a new Customer Service Management (CSM) tool. The goal of the project was to better understand customer queries and improve the relevance of search results.
+Im Rahmen meiner **Projektarbeit 1 an der DHBW** bei **dmTECH** habe ich untersucht, ob sich eine **semantische Suche** für ein neues Customer-Service-Management-Tool (CSM) umsetzen lässt. Ziel des Projekts war es, Kundenanfragen besser zu verstehen und die Relevanz der Suchergebnisse zu verbessern.
 
-For the practical implementation, Python scripts were used to process data, convert it into vectors, and store it in a vector database. Additionally, tests were developed to simulate queries and examine the system’s behavior. Visualizations helped to assess the quality of the data and the semantic structure of the vectors.
+Für die praktische Umsetzung habe ich Python-Skripte genutzt, um Daten zu verarbeiten, in Vektoren umzuwandeln und in einer Vektordatenbank zu speichern. Außerdem habe ich Tests entwickelt, die Suchanfragen simulieren und das Verhalten des Systems prüfen. Visualisierungen halfen dabei, die Datenqualität und die semantische Struktur der Vektoren zu beurteilen.
 
-The project illustrates how modern machine learning methods can be applied in practice and provides a foundation for the further development of a semantically enhanced CSM tool.
+Das Projekt zeigt, wie sich moderne Methoden des maschinellen Lernens praktisch einsetzen lassen, und bildet eine Grundlage für die Weiterentwicklung eines semantisch erweiterten CSM-Tools.
 

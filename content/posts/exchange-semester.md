@@ -1,31 +1,31 @@
 ---
-title: "Exchange Semester @NTNU Trondheim, Norway"
+title: "Auslandssemester @NTNU Trondheim, Norwegen"
 slug: "exchange-semester"
 image: "/images/content/exchange-semester-1200x787.jpg"
-imageAlt: "ntnu building"
+imageAlt: "NTNU-Gebäude"
 category: ["personal", "education"]
 createdAt: "2025-10-18T16:01:13Z"
 updatedAt: "2025-10-18T16:15:25Z"
 ---
 
-This semester, I’m spending my exchange at **NTNU – the Norwegian University of Science and Technology in Trondheim**. It’s been an incredibly inspiring experience so far — both academically and culturally.
+Dieses Semester verbringe ich im Ausland an der **NTNU – der Norwegischen Universität für Wissenschaft und Technologie in Trondheim**. Bisher ist es eine unglaublich inspirierende Erfahrung – fachlich wie kulturell.
 
-I’m currently taking courses in:
-- **Ethical Hacking** – diving into network security, penetration testing, and learning how to think like an attacker to build safer systems.
+Aktuell belege ich folgende Kurse:
+- **Ethical Hacking** – Netzwerksicherheit, Penetrationstests und die Frage, wie man wie ein Angreifer denkt, um sicherere Systeme zu bauen.
 
-- **Model-Driven Software Engineering** – exploring how abstract models can drive software design and automate implementation.
+- **Model-Driven Software Engineering** – wie abstrakte Modelle den Softwareentwurf steuern und die Implementierung automatisieren können.
 
-- **Introduction to Artificial Intelligence** – studying the foundations of AI, for instance search algorithms to create AI algorithms to solve problems like sodukus.
+- **Introduction to Artificial Intelligence** – Grundlagen der KI, zum Beispiel Suchalgorithmen, mit denen sich Probleme wie Sudokus lösen lassen.
 
-- **Very Large Distributed Data Volumes** – learning how massive data systems are designed and scaled across distributed infrastructures.
+- **Very Large Distributed Data Volumes** – wie riesige Datensysteme entworfen und über verteilte Infrastrukturen skaliert werden.
 
-Studying here has been an amazing opportunity to experience a different academic culture and work closely with students from all over the world. The hands-on approach, combined with the natural beauty and innovation-driven spirit of Norway, makes every day exciting.
+Hier zu studieren ist eine großartige Gelegenheit, eine andere Hochschulkultur kennenzulernen und eng mit Studierenden aus der ganzen Welt zusammenzuarbeiten. Der praxisnahe Ansatz, die Natur und der innovative Geist Norwegens machen jeden Tag spannend.
 
-I also got the chance to go on a trip to the Lofoten Islands — the breathtaking landscapes, fjords, and northern lights were unforgettable. Exploring Norway outside the university has added an incredible dimension to this experience.
+Außerdem konnte ich einen Ausflug auf die Lofoten machen – die atemberaubenden Landschaften, Fjorde und Polarlichter waren unvergesslich. Norwegen auch außerhalb der Uni zu erkunden, gibt dieser Erfahrung eine ganz neue Dimension.
 
-Overall, studying here has been a mix of challenging coursework, amazing people, and unforgettable adventures. I’m excited to apply what I’m learning to future projects and continue exploring the world along the way. 🇳🇴✨
+Insgesamt ist das Studium hier eine Mischung aus anspruchsvollen Kursen, tollen Menschen und unvergesslichen Abenteuern. Ich freue mich darauf, das Gelernte in zukünftigen Projekten anzuwenden und dabei weiter die Welt zu entdecken. 🇳🇴✨
 
-Check out some photos from my trip to Lofoten and snapshots of daily life here in Trondheim below!
+Unten findest du ein paar Fotos von meinem Ausflug auf die Lofoten und Eindrücke aus dem Alltag in Trondheim!
 
 ![alt](/images/content/exchange-semester-1024x768.jpg)
 ![alt](/images/content/exchange-semester-1024x768.jpg)

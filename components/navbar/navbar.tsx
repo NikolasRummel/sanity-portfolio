@@ -11,7 +11,7 @@ import {siteConfig} from "@/config/site";
 export default function Navbar() {
     const pathname = usePathname() || "/";
     return (
-        <Disclosure as="nav" className="nav" aria-label="Main">
+        <Disclosure as="nav" className="nav" aria-label="Hauptnavigation">
             {({open}) => (
                 <div className="container">
                     <div className="nav__bar">
@@ -33,7 +33,7 @@ export default function Navbar() {
                         <div className="nav__tools">
                             <span className="nav__desk"><CommandMenu/></span>
                             <ThemeToggle/>
-                            <Disclosure.Button className="nav__toggle" aria-label={open ? "Close menu" : "Open menu"}>
+                            <Disclosure.Button className="nav__toggle" aria-label={open ? "Menü schließen" : "Menü öffnen"}>
                                 {open ? <X size={22} aria-hidden="true"/> : <Menu size={22} aria-hidden="true"/>}
                             </Disclosure.Button>
                         </div>

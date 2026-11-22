@@ -49,8 +49,10 @@ export default function PinnedPackages({items, intro}: {items: PinnedItem[]; int
                         </button>
                     ))}
                 </div>
-                <div key={active} className="pin__view">{items[active].visual}</div>
-                <p className="small" style={{marginTop: "var(--space-md)"}}>{intro}</p>
+                <div className="pin__stage-art">
+                    <div key={active} className="pin__view">{items[active].visual}</div>
+                    <p className="small" style={{marginTop: "var(--space-lg)"}}>{intro}</p>
+                </div>
             </div>
             <div className="pin__panels">
                 {items.map((it, i) => (

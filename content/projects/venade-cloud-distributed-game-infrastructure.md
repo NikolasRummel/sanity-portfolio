@@ -1,42 +1,42 @@
 ---
-title: "Venade Cloud — Distributed Game Infrastructure"
+title: "Venade Cloud — Verteilte Spieleinfrastruktur"
 slug: "venade-cloud-distributed-game-infrastructure"
-description: "High-performance backend infrastructure designed to orchestrate and scale a global network of game servers for Hytale"
+description: "Hochperformante Backend-Infrastruktur zum Orchestrieren und Skalieren eines globalen Netzwerks von Gameservern für Hytale"
 image: "/images/content/venade-cloud-distributed-game-infrastructure-1383x498.png"
-imageAlt: "architecture image"
+imageAlt: "Architekturdiagramm"
 url: "https://venade.net/"
 createdAt: "2026-01-22T20:02:40Z"
 updatedAt: "2026-01-22T20:02:40Z"
 ---
 
-# Venade Cloud — Distributed Game Infrastructure
+# Venade Cloud — Verteilte Spieleinfrastruktur
 
-**Venade Cloud** is a high-performance backend infrastructure designed to orchestrate and scale a global network of game servers for Hytale. It acts as the backbone for a distributed server environment—similar to systems used by networks like Hypixel—enabling seamless player transitions and global data synchronization across a scalable cluster.
-
-
-
-## 🎯 Goal
-The project was built to support a large-scale gaming network where high uptime and low latency are critical. By offloading persistence and orchestration to a **Go-based microservice**, the **Java-based game servers** can focus entirely on gameplay mechanics while the cloud layer handles the heavy lifting of global identity, cross-server communication, and state management.
-
-## ✨ Features
-- **Scalable Server Orchestration:** Designed to deploy and manage a range of game servers dynamically based on player demand.
-- **Cross-Language Communication:** High-speed RPC calls between Java and Go using **gRPC** and **Protocol Buffers**.
-- **Asynchronous Data Flow:** Fully non-blocking command execution using `CompletableFuture` chains to maintain no nlock in the main threads.
-- **Global Role & Stats System:** Centralized player management with support for complex hierarchies and real-time statistics tracking.
-- **Automated Infrastructure:** Containerized deployment using **Docker** and **Kubernetes** for horizontal scaling and service discovery.
+**Venade Cloud** ist eine hochperformante Backend-Infrastruktur, die ein globales Netzwerk von Gameservern für Hytale orchestriert und skaliert. Sie bildet das Rückgrat einer verteilten Serverumgebung – ähnlich den Systemen großer Netzwerke wie Hypixel – und ermöglicht nahtlose Spielerwechsel sowie globale Datensynchronisation über einen skalierbaren Cluster.
 
 
 
-## 👥 Team & Leadership
-This project is developed by an **international team** including friends from university, where I manage not only the software, also all team members. As the **Software Architect**, I am responsible for the end-to-end design of the system, working across the entire stack—from Go backend services and PostgreSQL database optimization to the Java-based game server integration and DevOps pipelines. The only thing I don't do too much is Security - Thanks Tim :)
+## 🎯 Ziel
+Das Projekt entstand, um ein großes Gaming-Netzwerk zu unterstützen, in dem hohe Verfügbarkeit und niedrige Latenz entscheidend sind. Indem Persistenz und Orchestrierung in einen **Go-Microservice** ausgelagert werden, können sich die **Java-Gameserver** voll auf die Spielmechanik konzentrieren, während die Cloud-Schicht globale Identitäten, serverübergreifende Kommunikation und Zustandsverwaltung übernimmt.
 
-## 🛠️ Tech Stack
-- **Languages:** Go (Backend Service), Java (Hytale Plugin), Protobuf
-- **Database:** PostgreSQL (High-concurrency connection pooling)
-- **Infrastructure:** Kubernetes, Docker
-- **CI/CD:** GitLab CI/CD for automated build and deployment cycles
+## ✨ Funktionen
+- **Skalierbare Server-Orchestrierung:** Stellt Gameserver bedarfsgerecht je nach Spielerzahl dynamisch bereit und verwaltet sie.
+- **Sprachübergreifende Kommunikation:** Schnelle RPC-Aufrufe zwischen Java und Go mit **gRPC** und **Protocol Buffers**.
+- **Asynchroner Datenfluss:** Vollständig nicht blockierende Befehlsausführung mit `CompletableFuture`-Ketten, damit die Haupt-Threads nie blockieren.
+- **Globales Rollen- und Statistiksystem:** Zentrale Spielerverwaltung mit komplexen Hierarchien und Echtzeit-Statistiken.
+- **Automatisierte Infrastruktur:** Containerisiertes Deployment mit **Docker** und **Kubernetes** für horizontale Skalierung und Service Discovery.
+
+
+
+## 👥 Team & Leitung
+Das Projekt wird von einem **internationalen Team** entwickelt, darunter Freunde aus dem Studium. Ich koordiniere nicht nur die Software, sondern auch alle Teammitglieder. Als **Softwarearchitekt** verantworte ich den Entwurf des gesamten Systems über den ganzen Stack – von den Go-Backend-Services und der PostgreSQL-Optimierung bis zur Java-Gameserver-Integration und den DevOps-Pipelines. Nur um Security kümmere ich mich nicht so viel – danke, Tim :)
+
+## 🛠️ Tech-Stack
+- **Sprachen:** Go (Backend-Service), Java (Hytale-Plugin), Protobuf
+- **Datenbank:** PostgreSQL (Connection-Pooling für hohe Parallelität)
+- **Infrastruktur:** Kubernetes, Docker
+- **CI/CD:** GitLab CI/CD für automatisierte Build- und Deployment-Zyklen
 
 ## 🔗 Repository & Deployment
-- We are closed source so far so if your interested, feel free to contact me.
+- Das Projekt ist bisher Closed Source – bei Interesse melde dich gern bei mir.
 
 Website: https://venade.net/

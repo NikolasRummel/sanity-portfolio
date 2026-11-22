@@ -11,12 +11,11 @@ interface ProjectsGridProps {
 }
 
 const ProjectsGrid = ({projects, showSearchBar}: ProjectsGridProps) => {
-
     const [searchQuery, setSearchQuery] = useState("");
 
-    const filteredPosts: Project[] = projects.filter((projects) =>
-        projects.name.toLowerCase().includes(searchQuery.toString().toLowerCase()) ||
-        projects.description.toString().toLowerCase().includes(searchQuery.toString().toLowerCase())
+    const filteredPosts: Project[] = projects.filter((p) =>
+        p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.description.toString().toLowerCase().includes(searchQuery.toLowerCase())
     );
 
     const backgroundColors: string[] = [
@@ -34,34 +33,20 @@ const ProjectsGrid = ({projects, showSearchBar}: ProjectsGridProps) => {
         "dark:via-[#37ff8a]",
     ];
 
-    const handleSearch = (query : string) => {
-        setSearchQuery(query);
-    };
-
     return (
-        <section className="mt-24">
-            <h1 className="mb-28">
-                <span
-                    className="block text-base font-semibold tracking-wide text-center text-sky-600 dark:text-teal-400 uppercase">
-                  Projects
-                </span>
-                <span className="block max-w-2xl mx-auto mt-2 text-4xl font-bold leading-10 text-center sm:text-5xl">
-                  Discover some of my beloved creations.
-                </span>
-            </h1>
+        <section>
+            <header className="page-head">
+                <h1>Projekte</h1>
+                <p className="lead">Einige meiner liebsten Projekte.</p>
+            </header>
 
-            {showSearchBar && (
-                <div>
-                    <SearchBar onSearch={handleSearch}/>
-                </div>
-            )}
+            {showSearchBar && <SearchBar onSearch={setSearchQuery}/>}
 
-            <div className="mt-12 grid md:grid-cols-1 lg:grid-cols-1 gap-8 ">
+            <div className="pcards">
                 {filteredPosts.map((project: Project, index) => (
                     <ProjectCard key={project.name} project={project}
                                  background={backgroundColors[index % backgroundColors.length]}
                                  border={borderColors[index % borderColors.length]}/>
-
                 ))}
             </div>
         </section>
@@ -69,4 +54,3 @@ const ProjectsGrid = ({projects, showSearchBar}: ProjectsGridProps) => {
 };
 
 export default ProjectsGrid;
-

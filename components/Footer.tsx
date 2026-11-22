@@ -10,7 +10,7 @@ const Footer = () => {
                 <div className="foot__grid">
                     <div className="foot__col">
                         <p>
-                            Feel free to send me a message: <a className="link" href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>
+                            Schreib mir gern eine Nachricht: <a className="link" href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>
                         </p>
                         <ul className="foot__social">
                             <li>
@@ -31,23 +31,25 @@ const Footer = () => {
                             </li>
                         </ul>
                     </div>
-                    <nav aria-label="Footer Navigation - Company" className="foot__col">
+                    <nav aria-label="Footer-Navigation – Seiten" className="foot__col">
                         <h2>Links</h2>
                         <ul>
-                            <li><Link href="/">Home</Link></li>
-                            <li><Link href="/projects">Projects</Link></li>
+                            <li><Link href="/">Startseite</Link></li>
+                            <li><Link href="/projects">Projekte</Link></li>
+                            <li><Link href="/blog">Blog</Link></li>
+                            <li><Link href="/ki-fuer-unternehmen/postfach-radar#demo" lang="de">Live-Demo: Postfach-Radar</Link></li>
                             {showKiServices && <li><Link href="/ki-fuer-unternehmen" lang="de">KI für Unternehmen</Link></li>}
                         </ul>
                     </nav>
-                    <nav aria-label="Footer Navigation - Legal" className="foot__col">
-                        <h2>Legal</h2>
+                    <nav aria-label="Footer-Navigation – Rechtliches" className="foot__col">
+                        <h2>Rechtliches</h2>
                         <ul>
-                            <li><Link href="/impress">Legal notice and impress information</Link></li>
+                            <li><Link href="/impress">Impressum</Link></li>
                             <li><Link href="/datenschutz" lang="de">Datenschutzerklärung</Link></li>
                         </ul>
                     </nav>
                 </div>
-                <p className="foot__legal">Made by <span>Nikolas Rummel</span></p>
+                <p className="foot__legal">Erstellt von <span>Nikolas Rummel</span></p>
             </div>
         </footer>
     )

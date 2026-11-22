@@ -11,12 +11,14 @@ const kiNavItem = {title: "KI für Unternehmen", href: "/ki-fuer-unternehmen", l
 
 export const siteConfig = {
     name: "Nikolas Rummel",
-    description: "Portfolio of Nikolas Rummel – AI & ML Backend Engineer",
+    description: "Portfolio von Nikolas Rummel – AI & ML Backend Engineer",
     url: "https://nikolas-rummel.de",
     contactEmail: "kontakt@nikolas-rummel.de",
     mainNav: [
-        {title: "Home", href: "/", lang: "en"},
-        {title: "Projects", href: "/projects", lang: "en"},
+        {title: "Startseite", href: "/", lang: "de"},
+        {title: "Projekte", href: "/projects", lang: "de"},
+        {title: "Blog", href: "/blog", lang: "de"},
+        {title: "Live-Demo", href: "/ki-fuer-unternehmen/postfach-radar#demo", lang: "de"},
         ...(showKiServices ? [kiNavItem] : []),
     ],
     links: {

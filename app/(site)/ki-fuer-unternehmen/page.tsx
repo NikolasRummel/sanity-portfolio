@@ -64,7 +64,9 @@ export default function KiFuerUnternehmen() {
                             </div>
                             <p className="small">{c.hero.note}</p>
                         </div>
-                        <div className="ki-hero__demo"><ChatDemo scenario={handbuchChat} minHeight="h-[31rem]"/></div>
+                        <div className="ki-hero__stage">
+                            <ChatDemo scenario={handbuchChat} minHeight="h-[33rem]"/>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -80,12 +82,12 @@ export default function KiFuerUnternehmen() {
                 </div>
             </section>
 
-            <section aria-labelledby="ablauf" className="band band--tint">
+            <section aria-labelledby="ablauf" className="band">
                 <div className="container">
                     <div className="head"><h2 id="ablauf">{c.process.title}</h2></div>
-                    <ol className="rows">
+                    <ol className="steps">
                         {c.process.steps.map((s) => (
-                            <li key={s.title} className="rows__item">
+                            <li key={s.title} className="steps__item">
                                 <h3>{s.title}</h3>
                                 <p>{s.text}</p>
                             </li>
@@ -95,19 +97,23 @@ export default function KiFuerUnternehmen() {
             </section>
 
             <section aria-labelledby="datenschutz" className="band">
-                <div className="container split">
-                    <h2 id="datenschutz">{c.privacy.title}</h2>
-                    <ul className="points clear">
-                        {c.privacy.points.map((t) => <li key={t}>{t}</li>)}
-                    </ul>
+                <div className="container">
+                    <div className="privacy">
+                        <h2 id="datenschutz">{c.privacy.title}</h2>
+                        <ul className="points">
+                            {c.privacy.points.map((t) => <li key={t}>{t}</li>)}
+                        </ul>
+                    </div>
                 </div>
             </section>
 
-            <section aria-labelledby="ueber-mich" className="band band--tint">
-                <div className="container statement">
-                    <h2 id="ueber-mich" className="small" style={{fontFamily: "var(--font-body)", fontSize: "var(--text-md)", fontWeight: 500, letterSpacing: 0}}>{c.about.title}</h2>
-                    <p className="statement__main">{c.about.text[0]}</p>
-                    <p className="statement__aside">{c.about.text[1]}</p>
+            <section aria-labelledby="ueber-mich" className="band">
+                <div className="container">
+                    <div className="statement">
+                        <h2 id="ueber-mich" className="statement__label" style={{fontFamily: "var(--font-body)", fontSize: "var(--text-md)", letterSpacing: 0}}>{c.about.title}</h2>
+                        <p className="statement__main">{c.about.text[0]}</p>
+                        <p className="statement__aside">{c.about.text[1]}</p>
+                    </div>
                 </div>
             </section>
 
@@ -123,7 +129,7 @@ export default function KiFuerUnternehmen() {
 
             <section aria-labelledby="kontakt" className="close">
                 <div className="container">
-                    <div className="close__inner clear">
+                    <div className="close__inner">
                         <h2 id="kontakt">{c.finalCta.title}</h2>
                         <p className="lead">{c.finalCta.text}</p>
                         <CtaButton/>

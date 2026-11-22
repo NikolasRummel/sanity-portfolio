@@ -17,10 +17,9 @@ type TabId = (typeof TABS)[number]["id"]
 
 /** Chart-Farben als Variablen, damit Light/Dark ohne JS-Wechsel funktionieren. */
 const THEME_VARS =
-    "[--r-surface:#ffffff] [--r-ink:#18181b] [--r-text:#52525b] [--r-grid:#e4e4e7] [--r-muted:#a1a1aa] [--r-accent:#0f766e] [--r-alert:#b45309] " +
-    "dark:[--r-surface:#09090b] dark:[--r-ink:#fafafa] dark:[--r-text:#a1a1aa] dark:[--r-grid:#27272a] dark:[--r-muted:#71717a] dark:[--r-accent:#5eead4] dark:[--r-alert:#fbbf24]"
+    "[--r-surface:var(--color-light)] [--r-ink:var(--color-ink)] [--r-text:var(--color-ink-2)] [--r-grid:var(--color-rule)] [--r-muted:var(--color-muted)] [--r-accent:var(--color-accent)] [--r-alert:oklch(58%_0.16_55)]"
 
-const card = "rounded-2xl border border-gray-200 dark:border-gray-800"
+const card = "rounded-(--radius-card) border border-(--color-rule)"
 
 export default function RadarDemo() {
     const [tab, setTab] = useState<TabId>("overview")
@@ -45,14 +44,8 @@ export default function RadarDemo() {
     }
 
     return (
-        <div className={cn("overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-xl shadow-teal-900/5 dark:border-gray-800 dark:bg-zinc-950", THEME_VARS)}>
-            {/* Fensterleiste */}
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-gray-200 bg-zinc-50 px-4 py-3 dark:border-gray-800 dark:bg-zinc-900/60">
-                <div className="flex gap-1.5" aria-hidden="true">
-                    <span className="h-3 w-3 rounded-full bg-zinc-300 dark:bg-zinc-700"/>
-                    <span className="h-3 w-3 rounded-full bg-zinc-300 dark:bg-zinc-700"/>
-                    <span className="h-3 w-3 rounded-full bg-zinc-300 dark:bg-zinc-700"/>
-                </div>
+        <div className={cn("demo-card", THEME_VARS)}>
+                        <div className="demo-card__head flex flex-wrap items-center gap-x-4 gap-y-2 px-4 py-3">
                 <div role="tablist" aria-label="Ansicht wählen" className="-mb-px flex flex-1 gap-1 overflow-x-auto">
                     {TABS.map(({id, label, icon: Icon}) => (
                         <button
@@ -60,8 +53,8 @@ export default function RadarDemo() {
                             aria-controls="radar-panel" tabIndex={tab === id ? 0 : -1}
                             onClick={() => setTab(id)} onKeyDown={onTabKey}
                             className={cn(
-                                "flex shrink-0 items-center gap-2 rounded-lg px-3 py-1.5 text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal-700",
-                                tab === id ? "bg-white text-teal-800 shadow-sm dark:bg-zinc-800 dark:text-teal-300" : "text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white",
+                                "flex shrink-0 items-center gap-2 rounded-lg px-3 py-1.5 text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-(--color-focus)",
+                                tab === id ? "bg-(--color-light) text-(--color-accent-hi) shadow-sm" : "text-(--color-ink-2) hover:text-(--color-ink)",
                             )}
                         >
                             <Icon size={16} aria-hidden="true"/>{label}
@@ -93,10 +86,10 @@ function TopicChips({selected, onSelect, alerts}: { selected: number; onSelect: 
                 <button
                     key={t.id} onClick={() => onSelect(t.id)} aria-pressed={selected === t.id} title={t.title}
                     className={cn(
-                        "flex items-center gap-1.5 rounded-full border px-3 py-1 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal-700",
+                        "flex items-center gap-1.5 rounded-full border px-3 py-1 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-(--color-focus)",
                         selected === t.id
-                            ? "border-teal-700 bg-teal-700 text-white dark:border-teal-300 dark:bg-teal-300 dark:text-zinc-900"
-                            : "border-gray-300 text-gray-700 hover:border-teal-700 dark:border-gray-700 dark:text-gray-300 dark:hover:border-teal-300",
+                            ? "border-(--color-accent) bg-(--color-accent) text-(--color-accent-ink)"
+                            : "border-(--color-rule) text-(--color-ink-2) hover:border-(--color-accent)",
                     )}
                 >
                     {shortTitle(t.title)}
@@ -109,12 +102,12 @@ function TopicChips({selected, onSelect, alerts}: { selected: number; onSelect: 
 
 function ThresholdSlider({value, onChange}: { value: number; onChange: (v: number) => void }) {
     return (
-        <label className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-gray-700 dark:text-gray-300">
+        <label className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-(--color-ink-2)">
             <span className="font-semibold">Empfindlichkeit</span>
             <input type="range" min={2} max={6} step={0.5} value={value} onChange={(e) => onChange(Number(e.target.value))}
                    className="w-48 accent-teal-700" aria-valuetext={`Alarm ab ${formatNumber(value, 1)} Standardabweichungen`}/>
             <span>Alarm ab {formatNumber(value, 1)} Standardabweichungen über dem Normalwert
-                <span className="text-gray-500"> (niedriger = mehr Alarme)</span></span>
+                <span className="text-(--color-muted)"> (niedriger = mehr Alarme)</span></span>
         </label>
     )
 }
@@ -124,7 +117,7 @@ function Placeholders({text}: { text: string }) {
         <>
             {text.split(/(\[[A-Z_]+\])/).map((part, i) =>
                 /^\[[A-Z_]+\]$/.test(part)
-                    ? <span key={i} className="mx-0.5 rounded-md bg-teal-100 px-1.5 py-0.5 text-xs font-bold text-teal-900 dark:bg-teal-900/50 dark:text-teal-200">{part}</span>
+                    ? <span key={i} className="mx-0.5 rounded-md bg-(--color-accent-soft) px-1.5 py-0.5 text-xs font-bold text-(--color-ink)">{part}</span>
                     : <span key={i}>{part}</span>,
             )}
         </>
@@ -147,7 +140,7 @@ function Overview({spikes, onOpen}: { spikes: ReturnType<typeof findSpikes>; onO
             <dl className="grid grid-cols-2 gap-3 lg:grid-cols-4">
                 {kpis.map((k) => (
                     <div key={k.label} className={cn(card, "p-4")}>
-                        <dt className="text-xs uppercase tracking-wide text-gray-600 dark:text-gray-400">{k.label}</dt>
+                        <dt className="text-xs text-(--color-muted)">{k.label}</dt>
                         <dd className="mt-1 text-3xl font-extrabold tracking-tight">{k.value}</dd>
                     </div>
                 ))}
@@ -155,17 +148,17 @@ function Overview({spikes, onOpen}: { spikes: ReturnType<typeof findSpikes>; onO
             <div className="grid gap-6 lg:grid-cols-5">
                 <section className="lg:col-span-2" aria-labelledby="alarme">
                     <h3 id="alarme" className="mb-3 text-base font-bold">Aktuelle Alarme</h3>
-                    {spikes.length === 0 && <p className="mb-0 text-sm text-gray-600 dark:text-gray-400">Bei dieser Empfindlichkeit gibt es keine Alarme. Stellt sie im Tab „Verlauf“ niedriger.</p>}
+                    {spikes.length === 0 && <p className="mb-0 text-sm text-(--color-muted)">Bei dieser Empfindlichkeit gibt es keine Alarme. Stellt sie im Tab „Verlauf“ niedriger.</p>}
                     <ul className="space-y-2">
                         {spikes.slice(0, 6).map((s) => (
                             <li key={`${s.clusterId}-${s.day}`}>
                                 <button onClick={() => onOpen(s.clusterId)}
-                                        className={cn(card, "w-full p-3 text-left transition-colors hover:border-amber-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal-700")}>
-                                    <span className="flex items-center gap-2 text-sm font-bold text-amber-800 dark:text-amber-300">
+                                        className={cn(card, "w-full p-3 text-left transition-colors hover:border-(--r-alert) focus-visible:outline focus-visible:outline-2 focus-visible:outline-(--color-focus)")}>
+                                    <span className="flex items-center gap-2 text-sm font-bold text-(--r-alert)">
                                         <AlertTriangle size={15} aria-hidden="true"/>{formatDay(s.day)}
                                     </span>
                                     <span className="mt-1 block text-sm font-semibold">{byId.get(s.clusterId)?.title}</span>
-                                    <span className="block text-sm text-gray-600 dark:text-gray-400">
+                                    <span className="block text-sm text-(--color-muted)">
                                         {formatNumber(s.count)} Anfragen statt üblich {formatNumber(s.mean)} ({formatNumber(s.count / s.mean, 1)}×)
                                     </span>
                                 </button>
@@ -179,15 +172,15 @@ function Overview({spikes, onOpen}: { spikes: ReturnType<typeof findSpikes>; onO
                         {[...topics].sort((a, b) => b.size - a.size).map((t) => (
                             <li key={t.id}>
                                 <button onClick={() => onOpen(t.id)}
-                                        className={cn(card, "w-full p-3 text-left transition-colors hover:border-teal-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal-700")}>
+                                        className={cn(card, "w-full p-3 text-left transition-colors hover:border-teal-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-(--color-focus)")}>
                                     <span className="flex items-baseline justify-between gap-3">
                                         <span className="text-sm font-semibold">{t.title}</span>
-                                        <span className="shrink-0 text-sm tabular-nums text-gray-600 dark:text-gray-400">{formatNumber(t.size)}</span>
+                                        <span className="shrink-0 text-sm tabular-nums text-(--color-muted)">{formatNumber(t.size)}</span>
                                     </span>
-                                    <span className="mt-1.5 block h-1.5 rounded-full bg-zinc-100 dark:bg-zinc-800">
-                                        <span className="block h-1.5 rounded-full bg-teal-700 dark:bg-teal-300" style={{width: `${(t.size / max) * 100}%`}}/>
+                                    <span className="mt-1.5 block h-1.5 rounded-full bg-(--color-paper-3)">
+                                        <span className="block h-1.5 rounded-full bg-(--color-accent)" style={{width: `${(t.size / max) * 100}%`}}/>
                                     </span>
-                                    <span className="mt-1.5 block text-sm text-gray-600 dark:text-gray-400">{t.description}</span>
+                                    <span className="mt-1.5 block text-sm text-(--color-muted)">{t.description}</span>
                                 </button>
                             </li>
                         ))}
@@ -210,13 +203,13 @@ function Trend({clusterId, onSelect, threshold, onThreshold}: {
             <TopicChips selected={cluster.id} onSelect={onSelect} alerts={alerts}/>
             <div>
                 <h3 className="mb-1 text-lg font-bold">{cluster.title}</h3>
-                <p className="mb-0 text-sm text-gray-600 dark:text-gray-400">{cluster.description}</p>
+                <p className="mb-0 text-sm text-(--color-muted)">{cluster.description}</p>
             </div>
             <div className={cn(card, "p-2 sm:p-4")}>
                 <TrendChart cluster={cluster} spikes={mine} threshold={threshold}/>
             </div>
             <ThresholdSlider value={threshold} onChange={onThreshold}/>
-            <p className="mb-0 text-sm text-gray-700 dark:text-gray-300" aria-live="polite">
+            <p className="mb-0 text-sm text-(--color-ink-2)" aria-live="polite">
                 {mine.length === 0
                     ? "In diesem Thema gibt es bei dieser Empfindlichkeit keinen Alarm."
                     : `${mine.length} Alarm${mine.length > 1 ? "e" : ""}: ${mine.map((s) => `${formatDay(s.day)} (${formatNumber(s.count)} Anfragen, normal ${formatNumber(s.mean)})`).join(", ")}.`}
@@ -230,7 +223,7 @@ function MapView({clusterId, onSelect}: { clusterId: number; onSelect: (id: numb
     const cluster = topics.find((t) => t.id === clusterId) ?? topics[0]
     return (
         <div className="space-y-5">
-            <p className="mb-0 text-sm text-gray-700 dark:text-gray-300">
+            <p className="mb-0 text-sm text-(--color-ink-2)">
                 Jeder Punkt ist eine Kundenanfrage. Anfragen mit ähnlicher Bedeutung liegen nah beieinander. Wählt ein Thema, um seine Anfragen hervorzuheben.
             </p>
             <TopicChips selected={cluster.id} onSelect={onSelect}/>
@@ -239,8 +232,8 @@ function MapView({clusterId, onSelect}: { clusterId: number; onSelect: (id: numb
             </div>
             <div className={cn(card, "p-4")}>
                 <h3 className="mb-1 text-base font-bold">{cluster.title}</h3>
-                <p className="mb-2 text-sm text-gray-600 dark:text-gray-400">{cluster.description}</p>
-                <p className="mb-0 text-sm italic text-gray-700 dark:text-gray-300">Beispiel: „<Placeholders text={cluster.example}/>“</p>
+                <p className="mb-2 text-sm text-(--color-muted)">{cluster.description}</p>
+                <p className="mb-0 text-sm italic text-(--color-ink-2)">Beispiel: „<Placeholders text={cluster.example}/>“</p>
             </div>
         </div>
     )
@@ -252,7 +245,7 @@ function Classify() {
     const unsure = probe.probability < 0.6
     return (
         <div className="space-y-5">
-            <p className="mb-0 text-sm text-gray-700 dark:text-gray-300">
+            <p className="mb-0 text-sm text-(--color-ink-2)">
                 Wählt eine Beispiel-Anfrage. Der Radar entfernt persönliche Angaben und ordnet sie einem Thema zu, so wie jede neue Nachricht im Postfach.
             </p>
             <div className="grid gap-5 lg:grid-cols-2">
@@ -261,8 +254,8 @@ function Classify() {
                         <li key={p.text}>
                             <button onClick={() => setIndex(i)} aria-pressed={i === index}
                                     className={cn(
-                                        "w-full rounded-xl border p-3 text-left text-sm transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal-700",
-                                        i === index ? "border-teal-700 bg-teal-50 dark:border-teal-300 dark:bg-teal-950/40" : "border-gray-200 hover:border-teal-700 dark:border-gray-800 dark:hover:border-teal-300",
+                                        "w-full rounded-xl border p-3 text-left text-sm transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-(--color-focus)",
+                                        i === index ? "border-(--color-accent) bg-(--color-accent-soft)" : "border-(--color-rule) hover:border-(--color-accent)",
                                     )}>
                                 {p.text}
                             </button>
@@ -273,23 +266,23 @@ function Classify() {
                     <motion.div key={index} initial={{opacity: 0, y: 8}} animate={{opacity: 1, y: 0}} exit={{opacity: 0}} transition={{duration: 0.18}}
                                 className={cn(card, "space-y-4 p-5 lg:sticky lg:top-24 lg:self-start")} aria-live="polite">
                         <div>
-                            <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-400">1. Anonymisiert</p>
-                            <p className="mb-0 text-sm leading-relaxed text-gray-800 dark:text-gray-200"><Placeholders text={probe.anonymized}/></p>
+                            <p className="mb-1 text-sm font-medium text-(--color-muted)">1. Anonymisiert</p>
+                            <p className="mb-0 text-sm leading-relaxed text-(--color-ink)"><Placeholders text={probe.anonymized}/></p>
                         </div>
                         <div>
-                            <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-400">2. Thema</p>
-                            <p className="mb-0 text-xl font-bold text-teal-800 dark:text-teal-300">{probe.title}</p>
+                            <p className="mb-1 text-sm font-medium text-(--color-muted)">2. Thema</p>
+                            <p className="mb-0 text-xl font-bold text-(--color-accent-hi)">{probe.title}</p>
                         </div>
                         <div>
-                            <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-400">3. Sicherheit</p>
+                            <p className="mb-1 text-sm font-medium text-(--color-muted)">3. Sicherheit</p>
                             <div className="flex items-center gap-3">
-                                <div className="h-2 flex-1 rounded-full bg-zinc-100 dark:bg-zinc-800" role="img" aria-label={`Sicherheit ${Math.round(probe.probability * 100)} Prozent`}>
-                                    <div className="h-2 rounded-full bg-teal-700 dark:bg-teal-300" style={{width: `${probe.probability * 100}%`}}/>
+                                <div className="h-2 flex-1 rounded-full bg-(--color-paper-3)" role="img" aria-label={`Sicherheit ${Math.round(probe.probability * 100)} Prozent`}>
+                                    <div className="h-2 rounded-full bg-(--color-accent)" style={{width: `${probe.probability * 100}%`}}/>
                                 </div>
                                 <span className="text-sm font-bold tabular-nums">{Math.round(probe.probability * 100)} %</span>
                             </div>
                             {unsure && (
-                                <p className="mb-0 mt-2 flex items-start gap-2 text-sm text-amber-800 dark:text-amber-300">
+                                <p className="mb-0 mt-2 flex items-start gap-2 text-sm text-(--r-alert)">
                                     <AlertTriangle size={16} className="mt-0.5 shrink-0" aria-hidden="true"/>
                                     Eher unsicher: Die Nachricht passt zu mehreren Themen. Der Radar würde sie zur Kontrolle markieren.
                                 </p>

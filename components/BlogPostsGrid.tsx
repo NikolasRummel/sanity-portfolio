@@ -11,8 +11,8 @@ const BlogPostsGrid = ({posts}: { posts: Post[] }) => {
     const [selectedCategory, setSelectedCategory] = useState("all");
 
     const categories = [
-        { label: 'All', value: 'all' },
-        { label: 'Personal', value: 'personal' },
+        { label: 'Alle', value: 'all' },
+        { label: 'Persönlich', value: 'personal' },
         { label: 'Tech', value: 'tech' },
     ];
 
@@ -23,13 +23,13 @@ const BlogPostsGrid = ({posts}: { posts: Post[] }) => {
 
     return (
         <div>
-            <div className="flex space-x-2 mb-4">
+            <div className="chips" role="group" aria-label="Filtern">
                 {categories.map((category) => (
                     <button
                         key={category.value}
-                        className={`px-3 py-1 rounded-full ${
-                            selectedCategory === category.value ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-600'
-                        }`}
+                        type="button"
+                        className="chip"
+                        aria-pressed={selectedCategory === category.value}
                         onClick={() => setSelectedCategory(category.value)}
                     >
                         {category.label}
@@ -37,18 +37,15 @@ const BlogPostsGrid = ({posts}: { posts: Post[] }) => {
                 ))}
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="post-grid">
                 {filteredArticles.map((article, index) => (
-                    <div key={index} className="group grid-item h-4/5" onClick={() => {
+                    <article key={index} className="post" onClick={() => {
                         router.push(`/blog/${article.slug}`);
                     }}>
-                        <Image src={article.image} width="1000" height="1000" alt="Blog image" className="w-full h-96 object-cover rounded-xl group-hover:opacity-80 "/>
-                        <h2 className="mt-2 mb-1">{article.title}</h2>
-                        <div className="relative flex">
-                            <p className="text-base">{formatDate(article.createdAt)}</p>
-                            {/* <p className="text-base absolute right-0">6 min read</p>*/}
-                        </div>
-                    </div>
+                        <Image src={article.image} width="1000" height="1000" alt="Beitragsbild"/>
+                        <h2>{article.title}</h2>
+                        <p className="small">{formatDate(article.createdAt)}</p>
+                    </article>
                 ))}
             </div>
         </div>

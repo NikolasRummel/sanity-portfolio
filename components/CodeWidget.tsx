@@ -15,24 +15,15 @@ const CodeWidget = () => {
     cloud: ["Google Cloud (GCP)", "Terraform", "Docker"]
   },
   teaching: {
-    academic: "Distributed Systems Lecturer @ DHBW",
-    mentorship: "Supervising Interns & Dual Students"
+    academic: "Dozent für Verteilte Systeme @ DHBW",
+    mentorship: "Betreuung von Praktikanten & dualen Studierenden"
   },
-  hobbies: ["Motorcycle Riding", "Hiking & Nature", "Piano"]
+  hobbies: ["Motorradfahren", "Wandern & Natur", "Klavier"]
 };`;
 
     return (
-        <div className="rounded-2xl bg-[#1e1e1e] shadow-2xl p-4 w-full h-full relative overflow-hidden border border-gray-800">
-            <div className="flex items-center justify-start mb-4 gap-1.5">
-                <div className="h-3 w-3 bg-[#ff5f56] rounded-full"></div>
-                <div className="h-3 w-3 bg-[#ffbd2e] rounded-full"></div>
-                <div className="h-3 w-3 bg-[#27c93f] rounded-full"></div>
-            </div>
-
-            <div className="relative">
-                <div className="absolute -top-10 -left-10 bg-blue-500/20 w-40 h-40 blur-[80px] pointer-events-none"></div>
-                <div className="absolute -bottom-10 -right-10 bg-purple-500/20 w-40 h-40 blur-[80px] pointer-events-none"></div>
-
+        <div className="code-widget">
+            <div>
                 <SyntaxHighlighter
                     language="typescript"
                     style={atomOneDark}

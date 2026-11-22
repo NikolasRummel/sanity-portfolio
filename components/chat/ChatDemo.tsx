@@ -15,7 +15,7 @@ function Dots() {
     return (
         <span className="inline-flex items-center gap-1 px-1 py-1.5" aria-label="schreibt gerade">
             {[0, 1, 2].map((i) => (
-                <span key={i} className="h-2 w-2 rounded-full bg-zinc-400 motion-safe:animate-bounce dark:bg-zinc-500"
+                <span key={i} className="h-2 w-2 rounded-full bg-(--color-muted) motion-safe:animate-bounce"
                       style={{animationDelay: `${i * 150}ms`}}/>
             ))}
         </span>
@@ -72,18 +72,18 @@ export default function ChatDemo({scenario, className, minHeight = "h-[26rem]"}:
     }, [visible, typing, reduce])
 
     return (
-        <div ref={ref} className={cn("overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-xl shadow-teal-900/10 dark:border-gray-800 dark:bg-zinc-950", className)}>
-            <div className="flex items-center gap-3 border-b border-gray-200 bg-zinc-50 px-4 py-3 dark:border-gray-800 dark:bg-zinc-900/60">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-teal-700 text-white"><Bot size={18} aria-hidden="true"/></span>
+        <div ref={ref} className={cn("demo-card", className)}>
+            <div className="demo-card__head flex items-center gap-3 px-4 py-3">
+                <span className="demo-card__avatar flex h-9 w-9 items-center justify-center"><Bot size={18} aria-hidden="true"/></span>
                 <div className="min-w-0 flex-1">
                     <p className="mb-0 truncate text-sm font-bold leading-tight">{scenario.title}</p>
-                    <p className="mb-0 flex items-center gap-1.5 text-xs text-gray-600 dark:text-gray-400">
-                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" aria-hidden="true"/>{scenario.subtitle}
+                    <p className="mb-0 flex items-center gap-1.5 text-xs text-(--color-muted)">
+                        <span className="h-1.5 w-1.5 rounded-full bg-(--color-success)" aria-hidden="true"/>{scenario.subtitle}
                     </p>
                 </div>
                 {!reduce && (
                     <button type="button" onClick={() => setRun((r) => r + 1)} aria-label="Demo neu abspielen"
-                            className="rounded-lg p-2 text-gray-600 transition-colors hover:bg-zinc-200 dark:text-gray-400 dark:hover:bg-zinc-800">
+                            className="rounded-lg p-2 text-(--color-ink-2) transition-colors hover:bg-(--color-accent-soft)">
                         <RotateCcw size={16} aria-hidden="true"/>
                     </button>
                 )}
@@ -95,11 +95,11 @@ export default function ChatDemo({scenario, className, minHeight = "h-[26rem]"}:
                         <motion.div key={`${run}-${i}`} initial={reduce ? false : {opacity: 0, y: 10, scale: 0.97}} animate={{opacity: 1, y: 0, scale: 1}}
                                     transition={{duration: 0.3}} className={cn("flex max-w-[85%] flex-col", m.from === "user" ? "self-end items-end" : "self-start items-start")}>
                             <p className={cn("mb-0 rounded-2xl px-4 py-2.5 text-[0.95rem] leading-snug",
-                                m.from === "user" ? "rounded-br-md bg-teal-700 text-white" : "rounded-bl-md bg-zinc-100 text-zinc-900 dark:bg-zinc-800 dark:text-zinc-100")}>
+                                m.from === "user" ? "rounded-br-md bg-(--color-ink) text-(--color-paper)" : "rounded-bl-md bg-(--color-paper-2) text-(--color-ink)")}>
                                 {m.text}
                             </p>
                             {m.source && (
-                                <span className="mt-1.5 inline-flex items-center gap-1.5 rounded-full border border-teal-700/30 bg-teal-50 px-2.5 py-1 text-xs font-medium text-teal-900 dark:bg-teal-950/40 dark:text-teal-200">
+                                <span className="mt-1.5 inline-flex items-center gap-1.5 rounded-full bg-(--color-shade) px-2.5 py-1 text-xs font-medium text-(--color-ink)">
                                     <FileText size={12} aria-hidden="true"/>Quelle: {m.source}
                                 </span>
                             )}
@@ -107,7 +107,7 @@ export default function ChatDemo({scenario, className, minHeight = "h-[26rem]"}:
                     ))}
                 </AnimatePresence>
                 {typing && (
-                    <div className={cn("rounded-2xl px-3", typing === "user" ? "self-end rounded-br-md bg-teal-700/15" : "self-start rounded-bl-md bg-zinc-100 dark:bg-zinc-800")}>
+                    <div className={cn("rounded-2xl px-3", typing === "user" ? "self-end rounded-br-md bg-(--color-paper-3)" : "self-start rounded-bl-md bg-(--color-paper-2)")}>
                         <Dots/>
                     </div>
                 )}
