@@ -1,6 +1,5 @@
 import type {Metadata} from "next"
 import React from "react"
-import Placeholder from "@/components/legal/Placeholder"
 import {siteConfig} from "@/config/site"
 
 export const metadata: Metadata = {
@@ -14,26 +13,29 @@ export default function Datenschutz() {
         <div lang="de" className="ki page container prose" style={{minHeight: "100svh"}}>
             <header><h1>Datenschutzerklärung</h1></header>
 
-            <p className="notice">
-                <strong>Entwurf:</strong> Diese Seite enthält nur eine technische Beschreibung dessen, was die
-                Website heute tut, sowie Platzhalter. Sie ist keine geprüfte Rechtsberatung. Vor
-                Veröffentlichung bitte vervollständigen und prüfen lassen.
-            </p>
-
             <h2>1. Verantwortlicher</h2>
             <p>
-                Nikolas Rummel, Laurentiusstr. 56, <Placeholder>PLZ</Placeholder> Karlsruhe<br/>
+                Nikolas Rummel, Laurentiusstr. 56, 76135 Karlsruhe<br/>
                 E-Mail: <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>
             </p>
 
-            <h2>2. Hosting und Server-Logfiles</h2>
+            <h2>2. Hosting, Cloudflare und Server-Logfiles</h2>
             <p>
-                Diese Website wird bei <Placeholder>Hosting-Anbieter, Standort der Server und Link zur Datenschutzerklärung des Anbieters</Placeholder> betrieben.
-                Beim Aufruf der Seite verarbeitet der Hosting-Anbieter technisch notwendige Daten wie IP-Adresse,
-                Datum und Uhrzeit sowie die aufgerufene Seite.
+                Diese Website wird auf einem von mir selbst betriebenen Server gehostet. Der Zugriff läuft über
+                den Dienst Cloudflare (Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, USA), der
+                als Vorschaltdienst (Reverse Proxy und Tunnel) dient. Cloudflare verarbeitet dabei technisch
+                notwendige Daten wie eure IP-Adresse, Datum und Uhrzeit, die aufgerufene Seite sowie
+                Browser- und Geräteinformationen, um die Seite auszuliefern, vor Angriffen zu schützen und die
+                Verbindung per HTTPS zu verschlüsseln. Cloudflare ist unter dem EU-US Data Privacy Framework
+                zertifiziert. Weitere Informationen:
+                {" "}<a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">cloudflare.com/privacypolicy</a>.
             </p>
             <p>
-                <Placeholder>Zweck, Rechtsgrundlage (z. B. Art. 6 Abs. 1 lit. f DSGVO), Speicherdauer der Logfiles und Auftragsverarbeitungsvertrag mit dem Hoster</Placeholder>
+                Auch auf meinem Server werden beim Aufruf der Seite technisch notwendige Daten (IP-Adresse,
+                Datum und Uhrzeit, aufgerufene Seite, Browser) in Logfiles verarbeitet. Zweck ist der sichere
+                und stabile Betrieb der Website. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes
+                Interesse am sicheren Betrieb). Die Daten werden nur so lange gespeichert, wie es dafür
+                erforderlich ist, und nicht mit anderen Daten zusammengeführt.
             </p>
 
             <h2>3. Cookies, Tracking und externe Dienste</h2>
@@ -45,7 +47,8 @@ export default function Datenschutz() {
             </p>
             <p>
                 Die Wahl zwischen hellem und dunklem Erscheinungsbild wird nur lokal in eurem Browser
-                gespeichert (Local Storage) und nicht an mich übertragen.
+                gespeichert (Local Storage) und nicht an mich übertragen. Dafür ist keine Einwilligung
+                erforderlich (§ 25 Abs. 2 TDDDG).
             </p>
             <p>
                 Links zu externen Seiten (zum Beispiel GitHub, LinkedIn, Instagram) werden erst bei einem Klick
@@ -54,24 +57,29 @@ export default function Datenschutz() {
 
             <h2>4. Kontakt per E-Mail</h2>
             <p>
-                Wenn ihr mir schreibt, verarbeite ich eure Angaben, um die Anfrage zu beantworten.
-                <Placeholder>Rechtsgrundlage, Speicherdauer</Placeholder>
+                Wenn ihr mir schreibt, verarbeite ich eure Angaben (E-Mail-Adresse, Inhalt der Nachricht), um
+                die Anfrage zu beantworten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, wenn es um einen
+                Vertrag oder vorvertragliche Maßnahmen geht, sonst Art. 6 Abs. 1 lit. f DSGVO (berechtigtes
+                Interesse an der Beantwortung von Anfragen). Die Daten werden gelöscht, sobald die Anfrage
+                erledigt ist und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
             </p>
-
-            <h2>5. Buchung eines Gesprächs</h2>
             <p>
-                <Placeholder>Sobald ein Buchungsdienst eingebunden ist: Anbieter, Zweck, Datenarten, Serverstandort und Rechtsgrundlage ergänzen. Bis dahin Abschnitt streichen.</Placeholder>
+                Die Adresse {siteConfig.contactEmail} ist eine Weiterleitung über Cloudflare Email Routing
+                an mein privates Postfach bei Google (Gmail). Eure Nachricht läuft deshalb über die Server
+                von Cloudflare und Google, die dabei als Dienstleister für mich handeln. Beide Anbieter sind
+                unter dem EU-US Data Privacy Framework zertifiziert.
             </p>
 
-            <h2>6. Eure Rechte</h2>
+            <h2>5. Eure Rechte</h2>
             <p>
                 Ihr habt das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung,
                 Datenübertragbarkeit und Widerspruch (Art. 15 bis 21 DSGVO). Wendet euch dazu an die oben
                 genannte E-Mail-Adresse. Außerdem könnt ihr euch bei einer Datenschutz-Aufsichtsbehörde
-                beschweren. <Placeholder>Zuständige Aufsichtsbehörde bestätigen (für Karlsruhe vermutlich der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg)</Placeholder>
+                beschweren. Für mich zuständig ist der Landesbeauftragte für den Datenschutz und die
+                Informationsfreiheit Baden-Württemberg, Lautenschlagerstraße 20, 70173 Stuttgart.
             </p>
 
-            <p className="mt-12 text-sm text-gray-600 dark:text-gray-400">Stand: <Placeholder>Datum</Placeholder></p>
+            <p className="mt-12 text-sm text-gray-600 dark:text-gray-400">Stand: November 2026</p>
         </div>
     )
 }
