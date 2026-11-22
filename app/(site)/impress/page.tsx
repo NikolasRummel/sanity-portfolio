@@ -21,7 +21,7 @@ export default function Impress() {
 
             <h2 >Kontakt</h2>
             <p>
-                E-Mail: <a href="mailto:rml.nikolas@gmail.com">rml.nikolas@gmail.com</a>
+                E-Mail: <a href="mailto:kontakt@nikolas-rummel.de">kontakt@nikolas-rummel.de</a>
             </p>
 
             <h2 >Haftung für Inhalte</h2>
@@ -43,11 +43,6 @@ export default function Impress() {
                 Diese Website enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen
                 Einfluss habe. Für diese fremden Inhalte kann ich keine Gewähr übernehmen. Für die Inhalte
                 der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich.
-            </p>
-
-            <p className="mt-12 text-sm text-gray-600 dark:text-gray-400">
-                Hinweis: Die Haftungshinweise sind aus der bisherigen englischen Fassung übernommen und von
-                TMG auf DDG angepasst. Bitte rechtlich prüfen lassen.
             </p>
         </div>
     )
