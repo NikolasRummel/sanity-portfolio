@@ -6,7 +6,7 @@ import {siteConfig} from "@/config/site"
 
 export const radarPage = {
     meta: {
-        title: "Postfach-Radar: Themenerkennung und Anomalieerkennung in Kundenservice-Nachrichten",
+        title: "Postfach-Radar: Topic Discovery und Anomaly Detection in Kundenservice-Nachrichten",
         description:
             "Demo-Projekt aus meiner Bachelorarbeit: unüberwachte Themenerkennung, Online-Zuordnung und Alarm bei ungewöhnlichen Häufungen in Kundenservice-Nachrichten. Live ausprobieren.",
     },
@@ -41,7 +41,7 @@ export const radarPage = {
             {title: "Topic Discovery", text: "Embeddings mit embeddinggemma-300m, Dimensionsreduktion mit UMAP, Clustering mit HDBSCAN."},
             {title: "Benennen", text: "Jedes Cluster bekommt einen verständlichen Titel und eine Beschreibung, in der Bachelorarbeit per LLM mit zentroidnahen und zufälligen Beispielen."},
             {title: "Online-Zuordnung", text: "Neue Nachrichten werden anonymisiert, eingebettet, projiziert und per approximate_predict einem Cluster zugeordnet."},
-            {title: "Anomalieerkennung", text: "Cluster-spezifischer Z-Score auf den Tagesvolumen mit Schwelle 3,5, verglichen mit IQR, STL, Rolling-Z und EWMA."},
+            {title: "Anomaly Detection", text: "Cluster-spezifischer Z-Score auf den Tagesvolumen mit Schwelle 3,5, verglichen mit IQR, STL, Rolling-Z und EWMA."},
         ],
     },
 
@@ -50,7 +50,7 @@ export const radarPage = {
         items: [
             {title: "Themenbildung", text: "Die Cluster waren klar getrennt und inhaltlich gut interpretierbar, bei nur wenigen nicht zugeordneten Nachrichten."},
             {title: "Anomalien", text: "Der Cluster-spezifische Z-Score erkannte die untersuchten Anomalien bei sehr wenigen Fehlalarmen und schnitt besser ab als die klassischen Baselines."},
-            {title: "Nutzerstudie", text: "In einer kleinen Nutzerstudie bewerteten Testpersonen die Passgenauigkeit der Themen und die Nützlichkeit durchweg positiv. Das bestätigt: Clustering und Anomalieerkennung funktionieren für diesen Zweck, und der Ansatz wird nun so umgesetzt."},
+            {title: "Nutzerstudie", text: "In einer kleinen Nutzerstudie bewerteten Testpersonen die Passgenauigkeit der Themen und die Nützlichkeit durchweg positiv. Das bestätigt: Clustering und Anomaly Detection funktionieren für diesen Zweck, und der Ansatz wird nun so umgesetzt."},
         ],
     },
 

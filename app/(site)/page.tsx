@@ -4,7 +4,7 @@ import Link from "next/link";
 import TimelineContent from "@/components/TimelineContent";
 import React from "react";
 import {getProject} from "@/lib/content";
-import {Mail, ExternalLink, Download, ArrowRight} from "lucide-react";
+import {Mail, ExternalLink, ArrowRight} from "lucide-react";
 import {Github, Linkedin} from "@/components/icons";
 import BentoGrid from "@/components/BentoGrid";
 import {FadeIn} from "@/components/MotionWrappers";
@@ -34,19 +34,12 @@ export default async function Home() {
                         <div className="home-hero__text">
                             <h1 id="hallo">Hi, ich bin Nikolas</h1>
                             <p className="about">
-                                <strong>AI & ML Backend Engineer</strong> mit Fokus
-                                auf robuste Python- und Java-Architekturen, skalierbare Machine-Learning-Pipelines und intelligente NLP-Systeme. Neben der Softwareentwicklung begleite ich gern duale Studierende bei der Arbeit und gebe mein Wissen als <strong>DHBW-Dozent für Verteilte Systeme</strong> weiter. Wenn ich nicht programmiere, bin ich meist mit dem Motorrad in der Natur unterwegs, wandere oder spiele Klavier.
+                                <strong>AI & ML Backend Engineer.</strong> Ich baue ML-Pipelines, die Kundenanfragen automatisch verstehen und einordnen. Daneben begleite ich duale Studierende und gebe mein Wissen als <strong>DHBW-Dozent für Verteilte Systeme</strong> weiter. Wenn ich nicht programmiere, bin ich meist mit dem Motorrad in der Natur unterwegs, wandere oder spiele Klavier.
                             </p>
                             <div className="home-hero__actions">
                                 <a href="mailto:kontakt@nikolas-rummel.de" className="btn">
                                     Kontakt <Mail size={18} aria-hidden="true"/>
                                 </a>
-                                <a href="/cv.pdf" className="btn btn--clear">
-                                    Lebenslauf <Download size={18} aria-hidden="true"/>
-                                </a>
-                                <Link href="/projects/postfach-radar#demo" className="btn btn--clear" lang="de">
-                                    Live-Demo <ArrowRight size={18} aria-hidden="true"/>
-                                </Link>
                                 <div className="socials">
                                     <a href="https://github.com/NikolasRummel/" aria-label="GitHub"><Github size={24}/></a>
                                     <a href="https://www.linkedin.com/in/nikolas-rummel-311486206/" aria-label="LinkedIn"><Linkedin size={24}/></a>

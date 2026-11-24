@@ -24,15 +24,23 @@ const CodeWidget = () => {
 
     return (
         <div className="code-widget">
-            <div>
+            <div className="code-widget__bar">
+                <span className="code-widget__dots" aria-hidden="true"><i/><i/><i/></span>
+                <span className="code-widget__file">nikolas.ts</span>
+            </div>
+            <div className="code-widget__body">
                 <SyntaxHighlighter
                     language="typescript"
                     style={atomOneDark}
+                    showLineNumbers
+                    lineNumberStyle={{minWidth: '2.2em', paddingRight: '1.2em', textAlign: 'right', color: 'rgba(160,175,200,0.35)', userSelect: 'none'}}
+                    codeTagProps={{style: {background: 'none', padding: 0, fontFamily: 'inherit'}}}
                     customStyle={{
                         background: 'transparent',
                         padding: '0',
-                        fontSize: '0.85rem',
-                        lineHeight: '1.5',
+                        margin: '0',
+                        fontSize: '0.86rem',
+                        lineHeight: '1.75',
                     }}
                 >
                     {codeString}

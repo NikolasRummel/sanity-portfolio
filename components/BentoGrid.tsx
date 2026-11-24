@@ -26,7 +26,7 @@ const BentoGrid = () => {
                 whileInView="visible"
                 viewport={{once: true, margin: "-100px"}}
             >
-                <div className="head"><h2 id="capabilities">Technische Fähigkeiten</h2></div>
+                <div className="head"><h2 id="capabilities">Was ich mache &amp; mein Stack</h2></div>
 
                 <div className="cap">
                     <motion.div variants={itemVariants} className="cap__tile cap__lead">
@@ -34,7 +34,7 @@ const BentoGrid = () => {
                             <h3>AI & ML Backend Engineering</h3>
                             <p style={{marginTop: "var(--space-md)"}}>
                                 Bei dmTECH arbeite ich an der Automatisierung im Kundenservice. Dafür baue ich skalierbare Python-(FastAPI)- und Java-(Spring)-Backends, Machine-Learning-Pipelines und strukturierte NLP-Workflows auf der Google Cloud.
-                                {" Aus meiner Bachelorarbeit zu Embeddings, Clustering und Anomalieerkennung auf Kundenservice-Daten habe ich eine lauffähige Demo gebaut: den Postfach-Radar, den du weiter unten direkt ausprobieren kannst."}
+                                {" Aus meiner Bachelorarbeit zu Embeddings, Clustering und Anomaly Detection auf Kundenservice-Daten habe ich eine lauffähige Demo gebaut: den Postfach-Radar, den du weiter unten direkt ausprobieren kannst."}
                             </p>
                         </div>
                         <div>
@@ -51,19 +51,7 @@ const BentoGrid = () => {
                         <CodeWidget/>
                     </motion.div>
 
-                    <motion.div variants={itemVariants} className="cap__tile">
-                        <h3>Machine Learning & Datenpipelines</h3>
-                        <p className="small">Scikit-learn, LLMs, dbt, BigQuery</p>
-                    </motion.div>
-
-                    <motion.div variants={itemVariants} className="cap__tile">
-                        <h3>Dozent für Verteilte Systeme</h3>
-                        <p className="small">
-                            DHBW Karlsruhe (Sommersemester 2027)<br/>
-                            Studiengang Data Science & KI
-                        </p>
-                    </motion.div>
-                    <motion.div variants={itemVariants} className="cap__tile cap__demo" lang="de">
+                   <motion.div variants={itemVariants} className="cap__tile cap__demo" lang="de">
                             <div>
                                 <p className="small">Live-Demo</p>
                                 <h3>Postfach-Radar</h3>
