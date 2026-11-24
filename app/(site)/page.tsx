@@ -10,7 +10,6 @@ import BentoGrid from "@/components/BentoGrid";
 import {FadeIn} from "@/components/MotionWrappers";
 import FeaturedProjectsGrid from "@/components/FeaturedProjectsGrid";
 import {Project} from "@/types/project";
-import {showKiServices} from "@/config/site";
 
 export const metadata: Metadata = {
     alternates: {canonical: "/"},
@@ -19,7 +18,6 @@ export const metadata: Metadata = {
 export default async function Home() {
 
     const projectSlugs = [
-        "venade-cloud-distributed-game-infrastructure",
         "time-tracking-dashboard",
         "semantic_search",
     ];
@@ -46,11 +44,9 @@ export default async function Home() {
                                 <a href="/cv.pdf" className="btn btn--clear">
                                     Lebenslauf <Download size={18} aria-hidden="true"/>
                                 </a>
-                                {showKiServices && (
-                                    <Link href="/ki-fuer-unternehmen/postfach-radar#demo" className="btn btn--clear" lang="de">
-                                        Live-Demo <ArrowRight size={18} aria-hidden="true"/>
-                                    </Link>
-                                )}
+                                <Link href="/projects/postfach-radar#demo" className="btn btn--clear" lang="de">
+                                    Live-Demo <ArrowRight size={18} aria-hidden="true"/>
+                                </Link>
                                 <div className="socials">
                                     <a href="https://github.com/NikolasRummel/" aria-label="GitHub"><Github size={24}/></a>
                                     <a href="https://www.linkedin.com/in/nikolas-rummel-311486206/" aria-label="LinkedIn"><Linkedin size={24}/></a>
@@ -79,22 +75,20 @@ export default async function Home() {
                 <div className="container">
                     <FadeIn>
                         <div className="head"><h2 id="journey">Mein Werdegang</h2></div>
-                        <div className={showKiServices ? "journey" : "journey journey--single"}>
+                        <div className="journey">
                             <TimelineContent/>
-                            {showKiServices && (
-                            <aside className="journey__product" aria-label="Bachelorarbeit als Produkt">
-                                <p className="small">Von der Bachelorarbeit zum Produkt</p>
+                            <aside className="journey__product" aria-label="Bachelorarbeit als Demo-Projekt">
+                                <p className="small">Aus der Bachelorarbeit</p>
                                 <h3>Postfach-Radar</h3>
                                 <p>
-                                    Aus meiner Bachelorarbeit ist ein Produkt entstanden: Es sortiert Kundenanfragen
+                                    Aus meiner Bachelorarbeit habe ich eine Demo gebaut: Sie sortiert Kundenanfragen
                                     automatisch nach Themen und meldet sich, wenn zu einem Thema plötzlich ungewöhnlich
-                                    viele E-Mails eintreffen – eine Anomalieerkennung für das Postfach.
+                                    viele Nachrichten eintreffen. Das Backend läuft live auf meinem eigenen Server.
                                 </p>
-                                <Link href="/ki-fuer-unternehmen/postfach-radar#demo" className="link" lang="de">
+                                <Link href="/projects/postfach-radar#demo" className="link" lang="de">
                                         Zur Demo <ArrowRight size={16} aria-hidden="true" style={{display: "inline", marginLeft: 4}}/>
                                     </Link>
                             </aside>
-                            )}
                         </div>
                     </FadeIn>
                 </div>

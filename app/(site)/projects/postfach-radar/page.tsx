@@ -1,11 +1,8 @@
 import type {Metadata} from "next"
 import dynamic from "next/dynamic"
-import {notFound} from "next/navigation"
-import {ArrowRight} from "lucide-react"
-import {FadeIn} from "@/components/MotionWrappers"
 import HeroPreview from "@/components/radar/HeroPreview"
-import {radarCtaHref, radarPage as c} from "@/config/postfach-radar"
-import {showKiServices, siteConfig} from "@/config/site"
+import {radarPage as c} from "@/config/postfach-radar"
+import {siteConfig} from "@/config/site"
 
 const RadarDemo = dynamic(() => import("@/components/radar/RadarDemo"), {
     loading: () => <div className="demo-card" style={{height: 600}} aria-hidden="true"/>,
@@ -14,28 +11,17 @@ const RadarDemo = dynamic(() => import("@/components/radar/RadarDemo"), {
 export const metadata: Metadata = {
     title: c.meta.title,
     description: c.meta.description,
-    alternates: {canonical: "/ki-fuer-unternehmen/postfach-radar"},
+    alternates: {canonical: "/projects/postfach-radar"},
     openGraph: {
         title: `${c.meta.title} – ${siteConfig.name}`,
         description: c.meta.description,
-        url: `${siteConfig.url}/ki-fuer-unternehmen/postfach-radar`,
+        url: `${siteConfig.url}/projects/postfach-radar`,
         locale: "de_DE",
         type: "website",
     },
 }
 
-function CtaButton() {
-    return (
-        <a href={radarCtaHref()} className="btn">
-            {c.ctaLabel}
-            <ArrowRight size={18} aria-hidden="true"/>
-        </a>
-    )
-}
-
 export default function PostfachRadar() {
-    if (!showKiServices) notFound()
-
     return (
         <div lang="de" className="ki">
             <section className="ki-hero" aria-labelledby="hero-titel">
@@ -45,8 +31,7 @@ export default function PostfachRadar() {
                             <h1 id="hero-titel">{c.hero.title}</h1>
                             <p className="lead">{c.hero.text}</p>
                             <div className="ki-hero__actions">
-                                <CtaButton/>
-                                <a href={`#${c.demo.id}`} className="btn btn--clear">{c.hero.secondary}</a>
+                                <a href={`#${c.demo.id}`} className="btn">{c.hero.secondary}</a>
                             </div>
                             <p className="small">{c.hero.eyebrow}. {c.hero.note}</p>
                         </div>
@@ -94,11 +79,11 @@ export default function PostfachRadar() {
                 </div>
             </section>
 
-            <section aria-labelledby="einsatz" className="band">
+            <section aria-labelledby="ergebnisse" className="band">
                 <div className="container">
-                    <div className="head"><h2 id="einsatz">{c.useCases.title}</h2></div>
+                    <div className="head"><h2 id="ergebnisse">{c.results.title}</h2></div>
                     <ul className="cols cols--3">
-                        {c.useCases.items.map((u) => (
+                        {c.results.items.map((u) => (
                             <li key={u.title} className="cols__item">
                                 <h3>{u.title}</h3>
                                 <p>{u.text}</p>
@@ -117,16 +102,14 @@ export default function PostfachRadar() {
                 </div>
             </section>
 
-            <section aria-labelledby="faq" className="band">
+            <section aria-labelledby="technik" className="band">
                 <div className="container">
-                    <div className="head"><h2 id="faq">{c.faq.title}</h2></div>
-                    <div className="faq">
-                        {c.faq.items.map((f) => (
-                            <details key={f.q}>
-                                <summary>{f.q}<span aria-hidden="true">+</span></summary>
-                                <p>{f.a}</p>
-                            </details>
-                        ))}
+                    <div className="head">
+                        <h2 id="technik">{c.stack.title}</h2>
+                        <p className="lead">{c.stack.text}</p>
+                    </div>
+                    <div className="tags">
+                        {c.stack.tags.map((t) => <span key={t} className="tag">{t}</span>)}
                     </div>
                 </div>
             </section>
@@ -134,9 +117,12 @@ export default function PostfachRadar() {
             <section aria-labelledby="kontakt" className="close">
                 <div className="container">
                     <div className="close__inner">
-                        <h2 id="kontakt">{c.finalCta.title}</h2>
-                        <p className="lead">{c.finalCta.text}</p>
-                        <CtaButton/>
+                        <h2 id="kontakt">{c.links.title}</h2>
+                        <p className="lead">{c.links.text}</p>
+                        <div className="ki-hero__actions">
+                            <a href={c.links.mailHref} className="btn">{c.links.mailLabel}</a>
+                            <a href={c.links.githubHref} className="btn btn--clear" target="_blank" rel="noreferrer">{c.links.githubLabel}</a>
+                        </div>
                     </div>
                 </div>
             </section>

@@ -6,7 +6,6 @@ import Link from "next/link";
 import {ArrowRight} from "lucide-react";
 import CodeWidget from "@/components/CodeWidget";
 import MiniRadar from "@/components/radar/MiniRadar";
-import {showKiServices} from "@/config/site";
 
 const BentoGrid = () => {
     const containerVariants: Variants = {
@@ -35,7 +34,7 @@ const BentoGrid = () => {
                             <h3>AI & ML Backend Engineering</h3>
                             <p style={{marginTop: "var(--space-md)"}}>
                                 Bei dmTECH arbeite ich an der Automatisierung im Kundenservice. Dafür baue ich skalierbare Python-(FastAPI)- und Java-(Spring)-Backends, Machine-Learning-Pipelines und strukturierte NLP-Workflows auf der Google Cloud.
-                                {showKiServices && " Aus meiner Bachelorarbeit zu Embeddings, Clustering und Anomalieerkennung auf Kundenservice-Daten habe ich ein eigenes Produkt gemacht: den Postfach-Radar, den du weiter unten direkt ausprobieren kannst."}
+                                {" Aus meiner Bachelorarbeit zu Embeddings, Clustering und Anomalieerkennung auf Kundenservice-Daten habe ich eine lauffähige Demo gebaut: den Postfach-Radar, den du weiter unten direkt ausprobieren kannst."}
                             </p>
                         </div>
                         <div>
@@ -64,22 +63,20 @@ const BentoGrid = () => {
                             Studiengang Data Science & KI
                         </p>
                     </motion.div>
-                    {showKiServices && (
                     <motion.div variants={itemVariants} className="cap__tile cap__demo" lang="de">
                             <div>
                                 <p className="small">Live-Demo</p>
                                 <h3>Postfach-Radar</h3>
                                 <p style={{marginTop: "var(--space-sm)"}}>
-                                    Aus meiner Bachelorarbeit entstanden: Der Radar ordnet Kundenanfragen automatisch Themen zu und schlägt Alarm, wenn zu einem Thema ungewöhnlich viele eintreffen. Probier es hier direkt aus.
+                                    Demo-Projekt aus meiner Bachelorarbeit: Der Radar ordnet Kundenanfragen automatisch Themen zu und schlägt Alarm, wenn zu einem Thema ungewöhnlich viele eintreffen. Probier es hier direkt aus.
                                 </p>
-                                <Link href="/ki-fuer-unternehmen/postfach-radar#demo" className="link"
+                                <Link href="/projects/postfach-radar#demo" className="link"
                                       style={{display: "inline-flex", alignItems: "center", gap: 6, marginTop: "var(--space-md)"}}>
                                     Zur vollständigen Demo <ArrowRight size={16} aria-hidden="true"/>
                                 </Link>
                             </div>
                             <MiniRadar/>
-                        </motion.div>
-                    )}
+                    </motion.div>
                 </div>
             </motion.div>
         </section>

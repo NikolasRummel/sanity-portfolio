@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1163" width="2000" height="1163">
+<defs><filter id="s" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="14" stdDeviation="24" flood-color="#1b2f66" flood-opacity="0.28"/></filter></defs>
+<g filter="url(#s)"><rect x="70" y="150" width="1370" height="900" rx="48" fill="#fdfefe"/></g>
+<g font-family="-apple-system,Helvetica,Arial,sans-serif">
+<text x="140" y="270" font-size="46" font-weight="700" fill="#14213a">Gutscheincodes und Rabattaktionen</text>
+<rect x="1080" y="222" width="300" height="64" rx="32" fill="#fcf0c4" transform="translate(0 -4)"/>
+<text x="1230" y="264" text-anchor="middle" font-size="30" font-weight="700" fill="#6b3410">Alarm 13. Nov.</text>
+<polyline points="140,794 175,776 210,786 245,773 281,771 316,803 351,806 386,759 421,792 456,794 491,750 527,780 562,759 597,780 632,771 667,799 702,771 737,758 773,777 808,765 843,769 878,804 913,764 948,773 983,790 1019,805 1054,758 1089,746 1124,420 1159,790 1194,766 1229,755 1265,785 1300,761 1335,782 1370,754" fill="none" stroke="#2a64c5" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="1104" y="362" width="40" height="40" rx="4" transform="rotate(45 1124 382)" fill="#d4730a"/>
+<text x="140" y="985" font-size="38" fill="#5b6577">50 Anfragen an einem Tag, üblich sind 9.</text>
+</g>
+</svg>

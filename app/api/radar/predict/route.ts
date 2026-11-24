@@ -1,5 +1,4 @@
 import {NextResponse} from "next/server"
-import {showKiServices} from "@/config/site"
 
 /**
  * Proxy zur Service-Radar-API (FastAPI): Die Seite ruft nur diesen Endpunkt auf, die API-URL und der
@@ -26,8 +25,6 @@ function tooMany(ip: string) {
 const fail = (error: string, status: number) => NextResponse.json({error}, {status})
 
 export async function POST(request: Request) {
-    if (!showKiServices) return fail("not_found", 404)
-
     const base = process.env.RADAR_API_URL
     if (!base) return fail("not_configured", 503)
 

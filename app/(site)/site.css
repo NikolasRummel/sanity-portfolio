@@ -39,9 +39,9 @@
 .foot__col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-sm); }
 .foot__col a { text-decoration: none; }
 .foot__col a:hover { color: var(--color-accent); text-decoration: underline; }
-.foot__social { display: flex; gap: var(--space-lg); margin-top: var(--space-lg); }
-.foot__social a { color: var(--color-ink-2); }
-.foot__social a:hover { color: var(--color-accent); }
+.foot__col .foot__social { display: flex; gap: var(--space-lg); margin-top: var(--space-lg); }
+.foot__col .foot__social a { color: var(--color-ink-2); }
+.foot__col .foot__social a:hover { color: var(--color-accent); }
 .foot__legal { margin-top: var(--space-2xl); padding-top: var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule); font-size: var(--text-sm); color: var(--color-muted); }
 .foot p { font-size: var(--text-md); }
 @media (min-width: 60rem) { .foot__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 3fr) minmax(0, 4fr); gap: var(--gap-columns); } }
@@ -272,7 +272,6 @@
 .journey__product { display: grid; gap: var(--space-md); padding: var(--space-xl); border-radius: var(--radius-card); background: var(--color-light); box-shadow: var(--edge-light), var(--shadow-card); }
 .ki .journey__product p:not(.small) { color: var(--color-ink-2); line-height: 1.6; }
 @media (min-width: 64rem) { .journey { grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: var(--space-3xl); } .journey__product { position: sticky; top: 6rem; } }
-@media (min-width: 64rem) { .journey--single { grid-template-columns: minmax(0, 1fr); } }
 
 
 /* Postfach-Radar: kurzes Aufleuchten der Themenzeile, wenn eine Anfrage dort einsortiert wurde */
