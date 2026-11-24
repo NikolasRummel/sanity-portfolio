@@ -70,7 +70,24 @@ export default function Datenschutz() {
                 unter dem EU-US Data Privacy Framework zertifiziert.
             </p>
 
-            <h2>5. Eure Rechte</h2>
+            <h2>5. Radar-Demo</h2>
+                    <p>
+                        Auf dieser Website könnt ihr eine Beispiel-Kundenanfrage in ein Textfeld eingeben und einem
+                        Thema zuordnen lassen. Der eingegebene Text wird erst beim Klick auf den Button an meinen
+                        eigenen Server gesendet (nicht an Dritte). Dort werden Namen, E-Mail-Adressen,
+                        Telefonnummern, IBAN, Bestell- und Geldbeträge maskiert, der Text wird einem Thema
+                        zugeordnet und das Ergebnis wird euch angezeigt. Eure Eingabe wird dabei nicht
+                        gespeichert und nicht für andere Zwecke verwendet. Bitte gebt dennoch keine echten
+                        personenbezogenen Daten ein, die Demo funktioniert mit erfundenen Beispielen genauso.
+                    </p>
+                    <p>
+                        Zum Schutz vor Missbrauch begrenze ich die Anzahl der Anfragen pro IP-Adresse. Dafür wird
+                        die IP-Adresse kurzzeitig im Arbeitsspeicher gehalten und nach einer Minute bzw. beim
+                        Neustart des Servers verworfen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO
+                        (berechtigtes Interesse am sicheren Betrieb).
+                    </p>
+
+            <h2>6. Eure Rechte</h2>
             <p>
                 Ihr habt das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung,
                 Datenübertragbarkeit und Widerspruch (Art. 15 bis 21 DSGVO). Wendet euch dazu an die oben

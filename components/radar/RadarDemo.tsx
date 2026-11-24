@@ -270,6 +270,9 @@ function Classify() {
                                       className="w-full resize-none rounded-xl border border-(--color-rule) bg-(--color-paper) p-3 pb-7 text-base transition-shadow focus:border-(--color-accent) focus:outline-none focus:ring-2 focus:ring-(--color-accent)/30"/>
                             <span className="pointer-events-none absolute bottom-2 right-3 text-xs tabular-nums text-(--color-muted)">{text.length}/600</span>
                         </div>
+                        <p className="text-xs text-(--color-muted)">
+                            Bitte keine echten personenbezogenen Daten eingeben. Der Text wird auf meinem Server anonymisiert und nicht gespeichert. <a href="/datenschutz" className="underline">Datenschutz</a>
+                        </p>
                         <div className="flex flex-wrap items-center gap-3">
                             <button type="submit" disabled={!text.trim() || loading} className="btn" style={{minHeight: 44}}>
                                 {loading ? "Wird eingeordnet …" : "Einordnen"}

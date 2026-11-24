@@ -129,6 +129,9 @@ export default function MiniRadar() {
                                 {text.length}/{MAX_CHARS}
                             </span>
                         </div>
+                        <p className="-mt-2 text-xs text-(--color-muted)">
+                            Bitte keine echten personenbezogenen Daten eingeben. Der Text wird auf meinem Server anonymisiert und nicht gespeichert. <a href="/datenschutz" className="underline">Datenschutz</a>
+                        </p>
                         <button type="submit" disabled={!text.trim() || loading || busy} className="btn justify-self-start" style={{minHeight: 48}}>
                             {loading ? "Wird eingeordnet …" : "Eingang simulieren"} <Send size={16} aria-hidden="true"/>
                         </button>
